@@ -1,5 +1,7 @@
 using SafeTestsets, Test
 
+GROUP = get(ENV, "GROUP", "All")
+
 @testset "LuxLib" begin
     @time @safetestset "Dropout" begin include("api/dropout.jl") end
 

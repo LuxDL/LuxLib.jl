@@ -1,0 +1,37 @@
+steps:
+  - group: "CUDA"
+    key: "cuda"
+    steps:
+      - label: "Julia: {{matrix.julia}}"
+        plugins:
+          - JuliaCI/julia#v1:
+              version: "{{matrix.julia}}"
+          - JuliaCI/julia-test#v1:
+              test_args: "--quickfail"
+          - JuliaCI/julia-coverage#v1:
+              codecov: true
+              dirs:
+                - src
+                - ext
+        env:
+          GROUP: "CUDA"
+        agents:
+          queue: "juliagpu"
+          cuda: "*"
+        if: build.message !~ /\[skip tests\]/
+        timeout_in_minutes: 60
+        matrix:
+          setup:
+            julia:
+              - "1.6"
+              - "1.7"
+              - "1.8"
+              - "1.9-nightly"
+              - "nightly"
+          adjustments:
+            - with:
+                julia: "nightly"
+              soft_fail: true
+
+env:
+  SECRET_CODECOV_TOKEN: "UgkflHkeWBDowVsV8oqhRGSwWl73kPpd2+IqrmZ2ncwnmpXweOX3jZ0LDqxgy3jP3pJYVBMGiZMvHAkzTTVfkOCBdJwD+34Ifcyl8u5wdyWbUOWYbUvjLY5uJ0Xa4uBbpz9Q5kyY0qG2TR4fMrFqbK/64MAk64MyAADuWGOopijKHTPowdBz/uywgsXUyV7JDqiglPuxlSoRA6/U+hkcF5o0zBj5fPwDimezOnIzdlsyamY6/enm9rYWiSECpFko0Slk3SGnEVURQ9awtYbTBJjEZsEvBHqFLtMDDs/ZRqyLL24BoZ5ITcuJLxvchbgX3NAqyAisD8vBh3Xg/D3B9g==;U2FsdGVkX1/0bgXg9sKAZN+FopfIrNs0mSHjKQYpbsK9jhSRl2soPV+ba7ZZ/rncOqKwHuYlcxwxvLOdnmqviA=="
