@@ -30,6 +30,7 @@ include("utils.jl")
 include("deprecated.jl")
 
 # Low-Level Implementations
+include("impl/activations.jl")
 include("impl/groupnorm.jl")
 include("impl/normalization.jl")
 
@@ -40,7 +41,14 @@ include("api/groupnorm.jl")
 include("api/instancenorm.jl")
 include("api/layernorm.jl")
 
+# Activation Functions
+export GenericActivationFunction, IdentityActivationFunction,
+       InputFreeGradientActivationFunction, activation_function
+
+# Normalization
 export batchnorm, groupnorm, instancenorm, layernorm
+
+# Dropout
 export alpha_dropout, dropout
 
 end
