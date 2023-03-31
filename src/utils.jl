@@ -48,7 +48,7 @@ CRC.@non_differentiable _replicate(::Any)
 # Var Implementation
 ## Using the default version from Statistics causes issues with Tracker.jl
 function _var(x, ::Val{corrected}, _mean, ::Val{dims}) where {corrected, dims}
-    return sum((x .- _mean) .^ 2; dims) ./ (prod(Base.Fix1(size, x), dims) - corrected)
+    return sum((x .- _mean) .^ 2; dims) ./ (_denom(x, dims) - corrected)
 end
 
 # Taken from ChainRules.jl
@@ -58,5 +58,9 @@ function _denom(x, dims::Union{Tuple, AbstractArray})
     return mapreduce(i -> size(x, i), Base.mul_prod, unique(dims); init=1)
 end
 
+CRC.@non_differentiable _denom(::Any, ::Any)
+
 __except_dims(::Val, ::Colon) = Colon()
 __except_dims(::Val{N}, dims) where {N} = filter(i -> i ∉ dims, 1:N)
+
+CRC.@non_differentiable __except_dims(::Any, ::Any)

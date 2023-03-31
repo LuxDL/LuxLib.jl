@@ -1,7 +1,7 @@
 # Forward Pass called from outside ChainRules
 function _normalize_impl(x, dims, ϵ::Real)
     μ = mean(x; dims)
-    rσ = 1 ./ sqrt.(var(x; mean=μ, dims, corrected=false) .+ ϵ)
+    rσ = 1 ./ sqrt.(_var(x, Val(false), μ, Val(dims)) .+ ϵ)
 
     return (x .- μ) .* rσ
 end
@@ -25,7 +25,7 @@ function CRC.rrule(rc::RuleConfig{>:HasReverseMode}, ::typeof(_normalize_impl), 
         Δμ = -sum(Δy .* rσ; dims)
         Δσ² = -(1 // 2) .* (rσ .^ 3) .* Δrσ
 
-        Δx .+= last(CRC.unthunk(∇Σ(Δμ ./ N))) .+ (2 // (N - 1)) .* Δσ² .* x₋μ
+        Δx = Δx .+ last(CRC.unthunk(∇Σ(Δμ ./ N))) .+ (2 // (N - 1)) .* Δσ² .* x₋μ
 
         return (NoTangent(), Δx, NoTangent(), NoTangent())
     end
@@ -35,6 +35,18 @@ end
 
 # LayerNorm
 _layernorm_impl(x, ::Nothing, ::Nothing, dims, ϵ::Real) = _normalize_impl(x, dims, ϵ)
+
+function CRC.rrule(rc::RuleConfig{>:HasReverseMode}, ::typeof(_layernorm_impl), x,
+                   γ::Nothing, β::Nothing, dims, ϵ)
+    y, ∇_normalize_impl = CRC.rrule(rc, _normalize_impl, x, dims, ϵ)
+
+    function ∇_layernorm_impl(Δr_)
+        _, Δx, Δdims, Δϵ = ∇_normalize_impl(Δr_)
+        return NoTangent(), Δx, NoTangent(), NoTangent(), Δdims, Δϵ
+    end
+
+    return y, ∇_layernorm_impl
+end
 
 function _layernorm_impl(x, γ, β, dims, ϵ::Real)
     μ = mean(x; dims)
@@ -49,11 +61,13 @@ function CRC.rrule(rc::RuleConfig{>:HasReverseMode}, ::typeof(_layernorm_impl), 
     function ∇_layernorm_impl(Δr_)
         Δr = CRC.unthunk(Δr_)
 
-        Δγ = sum(Δr .* y; dims=__except_dims(Val(ndims(x)), dims))
-        Δβ = sum(Δr; dims=__except_dims(Val(ndims(x)), dims))
+        Δγ = sum(Δr .* y; dims=filter(i -> size(γ, i) == 1, 1:ndims(x)))
+        Δβ = sum(Δr; dims=filter(i -> size(β, i) == 1, 1:ndims(x)))
         Δy = Δr .* γ
 
-        return (NoTangent(), ∇_normalize_impl(Δy)[2], Δγ, Δβ, NoTangent(), NoTangent())
+        _, Δx, Δdims, Δϵ = ∇_normalize_impl(Δy)
+
+        return NoTangent(), Δx, Δγ, Δβ, Δdims, Δϵ
     end
 
     return y .* γ .+ β, ∇_layernorm_impl
