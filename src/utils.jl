@@ -10,9 +10,7 @@ CRC.@non_differentiable _get_backend(::Any)
 function _assert_same_backend(args...)
     devs = _get_backend(args)
     if !all(devs .== (first(devs),))
-        throw(ArgumentError("""All arguments must be on the same backend. This error is
-                               encountered if you are calling a function with a mix of CPU
-                               and GPU arrays."""))
+        throw(ArgumentError("All arguments must be on the same backend. This error is encountered if you are calling a function with a mix of CPU and GPU arrays."))
     end
     return
 end
@@ -52,3 +50,13 @@ CRC.@non_differentiable _replicate(::Any)
 function _var(x, ::Val{corrected}, _mean, ::Val{dims}) where {corrected, dims}
     return sum((x .- _mean) .^ 2; dims) ./ (prod(Base.Fix1(size, x), dims) - corrected)
 end
+
+# Taken from ChainRules.jl
+_denom(x, dims) = size(x, dims)
+_denom(x, dims::Colon) = length(x)
+function _denom(x, dims::Union{Tuple, AbstractArray})
+    return mapreduce(i -> size(x, i), Base.mul_prod, unique(dims); init=1)
+end
+
+__except_dims(::Val, ::Colon) = Colon()
+__except_dims(::Val{N}, dims) where {N} = filter(i -> i ∉ dims, 1:N)

@@ -6,9 +6,9 @@ _GROUPNORM_IMPL_FLOAT = Union{Float32, Float64}
 
 # Low-Level Kernels
 ## Original Implementation: https://github.com/pytorch/pytorch/blob/master/caffe2/operators/group_norm_op.cu
-@kernel function _compute_fused_params_kernel!(scale, bias, @Const(C), @Const(K),
-                                               @Const(mu), @Const(rsig), @Const(gamma),
-                                               @Const(beta))
+@kernel function _compute_groupnorm_fused_params_kernel!(scale, bias, @Const(C), @Const(K),
+                                                         @Const(mu), @Const(rsig),
+                                                         @Const(gamma), @Const(beta))
     idx = @index(Global)
     ng = _div_idx(idx, K)
     c = _mod_idx(idx, C)
@@ -68,10 +68,11 @@ end
     backend = KA.get_backend(X)
 
     n = _linear_threads_groupnorm(backend)
-    compute_fixed_params! = _compute_fused_params_kernel!(backend, n, size(_scale))
+    compute_fused_params! = _compute_groupnorm_fused_params_kernel!(backend, n,
+                                                                    size(_scale))
     groupnorm_forward! = _groupnorm_forward_kernel!(backend, n, size(X))
 
-    compute_fixed_params!(_scale, _bias, C, K, mu, rsig, gamma, beta; ndrange=size(_scale))
+    compute_fused_params!(_scale, _bias, C, K, mu, rsig, gamma, beta; ndrange=size(_scale))
     KA.synchronize(backend)
 
     groupnorm_forward!(Y, W * H, X, _scale, _bias; ndrange=size(Y))

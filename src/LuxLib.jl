@@ -31,6 +31,7 @@ include("deprecated.jl")
 
 # Low-Level Implementations
 include("impl/groupnorm.jl")
+include("impl/layernorm.jl")
 include("impl/normalization.jl")
 
 # User Facing
@@ -40,7 +41,7 @@ include("api/groupnorm.jl")
 include("api/instancenorm.jl")
 include("api/layernorm.jl")
 
-export batchnorm, groupnorm, instancenorm, layernorm
+export batchnorm, groupnorm, instancenorm, layernorm, normalize
 export alpha_dropout, dropout
 
 end

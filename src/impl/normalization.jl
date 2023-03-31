@@ -44,12 +44,13 @@ end
     return Expr(:block, calls...)
 end
 
-@generated function _affine_normalize(x::AbstractArray, xmean::ST, xvar::ST, scale::A,
-                                      bias::A, epsilon::Real) where {ST, A}
-    if A != Nothing
+@generated function _affine_normalize(x::X, xmean::XM, xvar::XV, gamma::G, beta::B,
+                                      epsilon::E) where {X, XM, XV, G, B, E}
+    @assert !((G == Nothing) ⊻ (B == Nothing))
+    if G != Nothing
         return quote
             x_norm = (x .- xmean) ./ sqrt.(xvar .+ epsilon)
-            return scale .* x_norm .+ bias
+            return x_norm .* gamma .+ beta
         end
     else
         return :(return (x .- xmean) ./ sqrt.(xvar .+ epsilon))
