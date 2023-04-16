@@ -124,30 +124,33 @@ for T1 in (:TrackedArray, :AbstractArray),
 
     T1 == :AbstractArray && T2 == :AbstractVector && T3 == :AbstractVector && continue
 
-    @eval function LuxLib.groupnorm(x::$T1{T, 4}, scale::$T2{T}, bias::$T3{T}; groups::Int,
+    @eval function LuxLib.groupnorm(x::$T1{T, 4}, scale::$T2{T}, bias::$T3{T},
+                                    activation::LuxLib.AbstractIFGActFunction; groups::Int,
                                     epsilon::Real) where {T <: _GROUPNORM_IMPL_FLOAT}
-        return track(LuxLib.groupnorm, x, scale, bias; groups, epsilon)
+        return track(LuxLib.groupnorm, x, scale, bias, activation; groups, epsilon)
     end
 end
 
 @grad function LuxLib.groupnorm(x::AbstractArray{T, 4}, scale::AbstractVector{T},
-                                bias::AbstractVector{T}; groups::Int,
+                                bias::AbstractVector{T},
+                                activation::LuxLib.AbstractIFGActFunction; groups::Int,
                                 epsilon::Real) where {T <: _GROUPNORM_IMPL_FLOAT}
     LuxLib._assert_same_backend(data(x), data(scale), data(bias))
     if length(scale) != length(bias) != size(x, 3)
-        throw(ArgumentError("Length of `scale` and `bias` must be equal to the number of
-                             channels (N - 1 dim of the input array)."))
+        throw(ArgumentError("""Length of `scale` and `bias` must be equal to the number of
+                               channels (N - 1 dim of the input array)."""))
     end
     if size(x, 3) % groups != 0
-        throw(ArgumentError("Number of channels $(size(x, 3)) must be divisible by the
-                             number of groups $groups."))
+        throw(ArgumentError("""Number of channels $(size(x, 3)) must be divisible by the
+                               number of groups $groups."""))
     end
 
-    y, mu, rsig = LuxLib._groupnorm(data(x), groups, data(scale), data(bias), epsilon)
+    y, mu, rsig = LuxLib._groupnorm(data(x), groups, data(scale), data(bias), epsilon,
+                                    activation)
     function groupnorm_pullback(dy)
         dx, dscale, dbias = LuxLib._dgroupnorm(dy, y, data(x), groups, data(scale),
-                                               data(bias), mu, rsig)
-        return nobacksies(:groupnorm, (dx, dscale, dbias))
+                                               data(bias), mu, rsig, activation)
+        return nobacksies(:groupnorm, (dx, dscale, dbias, nothing))
     end
     return y, groupnorm_pullback
 end

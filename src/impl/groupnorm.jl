@@ -19,10 +19,10 @@ _GROUPNORM_IMPL_FLOAT = Union{Float32, Float64}
 end
 
 @kernel function _groupnorm_forward_kernel!(Y, @Const(WxH), @Const(X), @Const(scale),
-                                            @Const(bias))
+                                            @Const(bias), @Const(activation))
     idx = @index(Global)
     nc = _div_idx(idx, WxH)
-    @inbounds Y[idx] = X[idx] * scale[nc] + bias[nc]
+    @inbounds Y[idx] = activation(X[idx] * scale[nc] + bias[nc])
 end
 
 @kernel function _groupnorm_dy_dscale_kernel!(dY_dscale, @Const(C), @Const(K), @Const(rsig),
@@ -44,16 +44,20 @@ end
 end
 
 @kernel function _groupnorm_dx_kernel!(dX, @Const(WxH), @Const(K), @Const(dY_dscale),
-                                       @Const(dY), @Const(X_scale), @Const(X), @Const(bias))
+                                       @Const(dY), @Const(X_scale), @Const(X), @Const(bias),
+                                       @Const(Y), @Const(activation))
     idx = @index(Global)
     nc = _div_idx(idx, WxH)
     ng = _div_idx(nc, K)
-    @inbounds dX[idx] = dY[idx] * dY_dscale[nc] + X_scale[ng] * X[idx] + bias[ng]
+    @inbounds dX[idx] = activation(dY[idx], Y[idx]) * dY_dscale[nc] +
+                        X_scale[ng] * X[idx] +
+                        bias[ng]
 end
 
 # High-Level Function (Not User Facing)
 @inbounds function _groupnorm(X::AbstractArray{T, 4}, G::Int, gamma::AbstractVector{T},
-                              beta::AbstractVector{T}, epsilon::T) where {T}
+                              beta::AbstractVector{T}, epsilon::T,
+                              activation::AbstractIFGActFunction) where {T}
     W, H, C, N = size(X)
     K = div(C, G)
 
@@ -68,13 +72,16 @@ end
     backend = KA.get_backend(X)
 
     n = _linear_threads_groupnorm(backend)
+
     compute_fixed_params! = _compute_fused_params_kernel!(backend, n, size(_scale))
+    compute_fixed_params!(_scale, _bias, C, K, mu, rsig, gamma, beta; ndrange=size(_scale))
+
     groupnorm_forward! = _groupnorm_forward_kernel!(backend, n, size(X))
 
-    compute_fixed_params!(_scale, _bias, C, K, mu, rsig, gamma, beta; ndrange=size(_scale))
     KA.synchronize(backend)
 
-    groupnorm_forward!(Y, W * H, X, _scale, _bias; ndrange=size(Y))
+    groupnorm_forward!(Y, W * H, X, _scale, _bias, activation; ndrange=size(Y))
+
     KA.synchronize(backend)
 
     return Y, mu, rsig
@@ -83,7 +90,8 @@ end
 @inbounds function _dgroupnorm(dY::AbstractArray{T, 4}, Y::AbstractArray{T, 4},
                                X::AbstractArray{T, 4}, G::Int, gamma::AbstractVector{T},
                                beta::AbstractVector{T}, mu::AbstractArray{T, 5},
-                               rsig::AbstractArray{T, 5}) where {T}
+                               rsig::AbstractArray{T, 5},
+                               activation::AbstractIFGActFunction) where {T}
     W, H, C, N = size(X)
     K = div(C, G)
     WxH = W * H
@@ -100,7 +108,6 @@ end
     gamma_ = reshape(gamma, (1, 1, K, G, 1))
     db_sum = sum(gamma_ .* dbias; dims=3)
     ds_sum = sum(gamma_ .* dscale; dims=3)
-    KA.synchronize(backend)
 
     X_scale = similar(X, (G, N))
     bias = similar(X, (G, N))
@@ -109,13 +116,17 @@ end
                                                                     size(X_scale))
     groupnorm_xscale_and_bias!(X_scale, bias, T(1 / (K * WxH)), mu, rsig, ds_sum, db_sum;
                                ndrange=size(X_scale))
-    KA.synchronize(backend)
 
     dX = similar(X)
     groupnorm_dx! = _groupnorm_dx_kernel!(backend, n, size(dX))
-    groupnorm_dx!(dX, WxH, K, dY_dscale, dY, X_scale, X, bias; ndrange=size(dX))
+
+    KA.synchronize(backend)
+
+    groupnorm_dx!(dX, WxH, K, dY_dscale, dY, X_scale, X, bias, Y, activation;
+                  ndrange=size(dX))
     dgamma = vec(sum((-dbias .* mu .+ dscale) .* rsig; dims=5))
     dbeta = vec(sum(dbias; dims=5))
+
     KA.synchronize(backend)
 
     return dX, dgamma, dbeta
