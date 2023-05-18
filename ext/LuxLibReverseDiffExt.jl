@@ -32,6 +32,11 @@ LuxLib._get_backend(x::TrackedArray) = LuxLib._get_backend(value(x))
 # api/dropout.jl
 LuxLib._dropout_fptype(x::TrackedArray) = LuxLib._dropout_fptype(value(x))
 
+# impl/matmul.jl
+LuxLib.matmul(A::TrackedArray, x::TrackedArray) = A * x
+LuxLib.matmul(A::AbstractArray, x::TrackedArray) = A * x
+LuxLib.matmul(A::TrackedArray, x::AbstractArray) = A * x
+
 # Patch Conv for ReverseDiff
 # NOTE: @grad_from_chainrules was not working for ConvDims!
 for func in (:conv, :depthwiseconv, :∇conv_data, :∇conv_filter),

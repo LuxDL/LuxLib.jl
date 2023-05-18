@@ -1,0 +1,1 @@
+LuxLib._replicate(rng::CUDA.RNG) = deepcopy(rng)

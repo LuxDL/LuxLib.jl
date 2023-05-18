@@ -111,4 +111,22 @@ end
     return y, groupnorm_pullback
 end
 
+# impl/matmul.jl
+for T1 in (:TrackedArray, :AbstractArray),
+    T2 in (:TrackedArray, :AbstractArray)
+
+    __is_tracked(T1, T2) || continue
+
+    @eval LuxLib.matmul(A::$T1, x::$T2) = track(LuxLib.matmul, A, x)
+end
+
+@grad function LuxLib.matmul(A::AA, x::AA)
+    y = LuxLib.matmul(data(A), data(x))
+    function ∇matmul(dy)
+        _, dA, dx = LuxLib.∇matmul(dy, data(A), data(x))
+        return nobacksies(:matmul, (dA, dx))
+    end
+    return y, ∇matmul
+end
+
 end

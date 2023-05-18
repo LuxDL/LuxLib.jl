@@ -1,15 +1,3 @@
-module LuxLibLuxCUDAExt
-
-isdefined(Base, :get_extension) ? (using LuxCUDA) : (using ..LuxCUDA)
-using LuxLib
-import ChainRulesCore as CRC
-import LuxLib: batchnorm, _batchnorm_cudnn!, _get_batchnorm_statistics, FP_32_64, ∂∅
-
-# utils.jl
-LuxLib._replicate(rng::CUDA.RNG) = deepcopy(rng)
-
-# api/batchnorm.jl
-
 const CUDNN_BN_ARRAY_TYPE = Union{CuArray{<:FP_32_64, 2}, CuArray{<:FP_32_64, 4},
                                   CuArray{<:FP_32_64, 5}}
 const BNParamType = Union{Nothing, CuVector{<:FP_32_64}}
@@ -38,6 +26,4 @@ function CRC.rrule(::typeof(_batchnorm_cudnn!), running_mean, running_var, scale
         return (∂∅, ∂∅, ∂∅, ∂g, ∂b, ∂x, ∂∅, ∂∅, ∂∅)
     end
     return y, ∇_batchnorm_cudnn!
-end
-
 end
