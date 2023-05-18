@@ -2,8 +2,11 @@ module LuxLib
 
 using Reexport
 
-using ChainRulesCore, Markdown, Random, Statistics
+using ChainRulesCore, EnzymeCore, FillArrays, LinearAlgebra, Markdown, Random,
+      Statistics
+
 import ChainRulesCore as CRC
+import EnzymeCore.EnzymeRules as ER
 
 @reexport using NNlib
 
@@ -38,6 +41,7 @@ end
 include("utils.jl")
 
 # Low-Level Implementations
+include("impl/matmul.jl")
 include("impl/groupnorm.jl")
 include("impl/normalization.jl")
 
@@ -50,5 +54,6 @@ include("api/layernorm.jl")
 
 export batchnorm, groupnorm, instancenorm, layernorm
 export alpha_dropout, dropout
+export matmul, matmul!
 
 end

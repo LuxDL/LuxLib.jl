@@ -1,6 +1,8 @@
 using SafeTestsets, Test
 
 @testset "LuxLib" begin
+    @time @safetestset "Matmul" begin include("impl/matmul.jl") end
+
     @time @safetestset "Dropout" begin include("api/dropout.jl") end
 
     @time @safetestset "BatchNorm" begin include("api/batchnorm.jl") end
