@@ -17,7 +17,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
@@ -477,7 +477,7 @@
 </ul>
 <p><strong>References</strong></p>
 <p>[1] Klambauer, Günter, et al. "Self-normalizing neural networks." Advances in neural     information processing systems 30 (2017).</p>
-<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/65337c4b5cb8c49cca5472e9aad9e3d69d51e553/src/api/dropout.jl#L93' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/fe135e086fbc0cad178d4f9f16d0d33f1f16fcc1/src/api/dropout.jl#L69' class='documenter-source'>source</a><br></p>
 <p><a id='LuxLib.dropout' href='#LuxLib.dropout'>#</a>
 <strong><code>LuxLib.dropout</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">dropout</span><span class="p">(</span><span class="n">rng</span><span class="o">::</span><span class="kt">AbstractRNG</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="o">::</span><span class="kt">Val</span><span class="p">{</span><span class="kt">training</span><span class="p">},</span><span class="w"> </span><span class="n">invp</span><span class="p">;</span><span class="w"> </span><span class="n">dims</span><span class="p">)</span>
@@ -508,7 +508,7 @@
 </ul>
 <p><strong>References</strong></p>
 <p>[1] Srivastava, Nitish, et al. "Dropout: a simple way to prevent neural networks from     overfitting." The journal of machine learning research 15.1 (2014): 1929-1958.</p>
-<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/65337c4b5cb8c49cca5472e9aad9e3d69d51e553/src/api/dropout.jl#L1' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/fe135e086fbc0cad178d4f9f16d0d33f1f16fcc1/src/api/dropout.jl#L1' class='documenter-source'>source</a><br></p>
 <p><a id='Normalization'></a></p>
 <p><a id='Normalization-1'></a></p>
 <h3 id="normalization">Normalization<a class="headerlink" href="#normalization" title="Permanent link">¤</a></h3>
@@ -538,7 +538,7 @@
 <p>If the input array is <code>2D</code>, <code>4D</code>, or <code>5D</code> <code>CuArray</code> with element types <code>Float16</code>, <code>Float32</code> and <code>Float64</code>, then the CUDNN code path will be used. In all other cases, a broadcasting fallback is used which is not highly optimized.</p>
 <p><strong>References</strong></p>
 <p>[1] Ioffe, Sergey, and Christian Szegedy. "Batch normalization: Accelerating deep network     training by reducing internal covariate shift." International conference on machine     learning. PMLR, 2015.</p>
-<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/65337c4b5cb8c49cca5472e9aad9e3d69d51e553/src/api/batchnorm.jl#L1' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/fe135e086fbc0cad178d4f9f16d0d33f1f16fcc1/src/api/batchnorm.jl#L1' class='documenter-source'>source</a><br></p>
 <p><a id='LuxLib.groupnorm' href='#LuxLib.groupnorm'>#</a>
 <strong><code>LuxLib.groupnorm</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">groupnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="p">,</span><span class="w"> </span><span class="n">bias</span><span class="p">;</span><span class="w"> </span><span class="n">groups</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">)</span>
@@ -564,7 +564,7 @@
 <p>If the batch size is small (&lt; 16), then the fallback implementation will be faster than the KA version. However, this customization is not possible using the direct <code>groupnorm</code> interface.</p>
 <p><strong>References</strong></p>
 <p>[1] Wu, Yuxin, and Kaiming He. "Group normalization." Proceedings of the European conference     on computer vision (ECCV). 2018.</p>
-<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/65337c4b5cb8c49cca5472e9aad9e3d69d51e553/src/api/groupnorm.jl#L1' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/fe135e086fbc0cad178d4f9f16d0d33f1f16fcc1/src/api/groupnorm.jl#L1' class='documenter-source'>source</a><br></p>
 <p><a id='LuxLib.instancenorm' href='#LuxLib.instancenorm'>#</a>
 <strong><code>LuxLib.instancenorm</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">instancenorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="p">,</span><span class="w"> </span><span class="n">bias</span><span class="p">;</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="n">training</span><span class="p">)</span>
@@ -586,7 +586,7 @@
 <p>Normalized Array of same size as <code>x</code>. And a Named Tuple containing the updated running mean and variance.</p>
 <p><strong>References</strong></p>
 <p>[1] Ulyanov, Dmitry, Andrea Vedaldi, and Victor Lempitsky. "Instance normalization: The     missing ingredient for fast stylization." arXiv preprint arXiv:1607.08022 (2016).</p>
-<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/65337c4b5cb8c49cca5472e9aad9e3d69d51e553/src/api/instancenorm.jl#L1' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/fe135e086fbc0cad178d4f9f16d0d33f1f16fcc1/src/api/instancenorm.jl#L1' class='documenter-source'>source</a><br></p>
 <p><a id='LuxLib.layernorm' href='#LuxLib.layernorm'>#</a>
 <strong><code>LuxLib.layernorm</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">layernorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="p">,</span><span class="w"> </span><span class="n">bias</span><span class="p">;</span><span class="w"> </span><span class="n">dims</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">)</span>
@@ -611,7 +611,7 @@ y = \frac{x - \mathbb{E}[x]}{\sqrt{Var[x] + \epsilon}} * \gamma + \beta
 <p>Normalized Array of same size as <code>x</code>.</p>
 <p><strong>References</strong></p>
 <p>[1] Ba, Jimmy Lei, Jamie Ryan Kiros, and Geoffrey E. Hinton. "Layer normalization." arXiv     preprint arXiv:1607.06450 (2016).</p>
-<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/65337c4b5cb8c49cca5472e9aad9e3d69d51e553/src/api/layernorm.jl#L1' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/LuxDL/LuxLib.jl/blob/fe135e086fbc0cad178d4f9f16d0d33f1f16fcc1/src/api/layernorm.jl#L1' class='documenter-source'>source</a><br></p>
 
 
 
