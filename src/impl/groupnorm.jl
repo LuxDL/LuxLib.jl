@@ -1,6 +1,7 @@
 # Low-Level Kernels
 ## Original Implementation: https://github.com/pytorch/pytorch/blob/master/caffe2/operators/group_norm_op.cu
-@kernel function _compute_fused_params_kernel!(scale, bias, @Const(C), @Const(K), @Const(μ),
+@kernel function _compute_fused_params_kernel!(
+        scale, bias, @Const(C), @Const(K), @Const(μ),
         @Const(σ⁻¹), @Const(γ), @Const(β))
     idx = @index(Global)
     ng = _div_idx(idx, K)
@@ -27,7 +28,8 @@ end
     @inbounds dY_dscale[idx] = γ[c] * σ⁻¹[ng]
 end
 
-@kernel function _groupnorm_xscale_and_bias_kernel!(X_scale, bias, @Const(alpha), @Const(μ),
+@kernel function _groupnorm_xscale_and_bias_kernel!(
+        X_scale, bias, @Const(alpha), @Const(μ),
         @Const(σ⁻¹), @Const(ds_sum), @Const(db_sum))
     idx = @index(Global)
     @inbounds x = (db_sum[idx] * μ[idx] - ds_sum[idx]) * (σ⁻¹[idx]^3) * alpha

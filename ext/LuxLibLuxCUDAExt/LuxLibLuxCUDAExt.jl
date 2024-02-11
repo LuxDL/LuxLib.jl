@@ -3,8 +3,8 @@ module LuxLibLuxCUDAExt
 using LuxCUDA, LuxLib
 import ChainRulesCore as CRC
 import LuxLib: batchnorm,
-    batchnorm_cudnn, ∇batchnorm_cudnn, _get_batchnorm_statistics,
-    FP_32_64, ∂∅
+               batchnorm_cudnn, ∇batchnorm_cudnn, _get_batchnorm_statistics,
+               FP_32_64, ∂∅
 
 include("batchnorm.jl")
 

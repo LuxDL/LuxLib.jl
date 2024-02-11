@@ -16,8 +16,10 @@ end
 function jvp_forwarddiff(f, x::ComponentArray, u)
     xx = getdata(x)
     uu = vec(u)
-    y = ComponentArray(ForwardDiff.Dual{typeof(ForwardDiff.Tag(LuxLibTestTag(),
-                eltype(x))), eltype(x), 1}.(xx, ForwardDiff.Partials.(tuple.(uu))),
+    y = ComponentArray(
+        ForwardDiff.Dual{typeof(ForwardDiff.Tag(LuxLibTestTag(),
+                eltype(x))),
+            eltype(x), 1}.(xx, ForwardDiff.Partials.(tuple.(uu))),
         getaxes(x))
     return vec(ForwardDiff.partials.(vec(f(y)), 1))
 end
@@ -58,7 +60,8 @@ end
             [(2, 2, 2, 1, 1), (3, 3, 1, 1), (3, 3, 3, 3), (3, 1, 1), (3, 3, 3)]
         end
 
-        @testset "Input Dims: $(in_dims) | Weight Dims: $(w_dims)" for (in_dims, w_dims) in zip(input_dims,
+        @testset "Input Dims: $(in_dims) | Weight Dims: $(w_dims)" for (in_dims, w_dims) in zip(
+            input_dims,
             weight_dims)
             x = randn(Float32, in_dims...) |> aType
             w = randn(Float32, w_dims...) |> aType

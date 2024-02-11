@@ -45,10 +45,14 @@ for op in [:conv, :depthwiseconv]
 
         y = $(op)(x_, w_, cdims; kwargs...)
 
-        dys₁ = ntuple(_ -> similar(x_, Vₓ, NNlib.output_size(cdims)...,
-                NNlib.channels_out(cdims), size(x, N)), P)
-        dys₂ = ntuple(_ -> similar(x_, Vₓ, NNlib.output_size(cdims)...,
-                NNlib.channels_out(cdims), size(x, N)), P)
+        dys₁ = ntuple(
+            _ -> similar(x_, Vₓ, NNlib.output_size(cdims)...,
+                NNlib.channels_out(cdims), size(x, N)),
+            P)
+        dys₂ = ntuple(
+            _ -> similar(x_, Vₓ, NNlib.output_size(cdims)...,
+                NNlib.channels_out(cdims), size(x, N)),
+            P)
         for i in 1:P
             $(op!)(dys₁[i], ForwardDiff.partials.(x, i), w_, cdims; kwargs...)
             $(op!)(dys₂[i], x_, ForwardDiff.partials.(w, i), cdims; kwargs...)
