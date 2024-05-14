@@ -110,7 +110,11 @@ end
 end
 @inline function __fast_broadcast!(f::F, x, args...) where {F}
     if ArrayInterface.fast_scalar_indexing(x)
-        @.. x = f(x, args...)
+        if maximum(length, (x, args...)) > 100_000
+            @.. thread=true x=f(x, args...)
+        else
+            @.. x = f(x, args...)
+        end
     elseif f === ComposedFunction(sigmoid_fast, +) && length(args) == 1
         y = first(args)
         @. x = sigmoid_fast(x + y) # Has GPU Compilation Problems
@@ -123,7 +127,7 @@ end
     if ArrayInterface.fast_scalar_indexing(x)
         if maximum(length, (x, args...)) > 100_000
             bc = Broadcast.instantiate(Broadcast.broadcasted(f, x, args...))
-            @simd ivdep for I in eachindex(bc)
+            @batch for I in eachindex(bc)
                 @inbounds x[I] = bc[I]
             end
         else
