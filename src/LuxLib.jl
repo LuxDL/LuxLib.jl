@@ -54,8 +54,6 @@ include("impl/forward_diff.jl")
 include("impl/matmul.jl")
 include("impl/normalization.jl")
 
-include("deprecations.jl")
-
 export batchnorm, groupnorm, instancenorm, layernorm, alpha_dropout, dropout
 export fused_dense_bias_activation, fused_conv_bias_activation
 export fast_activation, fast_activation!!
