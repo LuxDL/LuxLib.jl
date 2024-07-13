@@ -88,30 +88,21 @@ function __apply_bias_activation!!(
         return __nonuniform_fast_broadcast!(+, x, bias)
     end
     if !cache
-        bias === nothing && return __fast_broadcast!(σ, x)
+        bias === nothing && return fast_broadcast!(σ, x)
         return __nonuniform_fast_broadcast!(σ ∘ +, x, bias)
     end
-    bias === nothing && return __fast_broadcast(σ, x), x
+    bias === nothing && return fast_broadcast(σ, x), x
     x = __nonuniform_fast_broadcast!(+, x, bias)
-    return __fast_broadcast(σ, x), x
+    return fast_broadcast(σ, x), x
 end
 
 function __fast_broadcast(f::F, x, args...) where {F}
-<<<<<<< HEAD
-    fast_scalar_indexing(x) && return @.. f(x, args...)
+    fast_scalar_indexing(x) && return @turbo @. f(x, args...)
     return @. f(x, args...)
 end
 function __fast_broadcast!(f::F, x, args...) where {F}
     if fast_scalar_indexing(x)
-        @.. x = f(x, args...)
-=======
-    ArrayInterface.fast_scalar_indexing(x) && return @turbo @. f(x, args...)
-    return @. f(x, args...)
-end
-function __fast_broadcast!(f::F, x, args...) where {F}
-    if ArrayInterface.fast_scalar_indexing(x)
         @turbo @. x = f(x, args...)
->>>>>>> ceef5b9 (feat: setup to use LoopVectorization)
     elseif __fails_inplace_bcast_gpu(f) && length(args) == 1
         y = first(args)
         @. x = f.outer(f.inner(x, y))
@@ -120,6 +111,7 @@ function __fast_broadcast!(f::F, x, args...) where {F}
     end
     return x
 end
+
 function __nonuniform_fast_broadcast!(f::F, x, args...) where {F}
     if fast_scalar_indexing(x)
         if maximum(length, (x, args...)) > 100_000

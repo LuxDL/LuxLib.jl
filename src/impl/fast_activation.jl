@@ -3,7 +3,7 @@
 # If we enter here, we already know that we can setindex into the array
 @stable default_mode="warn" function __fast_activation_impl!!(
         σ::F, x::AbstractArray) where {F}
-    return __fast_broadcast!(σ, x)
+    return fast_broadcast!(σ, x)
 end
 
 function CRC.rrule(cfg::RuleConfig{>:HasReverseMode}, ::typeof(__fast_activation_impl!!),
@@ -20,7 +20,7 @@ function CRC.rrule(cfg::RuleConfig{>:HasReverseMode}, ::typeof(__fast_activation
     end
 
     if isconcretetype(Core.Compiler._return_type(only_derivative, Tuple{T, F, T}))
-        y = __fast_broadcast(σ, x)
+        y = fast_broadcast(σ, x)
         ∇__fast_activation_impl_cached_crc = @closure Δ -> begin
             ∂y = __activation_gradient(CRC.unthunk(Δ), y, σ, x)
             return NoTangent(), NoTangent(), ∂y

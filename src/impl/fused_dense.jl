@@ -54,7 +54,7 @@ function CRC.rrule(
     # Case II: We can't overwrite `y` directly, but we can use the direct ChainRules
     if isconcretetype(Core.Compiler._return_type(only_derivative, Tuple{T, F, T}))
         y = __matmuladd(weight, x, b)
-        z = __fast_broadcast(act, y)
+        z = fast_broadcast(act, y)
         ∇__fused_dense_bias_activation_impl_cached_crc = @closure Δ -> begin
             ∂y = __activation_gradient(CRC.unthunk(Δ), z, act, y)
             ∂w, ∂x, ∂b = __matmul_bias_partials(∂y, weight, x, b)
