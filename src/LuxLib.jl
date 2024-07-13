@@ -4,10 +4,11 @@ using ArrayInterface: ArrayInterface, fast_scalar_indexing
 using ChainRulesCore: ChainRulesCore, NoTangent, HasReverseMode, RuleConfig
 using DispatchDoctor: @stable
 using EnzymeCore: EnzymeCore, EnzymeRules
+using FastBroadcast: @..
 using FastClosures: @closure
 using ForwardDiff: ForwardDiff
 using LinearAlgebra: LinearAlgebra, BLAS, mul!
-using LoopVectorization: @turbo
+using LoopVectorization: LoopVectorization, @turbo, vmap
 using LuxCore: LuxCore
 using LuxDeviceUtils: get_device_type, LuxCUDADevice, LuxCPUDevice, AbstractLuxGPUDevice,
                       AbstractLuxDevice
@@ -16,14 +17,13 @@ using NNlib: NNlib, ConvDims, conv, conv!, relu, sigmoid_fast, swish, σ, ∇con
              ∇conv_filter
 using Random: Random, AbstractRNG, rand!
 using Reexport: @reexport
+using SIMDTypes
 using Statistics: Statistics, mean, var
 using UnrolledUtilities: unrolled_any
 
 @reexport using NNlib
 
 const CRC = ChainRulesCore
-
-const Optional{T} = Union{Nothing, T}
 
 include("utils.jl")
 
@@ -34,6 +34,7 @@ include("impl/fused_conv.jl")
 include("impl/fast_activation.jl")
 include("impl/forward_diff.jl")
 include("impl/broadcast.jl")
+include("impl/bias_act.jl")
 
 # User Facing
 include("api/batchnorm.jl")
@@ -51,5 +52,6 @@ include("deprecations.jl")
 export batchnorm, groupnorm, instancenorm, layernorm, alpha_dropout, dropout
 export fused_dense_bias_activation, fused_conv_bias_activation
 export fast_activation!!
+export fast_broadcast, fast_broadcast!, fast_broadcast!!
 
 end
