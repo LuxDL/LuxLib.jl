@@ -33,7 +33,7 @@ include("impl/fused_dense.jl")
 include("impl/fused_conv.jl")
 include("impl/fast_activation.jl")
 include("impl/forward_diff.jl")
-include("impl/broadcasting.jl")
+include("impl/broadcast.jl")
 
 # User Facing
 include("api/batchnorm.jl")
@@ -44,6 +44,7 @@ include("api/layernorm.jl")
 include("api/dense.jl")
 include("api/conv.jl")
 include("api/fast_activation.jl")
+include("api/broadcast.jl")
 
 include("deprecations.jl")
 

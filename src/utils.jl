@@ -85,47 +85,15 @@ function __apply_bias_activation!!(
         σ::F, x, bias::Optional{<:AbstractArray}, ::Val{cache}) where {F, cache}
     if σ === identity
         bias === nothing && return x
-        return __nonuniform_fast_broadcast!(+, x, bias)
+        return fast_broadcast!(+, x, bias)
     end
     if !cache
         bias === nothing && return fast_broadcast!(σ, x)
-        return __nonuniform_fast_broadcast!(σ ∘ +, x, bias)
+        return fast_broadcast!(σ ∘ +, x, bias)
     end
     bias === nothing && return fast_broadcast(σ, x), x
-    x = __nonuniform_fast_broadcast!(+, x, bias)
+    x = fast_broadcast!(+, x, bias)
     return fast_broadcast(σ, x), x
-end
-
-function __fast_broadcast(f::F, x, args...) where {F}
-    fast_scalar_indexing(x) && return @turbo @. f(x, args...)
-    return @. f(x, args...)
-end
-function __fast_broadcast!(f::F, x, args...) where {F}
-    if fast_scalar_indexing(x)
-        @turbo @. x = f(x, args...)
-    elseif __fails_inplace_bcast_gpu(f) && length(args) == 1
-        y = first(args)
-        @. x = f.outer(f.inner(x, y))
-    else
-        @. x = f(x, args...)
-    end
-    return x
-end
-
-function __nonuniform_fast_broadcast!(f::F, x, args...) where {F}
-    if fast_scalar_indexing(x)
-        if maximum(length, (x, args...)) > 100_000
-            @turbo thread=true @. x = f(x, args...)
-        else
-            @turbo @. x = f(x, args...)
-        end
-    elseif __fails_inplace_bcast_gpu(f) && length(args) == 1
-        y = first(args)
-        @. x = f.outer(f.inner(x, y))
-    else
-        @. x = f(x, args...)
-    end
-    return x
 end
 
 __fails_inplace_bcast_gpu(::ComposedFunction{typeof(sigmoid_fast), typeof(+)}) = true
