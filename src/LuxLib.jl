@@ -4,7 +4,6 @@ using ArrayInterface: ArrayInterface, fast_scalar_indexing
 using ChainRulesCore: ChainRulesCore, NoTangent, HasReverseMode, RuleConfig
 using DispatchDoctor: @stable
 using EnzymeCore: EnzymeCore, EnzymeRules
-using FastBroadcast: @..
 using FastClosures: @closure
 using ForwardDiff: ForwardDiff
 using LinearAlgebra: LinearAlgebra, BLAS, mul!
