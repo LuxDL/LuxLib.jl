@@ -1,9 +1,27 @@
-# NOTE: These functions aren't compatible for use inside ChainRules. Use `fast_broadcast`
-#       instead.
+# Common Activation Gradient
+function __activation_gradient(Δ, out, act::F, x) where {F}
+    only_deriv = @closure (oᵢ, xᵢ) -> only_derivative(oᵢ, act, xᵢ)
+    if fast_scalar_indexing(out) && eltype(out) <: LV_ELTYPES
+        return @turbo @. Δ * only_deriv(out, x)
+    end
+    return @. Δ * only_deriv(out, x)
+end
+
+## Needed for reverse over reverse mode AD
+function CRC.rrule(cfg::RuleConfig{>:HasReverseMode},
+        ::typeof(__activation_gradient), Δ, out, act::F, x) where {F}
+    return CRC.rrule_via_ad(cfg, __activation_gradient_simple, Δ, out, act, x)
+end
+
+function __activation_gradient_simple(Δ, out, act::F, x) where {F}
+    return @. Δ * only_derivative(out, act, x)
+end
+
+# NOTE: The functions below aren't compatible for use with ChainRules.
 
 # TODO: Enzyme would need a split reverse + forward pass to handle LV
 #       xref https://github.com/EnzymeAD/Enzyme.jl/issues/1635
-## CPU -- LV --> FastBraodcast --> Generic Broadcast
+
 function __fast_broadcast_impl(
         ::Type{T}, f::F, x::AbstractArray, args...) where {F <: Function, T}
     return __fast_broadcast_impl!(T, similar(x), f, x, args...)
@@ -14,7 +32,8 @@ function __fast_broadcast_impl!(
     return __fast_broadcast_impl!(T, x, f, x, args...)  # aliased
 end
 
-## CPU -- LV --> FastBraodcast --> Generic Broadcast
+## CPU -- LV --> FastBroadcast --> Generic Broadcast
+## Other backends are handled by the fallback
 function __fast_broadcast_impl!(::Type{LuxCPUDevice}, y::AbstractArray{<:LV_ELTYPES},
         f::F, x::AbstractArray{<:LV_ELTYPES},
         args::Union{AbstractArray{<:LV_ELTYPES}, <:LV_ELTYPES}...) where {F <: Function}
@@ -46,7 +65,7 @@ for ffail in (sigmoid_fast ∘ +, swish ∘ +)
     end
 end
 
-function __fast_broadcast_impl!(::Type{T}, y::AbstractArray{T}, f::F,
+function __fast_broadcast_impl!(::Type{T}, y::AbstractArray, f::F,
         x::AbstractArray{T}, args...) where {F <: Function, T}
     @. y = f(x, args...)
     return y

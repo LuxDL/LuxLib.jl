@@ -9,25 +9,6 @@ const Optional{T} = Union{Nothing, T}
 __added_bias_gradient(::Nothing, Δ::AbstractArray) = NoTangent()
 __added_bias_gradient(b::AbstractArray, Δ::AbstractArray) = __reduce_sum(b, Δ)
 
-# Common Activation Gradient
-function __activation_gradient(Δ, out, act::F, x) where {F}
-    only_deriv = @closure (oᵢ, xᵢ) -> only_derivative(oᵢ, act, xᵢ)
-    if fast_scalar_indexing(out) && eltype(out) <: LV_ELTYPES
-        return @turbo @. Δ * only_deriv(out, x)
-    end
-    return @. Δ * only_deriv(out, x)
-end
-
-## Needed for reverse over reverse mode AD
-function CRC.rrule(cfg::RuleConfig{>:HasReverseMode},
-        ::typeof(__activation_gradient), Δ, out, act::F, x) where {F}
-    return CRC.rrule_via_ad(cfg, __activation_gradient_simple, Δ, out, act, x)
-end
-
-function __activation_gradient_simple(Δ, out, act::F, x) where {F}
-    return @. Δ * only_derivative(out, act, x)
-end
-
 # Operations that most AD won't be able to differentiate
 ## If possible then we use loop vectorization for faster CPI operaitons
 function __reduce_sum(x::AbstractArray, y::AbstractArray)
@@ -147,6 +128,11 @@ end
 
 CRC.@non_differentiable __get_concrete_fba_output_eltype(::Any...)
 EnzymeRules.inactive_noinl(::typeof(__get_concrete_fba_output_eltype), ::Any...) = nothing
+
+__has_tracked_value(::Any) = false
+
+CRC.@non_differentiable __has_tracked_value(::Any)
+EnzymeRules.inactive_noinl(::typeof(__has_tracked_value), ::Any) = nothing
 
 # Meta Programming Utilities
 __is_tracked(x) = x == :TrackedArray || x == :TrackedVector

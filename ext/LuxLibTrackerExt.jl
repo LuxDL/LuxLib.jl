@@ -44,4 +44,8 @@ LuxLib.__value(x::AbstractArray{<:TrackedReal}) = Tracker.data.(x)
 
 LuxLib.__value(::Type{<:TrackedReal{T}}) where {T} = LuxLib.__value(T)
 
+LuxLib.__has_tracked_value(::TrackedArray) = true
+LuxLib.__has_tracked_value(::AbstractArray{<:TrackedReal}) = true
+LuxLib.__has_tracked_value(::TrackedReal) = true
+
 end

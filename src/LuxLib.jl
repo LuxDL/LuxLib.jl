@@ -28,30 +28,27 @@ const CRC = ChainRulesCore
 include("utils.jl")
 
 # Low-Level Implementations
-include("impl/normalization.jl")
+include("impl/bias_act.jl")
+include("impl/broadcast.jl")
 include("impl/fused_dense.jl")
 include("impl/fused_conv.jl")
-include("impl/fast_activation.jl")
 include("impl/forward_diff.jl")
-include("impl/broadcast.jl")
-include("impl/bias_act.jl")
+include("impl/normalization.jl")
 
 # User Facing
 include("api/batchnorm.jl")
+include("api/broadcast.jl")
 include("api/dropout.jl")
 include("api/groupnorm.jl")
 include("api/instancenorm.jl")
 include("api/layernorm.jl")
 include("api/dense.jl")
 include("api/conv.jl")
-include("api/fast_activation.jl")
-include("api/broadcast.jl")
 
 include("deprecations.jl")
 
 export batchnorm, groupnorm, instancenorm, layernorm, alpha_dropout, dropout
 export fused_dense_bias_activation, fused_conv_bias_activation
-export fast_activation!!
-export fast_broadcast, fast_broadcast!, fast_broadcast!!
+export fast_activation!!, fast_broadcast!!
 
 end
