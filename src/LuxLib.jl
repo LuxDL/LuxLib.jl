@@ -8,6 +8,7 @@ using FastBroadcast: @..
 using FastClosures: @closure
 using ForwardDiff: ForwardDiff
 using LinearAlgebra: LinearAlgebra, BLAS, mul!
+using LoopVectorization: @turbo
 using LuxCore: LuxCore
 using LuxDeviceUtils: get_device_type, LuxCUDADevice, LuxCPUDevice, AbstractLuxGPUDevice,
                       AbstractLuxDevice
@@ -33,6 +34,7 @@ include("impl/fused_dense.jl")
 include("impl/fused_conv.jl")
 include("impl/fast_activation.jl")
 include("impl/forward_diff.jl")
+include("impl/broadcasting.jl")
 
 # User Facing
 include("api/batchnorm.jl")

@@ -97,12 +97,21 @@ function __apply_bias_activation!!(
 end
 
 function __fast_broadcast(f::F, x, args...) where {F}
+<<<<<<< HEAD
     fast_scalar_indexing(x) && return @.. f(x, args...)
     return @. f(x, args...)
 end
 function __fast_broadcast!(f::F, x, args...) where {F}
     if fast_scalar_indexing(x)
         @.. x = f(x, args...)
+=======
+    ArrayInterface.fast_scalar_indexing(x) && return @turbo @. f(x, args...)
+    return @. f(x, args...)
+end
+function __fast_broadcast!(f::F, x, args...) where {F}
+    if ArrayInterface.fast_scalar_indexing(x)
+        @turbo @. x = f(x, args...)
+>>>>>>> ceef5b9 (feat: setup to use LoopVectorization)
     elseif __fails_inplace_bcast_gpu(f) && length(args) == 1
         y = first(args)
         @. x = f.outer(f.inner(x, y))
@@ -114,12 +123,9 @@ end
 function __nonuniform_fast_broadcast!(f::F, x, args...) where {F}
     if fast_scalar_indexing(x)
         if maximum(length, (x, args...)) > 100_000
-            bc = Broadcast.instantiate(Broadcast.broadcasted(f, x, args...))
-            @simd ivdep for I in eachindex(bc)
-                @inbounds x[I] = bc[I]
-            end
+            @turbo thread=true @. x = f(x, args...)
         else
-            @. x = f(x, args...)
+            @turbo @. x = f(x, args...)
         end
     elseif __fails_inplace_bcast_gpu(f) && length(args) == 1
         y = first(args)
@@ -147,10 +153,11 @@ function __added_bias_gradient(b::AbstractArray, Δ)
 end
 
 function __activation_gradient(Δ, out, act::F, x) where {F}
+    only_deriv = @closure (oᵢ, xᵢ) -> only_derivative(oᵢ, act, xᵢ)
     if fast_scalar_indexing(out)
-        return @.. Δ * only_derivative(out, act, x)
+        return @turbo @. Δ * only_deriv(out, x)
     end
-    return @. Δ * only_derivative(out, act, x)
+    return @. Δ * only_deriv(out, x)
 end
 
 function __activation_gradient_simple(Δ, out, act::F, x) where {F}
