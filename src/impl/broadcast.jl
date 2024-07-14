@@ -25,11 +25,13 @@ end
 
 function __fast_broadcast_impl(
         ::Type{T}, f::F, x::AbstractArray, args...) where {F <: Function, T}
-    return __fast_broadcast_impl!(T, similar(x), f, x, args...)
+    y = similar(x, Broadcast.broadcast_shape(size(x), size.(args)...))
+    return __fast_broadcast_impl!(T, y, f, x, args...)
 end
 
 function __fast_broadcast_impl!(
         ::Type{T}, f::F, x::AbstractArray, args...) where {F <: Function, T}
+    @assert size(x) == Broadcast.broadcast_shape(size(x), size.(args)...)
     return __fast_broadcast_impl!(T, x, f, x, args...)  # aliased
 end
 
@@ -51,9 +53,9 @@ function __fast_broadcast_impl!(::Type{LuxCPUDevice}, y::AbstractArray, f::F,
         x::AbstractArray, args...) where {F <: Function}
     fast_scalar_indexing(x) || return __fast_broadcast_impl!(Nothing, y, f, x, args...)
     if maximum(length, (x, args...)) > THREADING_THRESHOLD
-        @.. thread=true y=f(x, args...)
+        @.. thread=true broadcast=true y=f(x, args...)
     else
-        @.. y = f(x, args...)
+        @.. broadcast=true y=f(x, args...)
     end
     return y
 end
