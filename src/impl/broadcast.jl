@@ -41,10 +41,11 @@ function __fast_broadcast_impl!(::Type{LuxCPUDevice}, y::AbstractArray{<:LV_ELTY
         f::F, x::AbstractArray{<:LV_ELTYPES},
         args::Union{AbstractArray{<:LV_ELTYPES}, <:LV_ELTYPES}...) where {F <: Function}
     fast_scalar_indexing(x) || return __fast_broadcast_impl!(Nothing, y, f, x, args...)
-    if maximum(length, (x, args...)) > THREADING_THRESHOLD
-        @turbo thread=true @. y = f(x, args...)
+    # LV doesn't support broadcasting over singleton first dimensions
+    if any(m -> size(m, 1) == 1, (x, args...))
+        __fast_broadcast_fb_impl!(y, f, x, args...)
     else
-        @turbo @. y = f(x, args...)
+        __fast_broadcast_lv_impl!(y, f, x, args...)
     end
     return y
 end
@@ -52,12 +53,24 @@ end
 function __fast_broadcast_impl!(::Type{LuxCPUDevice}, y::AbstractArray, f::F,
         x::AbstractArray, args...) where {F <: Function}
     fast_scalar_indexing(x) || return __fast_broadcast_impl!(Nothing, y, f, x, args...)
-    if maximum(length, (x, args...)) > THREADING_THRESHOLD
-        @.. thread=true broadcast=true y=f(x, args...)
-    else
-        @.. broadcast=true y=f(x, args...)
-    end
+    __fast_broadcast_fb_impl!(y, f, x, args...)
     return y
+end
+
+function __fast_broadcast_lv_impl!(y, f, x, args...)
+    if length(y) > THREADING_THRESHOLD
+        @turbo thread=true @. y = f(x, args...)
+    else
+        @turbo @. y = f(x, args...)
+    end
+end
+
+function __fast_broadcast_fb_impl!(y, f, x, args...)
+    if length(y) > THREADING_THRESHOLD
+        @.. thread=true broadcast=true y = f(x, args...)
+    else
+        @.. broadcast=true y = f(x, args...)
+    end
 end
 
 for ffail in (sigmoid_fast ∘ +, swish ∘ +)
