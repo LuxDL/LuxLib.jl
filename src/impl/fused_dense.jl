@@ -21,10 +21,7 @@ end
 @stable default_mode="warn" function __fused_dense_bias_activation_impl(
         act::F, weight::AbstractMatrix, x::AbstractMatrix,
         b::Optional{<:AbstractVector}) where {F}
-    if act === identity
-        b === nothing && return (weight * x)
-        return __matmuladd(weight, x, b)
-    end
+    act === identity && return __matmuladd(weight, x, b)
     y = similar(weight, __get_concrete_fba_output_eltype(act, weight, x, b),
         size(weight, 1), size(x, 2))
     __matmul!(y, weight, x)

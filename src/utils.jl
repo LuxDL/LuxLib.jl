@@ -14,7 +14,7 @@ __added_bias_gradient(b::AbstractArray, Δ::AbstractArray) = __reduce_sum(b, Δ)
 function __reduce_sum(x::AbstractArray, y::AbstractArray)
     return __reduce_sum(get_device_type((x, y)), x, y)
 end
-function __reduce_sum(::Type{<:LuxCPUDevice}, x::AbstractArray, y::AbstractArray)
+function __reduce_sum(::Type{LuxCPUDevice}, x::AbstractArray, y::AbstractArray)
     if fast_scalar_indexing(x) && fast_scalar_indexing(y) && ndims(x) == 1
         @assert length(x) == size(y, 1)
         z, y_ = vmap(zero, x), reshape(y, length(x), :)
@@ -56,6 +56,11 @@ __value(::Type{<:ForwardDiff.Dual{Tag, T}}) where {Tag, T} = __value(T)
 __value(::Nothing) = nothing
 
 __aos_to_soa(x::AbstractArray) = x # FIXME: Upstream this to ArrayInterface.jl
+
+# Sum
+__fast_sum(x::AbstractArray) = __fast_sum(get_device_type(x), x)
+__fast_sum(::Type, x::AbstractArray) = sum(x)
+__fast_sum(::Type{LuxCPUDevice}, x::AbstractArray{<:LV_ELTYPES}) = vsum(x)
 
 # Non-differentiable functions
 @inbounds function _get_reshape_dims(sx::NTuple{N, <:Int}, ly::Int) where {N}

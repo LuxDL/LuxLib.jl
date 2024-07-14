@@ -32,8 +32,8 @@ Dropout: Simple Way to prevent Neural Networks for Overfitting. For details see 
 function dropout(
         rng::AbstractRNG, x::AbstractArray, p::T, ::Val{true}, invp::T, dims) where {T}
     rng = LuxCore.replicate(rng)
-    mask = _generate_dropout_mask(rng, x, p, invp; dims)
-    return (x .* CRC.ignore_derivatives(mask), mask, rng)
+    mask = CRC.ignore_derivatives(_generate_dropout_mask(rng, x, p, invp; dims))
+    return fast_broadcast(*, x, mask), mask, rng
 end
 
 function dropout(
@@ -49,7 +49,7 @@ end
 function dropout(rng::AbstractRNG, x::AbstractArray{T1, N}, mask::AbstractArray{T2, N},
         p::T, ::Val{true}, ::Val{false}, invp::T, dims) where {T, T1, T2, N}
     size(x) != size(mask) && return dropout(rng, x, p, Val(true), invp, dims)
-    return x .* CRC.ignore_derivatives(mask), mask, rng
+    return fast_broadcast(*, x, CRC.ignore_derivatives(mask)), mask, rng
 end
 
 function dropout(rng::AbstractRNG, x::AbstractArray{T1, N}, mask::AbstractArray{T2, N},
@@ -101,8 +101,7 @@ function alpha_dropout(rng::AbstractRNG, x::AbstractArray, p, ::Val{true}, α, A
     noise, rng = _alpha_dropout_noise(rng, x)
     # NOTE: Combining the last 2 lines causes a compilation error for Tracker on GPU
     y = _alpha_dropout_kernel(noise, p, x, α)
-    res = @. A * y + B
-    return res, rng
+    return fast_broadcast(muladd, A, y, B), rng
 end
 
 alpha_dropout(rng::AbstractRNG, x::AbstractArray, p, ::Val{false}, α, A, B) = (x, rng)
@@ -113,16 +112,27 @@ function _dropout_shape(s, dims)
     return tuple((i in dims ? si : 1 for (i, si) in enumerate(size(s)))...)
 end
 
+CRC.@non_differentiable _dropout_shape(::Any...)
+EnzymeRules.inactive_noinl(::typeof(_dropout_shape), ::Any...) = nothing
+
 _dropout_kernel(y, p, invp) = ifelse(y > p, invp, oftype(y, 0))
 
-_alpha_dropout_kernel(noise, p, x, α) = @. ifelse(noise > p, x, α)
+__alpha_dropout_kernel(noise, p, x, α) = ifelse(noise > p, x, α)
+
+function _alpha_dropout_kernel(noise, p, x, α)
+    return fast_broadcast(__alpha_dropout_kernel, noise, p, x, α)
+end
+
+__partial_alpha_dropout(c, Δ) = (1 - c) * Δ
 
 ## Zygote is otherwise type unstable
 function CRC.rrule(::typeof(_alpha_dropout_kernel), noise, p, x, α)
-    _cond = noise .> p
-    y = ifelse.(_cond, x, α)
+    _cond = fast_broadcast(>, noise, p)
+    y = fast_broadcast(ifelse, x, α)
     _∇alpha_dropout_kernel = @closure Δ -> begin
-        return NoTangent(), NoTangent(), NoTangent(), (_cond .* Δ), sum(@.((1 - _cond)*Δ))
+        ∂x = fast_broadcast(*, _cond, Δ)
+        ∂α = __fast_sum(fast_broadcast(__partial_alpha_dropout, _cond, Δ))
+        return NoTangent(), NoTangent(), NoTangent(), ∂x, ∂α
     end
     return y, _∇alpha_dropout_kernel
 end
@@ -144,12 +154,9 @@ EnzymeRules.inactive_noinl(::typeof(_alpha_dropout_noise), ::Any...) = nothing
 
 function _generate_dropout_mask(rng::AbstractRNG, x, p, invp; dims)
     y = rand!(rng, similar(x, _dropout_fptype(x), _dropout_shape(x, dims)))
-    @. y = _dropout_kernel(y, p, invp)
+    fast_broadcast!(_dropout_kernel, y, p, invp)
     return y
 end
 
 CRC.@non_differentiable _generate_dropout_mask(::Any...)
 EnzymeRules.inactive_noinl(::typeof(_generate_dropout_mask), ::Any...) = nothing
-
-CRC.@non_differentiable _dropout_shape(::Any...)
-EnzymeRules.inactive_noinl(::typeof(_dropout_shape), ::Any...) = nothing

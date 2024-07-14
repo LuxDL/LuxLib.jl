@@ -8,7 +8,7 @@ using FastBroadcast: @..
 using FastClosures: @closure
 using ForwardDiff: ForwardDiff
 using LinearAlgebra: LinearAlgebra, BLAS, mul!
-using LoopVectorization: LoopVectorization, @turbo, vmap
+using LoopVectorization: LoopVectorization, @turbo, vmap, vsum
 using LuxCore: LuxCore
 using LuxDeviceUtils: get_device_type, LuxCUDADevice, LuxCPUDevice, AbstractLuxGPUDevice,
                       AbstractLuxDevice
