@@ -99,9 +99,8 @@ end
 
 function alpha_dropout(rng::AbstractRNG, x::AbstractArray, p, ::Val{true}, α, A, B)
     noise, rng = _alpha_dropout_noise(rng, x)
-    # NOTE: Combining the last 2 lines causes a compilation error for Tracker on GPU
     y = _alpha_dropout_kernel(noise, p, x, α)
-    return fast_broadcast(muladd, A, y, B), rng
+    return fast_broadcast(muladd, y, A, B), rng
 end
 
 alpha_dropout(rng::AbstractRNG, x::AbstractArray, p, ::Val{false}, α, A, B) = (x, rng)
@@ -117,21 +116,22 @@ EnzymeRules.inactive_noinl(::typeof(_dropout_shape), ::Any...) = nothing
 
 _dropout_kernel(y, p, invp) = ifelse(y > p, invp, oftype(y, 0))
 
-__alpha_dropout_kernel(noise, p, x, α) = ifelse(noise > p, x, α)
+__alpha_dropout_kernel(x, noise, p, α) = ifelse(noise > p, x, α)
 
 function _alpha_dropout_kernel(noise, p, x, α)
-    return fast_broadcast(__alpha_dropout_kernel, noise, p, x, α)
+    return fast_broadcast(__alpha_dropout_kernel, x, noise, p, α)
 end
 
-__partial_alpha_dropout(c, Δ) = (1 - c) * Δ
+__partial_alpha_dropout(Δ, c) = (1 - c) * Δ
 
 ## Zygote is otherwise type unstable
 function CRC.rrule(::typeof(_alpha_dropout_kernel), noise, p, x, α)
-    _cond = fast_broadcast(>, noise, p)
-    y = fast_broadcast(ifelse, x, α)
+    _cond, y = similar(noise, Bool), similar(x)
+    __fast_broadcast_impl!(get_device_type(noise), _cond, >, noise, p)
+    __fast_broadcast_impl!(get_device_type(y), y, ifelse, _cond, x, α)
     _∇alpha_dropout_kernel = @closure Δ -> begin
-        ∂x = fast_broadcast(*, _cond, Δ)
-        ∂α = __fast_sum(fast_broadcast(__partial_alpha_dropout, _cond, Δ))
+        ∂x = fast_broadcast(*, Δ, _cond)
+        ∂α = __fast_sum(fast_broadcast(__partial_alpha_dropout, Δ, _cond))
         return NoTangent(), NoTangent(), NoTangent(), ∂x, ∂α
     end
     return y, _∇alpha_dropout_kernel
