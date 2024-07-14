@@ -17,7 +17,7 @@ using NNlib: NNlib, ConvDims, conv, conv!, relu, sigmoid_fast, swish, σ, ∇con
              ∇conv_filter
 using Random: Random, AbstractRNG, rand!
 using Reexport: @reexport
-using SIMDTypes
+using SIMDTypes: SIMDTypes
 using Statistics: Statistics, mean, var
 using UnrolledUtilities: unrolled_any
 

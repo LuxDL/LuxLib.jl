@@ -58,8 +58,8 @@ function __fast_broadcast_impl!(::Type{LuxCPUDevice}, y::AbstractArray, f::F,
 end
 
 for ffail in (sigmoid_fast ∘ +, swish ∘ +)
-    @eval function __fast_broadcast_impl!(
-            ::Type{T}, y::AbstractArray, f::typeof($ffail), x::AbstractArray, z) where {T}
+    @eval function __fast_broadcast_impl!(::Type{<:AbstractLuxGPUDevice}, y::AbstractArray,
+            f::typeof($ffail), x::AbstractArray, z)
         @. y = f.outer(f.inner(x, z))
         return y
     end
