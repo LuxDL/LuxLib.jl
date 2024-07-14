@@ -147,6 +147,6 @@ end
 function __can_loop_vectorize(x::AbstractArray, args...)
     unrolled_all(fast_scalar_indexing, (x, args...)) || return false  # Needs scalar indexing
     length(args) == 0 && return true  # We construct a loop
-    unrolled_any(m -> size(m, 1) == 1, (x, args...)) && return false  # We can't do LV
+    unrolled_any(m -> size(m, 1) == 1, (x, args...)) && return false  # We can't do LV (strong warinng in the documentation)
     return unrolled_all(LoopVectorization.check_args, (x, args...))
 end

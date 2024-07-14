@@ -76,13 +76,14 @@ CRC.@non_differentiable _get_reshape_dims(::Any...)
 EnzymeRules.inactive_noinl(::typeof(_get_reshape_dims), ::Any...) = nothing
 
 ## Reduce BLAS threads if we are going to use a native Julia implementation
-function __maybe_reduce_BLAS_threads(x::AbstractArray)::Int
-    if fast_scalar_indexing(x)
-        old_threads = BLAS.get_num_threads()
-        BLAS.set_num_threads(1)
-        return old_threads
-    end
-    return -1
+function __maybe_reduce_BLAS_threads(x::AbstractArray)
+    __maybe_reduce_BLAS_threads(get_device_type(x))
+end
+__maybe_reduce_BLAS_threads(::Type{T}) where {T} = -1
+function __maybe_reduce_BLAS_threads(::Type{LuxCPUDevice})::Int
+    old_threads = BLAS.get_num_threads()
+    BLAS.set_num_threads(1)
+    return old_threads
 end
 
 CRC.@non_differentiable __maybe_reduce_BLAS_threads(::AbstractArray)

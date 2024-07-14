@@ -122,8 +122,9 @@ end
 
 function CRC.rrule(
         cfg::RuleConfig{>:HasReverseMode}, ::typeof(__fused_conv_bias_activation_impl),
-        act::F, weight::AbstractArray{wT, N}, x::AbstractArray{xT, N},
+        act::F, weight_::AbstractArray{wT, N}, x_::AbstractArray{xT, N},
         bias::Optional{<:AbstractArray}, cdims::ConvDims) where {wT, xT, N, F}
+    x, weight = __get_conv_input_weight(get_device_type((x_, weight_)), xT, wT, x_, weight_)
     T = __get_concrete_fba_output_eltype(act, weight, x, bias)
 
     if isconcretetype(Core.Compiler._return_type(only_derivative, Tuple{T, F, NotaNumber}))
