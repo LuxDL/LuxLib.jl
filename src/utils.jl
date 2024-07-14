@@ -1,7 +1,7 @@
 const THREADING_THRESHOLD = 100_000
 
-const LV_ELTYPES = Union{Bool, Float16, Float32, Float64, Int16, Int32, Int64,
-    Int8, UInt16, UInt32, UInt64, UInt8, SIMDTypes.Bit}
+const LV_ELTYPES = Union{Bool, Float32, Float64, Int16, Int32, Int64, Int8,
+    UInt16, UInt32, UInt64, UInt8, SIMDTypes.Bit}
 
 const Optional{T} = Union{Nothing, T}
 

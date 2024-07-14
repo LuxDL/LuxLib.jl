@@ -1,8 +1,9 @@
 # Common Activation Gradient
 function __activation_gradient(Δ, out, act::F, x) where {F}
     only_deriv = @closure (oᵢ, xᵢ) -> only_derivative(oᵢ, act, xᵢ)
-    if fast_scalar_indexing(out) && eltype(out) <: LV_ELTYPES
-        return @turbo @. Δ * only_deriv(out, x)
+    if fast_scalar_indexing(out)
+        eltype(out) <: LV_ELTYPES && return @turbo @. Δ * only_deriv(out, x)
+        return @.. Δ * only_deriv(out, x)
     end
     return @. Δ * only_deriv(out, x)
 end
@@ -66,7 +67,7 @@ for ffail in (sigmoid_fast ∘ +, swish ∘ +)
 end
 
 function __fast_broadcast_impl!(::Type{T}, y::AbstractArray, f::F,
-        x::AbstractArray{T}, args...) where {F <: Function, T}
+        x::AbstractArray, args...) where {F <: Function, T}
     @. y = f(x, args...)
     return y
 end
