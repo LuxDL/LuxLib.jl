@@ -47,7 +47,7 @@ fast_broadcast!!(::typeof(identity), x::AbstractArray) = x
 
 @stable default_mode="warn" function fast_broadcast(
         f::F, x::AbstractArray, args...) where {F <: Function}
-    any(__has_tracked_value, (x, args...)) && return broadcast(f, x, args...)
+    unrolled_any(__has_tracked_value, (x, args...)) && return broadcast(f, x, args...)
     return __fast_broadcast_impl(get_device_type((x, args...)), f, x, args...)
 end
 
