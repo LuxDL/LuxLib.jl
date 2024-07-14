@@ -51,6 +51,11 @@ fast_broadcast!!(::typeof(identity), x::AbstractArray) = x
     return __fast_broadcast_impl(get_device_type((x, args...)), f, x, args...)
 end
 
+function CRC.rrule(cfg::RuleConfig{>:HasReverseMode}, ::typeof(fast_broadcast),
+        f::F, x::AbstractArray, args...) where {F <: Function}
+    return CRC.rrule_via_ad(cfg, broadcast, f, x, args...)
+end
+
 @stable default_mode="warn" function fast_broadcast!(
         f::F, x::AbstractArray, args...) where {F <: Function}
     return __fast_broadcast_impl!(get_device_type((x, args...)), f, x, args...)

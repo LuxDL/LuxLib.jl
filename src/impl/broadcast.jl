@@ -1,21 +1,7 @@
 # Common Activation Gradient
 function __activation_gradient(Δ, out, act::F, x) where {F}
-    only_deriv = @closure (oᵢ, xᵢ) -> only_derivative(oᵢ, act, xᵢ)
-    if fast_scalar_indexing(out)
-        eltype(out) <: LV_ELTYPES && return @turbo @. Δ * only_deriv(out, x)
-        return @.. Δ * only_deriv(out, x)
-    end
-    return @. Δ * only_deriv(out, x)
-end
-
-## Needed for reverse over reverse mode AD
-function CRC.rrule(cfg::RuleConfig{>:HasReverseMode},
-        ::typeof(__activation_gradient), Δ, out, act::F, x) where {F}
-    return CRC.rrule_via_ad(cfg, __activation_gradient_simple, Δ, out, act, x)
-end
-
-function __activation_gradient_simple(Δ, out, act::F, x) where {F}
-    return @. Δ * only_derivative(out, act, x)
+    only_deriv = @closure (Δᵢ, oᵢ, xᵢ) -> Δᵢ * only_derivative(oᵢ, act, xᵢ)
+    return fast_broadcast(only_deriv, Δ, out, x)
 end
 
 # NOTE: The functions below aren't compatible for use with ChainRules.
@@ -67,9 +53,9 @@ end
 
 function __fast_broadcast_fb_impl!(y, f, x, args...)
     if length(y) > THREADING_THRESHOLD
-        @.. thread=true broadcast=true y = f(x, args...)
+        @.. thread=true broadcast=true y=f(x, args...)
     else
-        @.. broadcast=true y = f(x, args...)
+        @.. broadcast=true y=f(x, args...)
     end
 end
 

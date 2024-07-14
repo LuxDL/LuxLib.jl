@@ -25,7 +25,11 @@ function __reduce_sum(::Type{<:LuxCPUDevice}, x::AbstractArray, y::AbstractArray
     end
     return __reduce_sum(Nothing, x, y)
 end
-__reduce_sum(::Type{T}, x::AbstractArray, y::AbstractArray) where {T} = sum!(similar(x), x)
+function __reduce_sum(::Type{T}, x::AbstractArray, y::AbstractArray) where {T}
+    z = similar(x)
+    sum!(z, y)
+    return z
+end
 
 # Simple Operations -- no rrules needed
 @generated _vec(x::T) where {T} = hasmethod(vec, (T,)) ? :(vec(x)) : :x
