@@ -126,7 +126,7 @@ __partial_alpha_dropout(Δ, c) = (1 - c) * Δ
 
 ## Zygote is otherwise type unstable
 function CRC.rrule(::typeof(_alpha_dropout_kernel), noise, p, x, α)
-    _cond = fast_broadcast(>, noise, p)
+    _cond = fast_broadcast(≥, noise, p)
     y = fast_broadcast(ifelse, _cond, x, α)
     _∇alpha_dropout_kernel = @closure Δ -> begin
         ∂x = fast_broadcast(*, Δ, _cond)

@@ -19,7 +19,7 @@ using Random: Random, AbstractRNG, rand!
 using Reexport: @reexport
 using SIMDTypes: SIMDTypes
 using Statistics: Statistics, mean, var
-using UnrolledUtilities: unrolled_any, unrolled_map, unrolled_reduce
+using UnrolledUtilities: unrolled_any, unrolled_all, unrolled_map, unrolled_reduce
 
 @reexport using NNlib
 

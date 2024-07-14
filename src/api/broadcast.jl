@@ -37,6 +37,16 @@ Otherwise, it falls back to allocating a new array.
 
 Since `x` is not guaranteed to be modified inplace, call the function as
 `y = fast_broadcast!!(...)`.
+
+## Performance Considerations
+
+Note that while we attempt to use fast broadcasting in most situations, for the cases not
+listed below we might end up using a slower code path.
+
+  - For any device not satisfying `gpu_device_type(...) <: LuxCPUDevice`, this function is
+    equivalent to vanilla Julia broadcasting.
+  - Threading is used only when the size threshold exceeds `$(THREADING_THRESHOLD)`.
+  - TODO
 """
 @generated function fast_broadcast!!(f::F, x::AbstractArray, args...) where {F <: Function}
     ArrayInterface.can_setindex(x) && :(return fast_broadcast!(f, x, args...))
