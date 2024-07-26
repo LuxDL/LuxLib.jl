@@ -16,14 +16,10 @@ using MLDataDevices: get_device_type, AMDGPUDevice, CUDADevice, CPUDevice,
 using NNlib: NNlib, ConvDims, conv, conv!, relu, gelu, σ, ∇conv_data, ∇conv_filter
 using Octavian: Octavian
 using Random: Random, AbstractRNG, rand!
-using Reexport: @reexport
-using Setfield: @set!
 using StaticArraysCore: StaticArraysCore, StaticArray, StaticVector
 using Statistics: Statistics, mean, var
 using SLEEFPirates: SLEEFPirates
 using UnrolledUtilities: unrolled_any, unrolled_all, unrolled_filter, unrolled_mapreduce
-
-@reexport using NNlib
 
 const CRC = ChainRulesCore
 const KA = KernelAbstractions

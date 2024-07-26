@@ -1,4 +1,6 @@
 @testitem "Activation Functions" tags=[:other_ops] setup=[SharedTestSetup] begin
+    using NNlib
+
     rng = StableRNG(1234)
 
     apply_act(f::F, x) where {F} = sum(abs2, f.(x))
