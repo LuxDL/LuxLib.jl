@@ -1,5 +1,5 @@
 @testsetup module GroupNormSetup
-using LuxLib, LuxTestUtils, Random, Test, Zygote, NNlib
+using LuxLib, LuxTestUtils, Random, Test, Zygote, NNlib, BFloat16s
 
 function _setup_groupnorm(gen_f, aType, T, sz)
     x = gen_f(T, sz) |> aType
@@ -34,20 +34,17 @@ function run_groupnorm_testing(gen_f, T, sz, groups, act, aType, mode, ongpu)
 
     y_simple = _f2(x, scale, bias)
 
-    fp16 = T == Float16
-    atol = fp16 ? 1.0f-2 : 1.0f-3
-    rtol = fp16 ? 1.0f-2 : 1.0f-3
+    atol = 1.0f-3
+    rtol = 1.0f-3
 
     @test y≈y_simple atol=atol rtol=rtol
 
     # Check the rrules
-    if !fp16
-        ∂x, ∂scale, ∂bias = Zygote.gradient(sum ∘ _f, x, scale, bias)
-        ∂x_simple, ∂scale_simple, ∂bias_simple = Zygote.gradient(sum ∘ _f2, x, scale, bias)
-        @test ∂x≈∂x_simple atol=atol rtol=rtol
-        @test ∂scale≈∂scale_simple atol=atol rtol=rtol
-        @test ∂bias≈∂bias_simple atol=atol rtol=rtol
-    end
+    ∂x, ∂scale, ∂bias = Zygote.gradient(sum ∘ _f, x, scale, bias)
+    ∂x_simple, ∂scale_simple, ∂bias_simple = Zygote.gradient(sum ∘ _f2, x, scale, bias)
+    @test ∂x≈∂x_simple atol=atol rtol=rtol
+    @test ∂scale≈∂scale_simple atol=atol rtol=rtol
+    @test ∂bias≈∂bias_simple atol=atol rtol=rtol
 
     @test @inferred(groupnorm(x, scale, bias, groups, act, epsilon)) isa Any
     @jet groupnorm(x, scale, bias, groups, act, epsilon)
@@ -61,11 +58,11 @@ function run_groupnorm_testing(gen_f, T, sz, groups, act, aType, mode, ongpu)
     @test size(y) == sz
 
     __f = (args...) -> sum(groupnorm(args..., groups, act, epsilon))
-    soft_fail = fp16 ? fp16 : [AutoFiniteDiff()]
+    soft_fail = [AutoFiniteDiff()]
     test_gradients(__f, x, scale, bias; atol, rtol, soft_fail)
 end
 
-const ALL_TEST_CONFIGS = Iterators.product([Float16, Float32, Float64],
+const ALL_TEST_CONFIGS = Iterators.product([BFloat16, Float32, Float64],
     ((6, 2), (4, 6, 2), (8, 8, 8, 6, 2), (3, 16, 16, 12, 2),
         (4, 4, 6, 2), (2, 2, 6, 2), (3, 3, 12, 4)),
     (2, 3),

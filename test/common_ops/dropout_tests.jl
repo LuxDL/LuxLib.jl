@@ -2,7 +2,7 @@
     rng = StableRNG(12345)
 
     @testset "$mode" for (mode, aType, ongpu) in MODES
-        @testset "$T: $x_shape" for T in (Float16, Float32, Float64),
+        @testset "$T: $x_shape" for T in (BFloat16, Float32, Float64),
             x_shape in ((2, 3), (2, 2, 3), (2, 2, 3, 1), (2, 2, 1, 3, 1))
 
             x = randn(rng, T, x_shape) |> aType
@@ -26,9 +26,7 @@
             __f = let rng = rng, T = T
                 x -> sum(first(dropout(rng, x, T(0.5), Val(true), T(2), Colon())))
             end
-            test_gradients(__f, x; atol=1.0f-3, rtol=1.0f-3,
-                soft_fail=(T == Float16 ? [AutoFiniteDiff()] : []),
-                broken_backends=(T == Float16 && Sys.iswindows() ? [AutoEnzyme()] : []))
+            test_gradients(__f, x; atol=1.0f-3, rtol=1.0f-3)
 
             y, mask_, rng_ = dropout(rng, x, T(0.5), Val(false), T(2), Colon())
 
@@ -48,7 +46,7 @@ end
     rng = StableRNG(12345)
 
     @testset "$mode" for (mode, aType, ongpu) in MODES
-        @testset "$T: $x_shape" for T in (Float16, Float32, Float64),
+        @testset "$T: $x_shape" for T in (BFloat16, Float32, Float64),
             x_shape in ((2, 3), (2, 2, 3), (2, 2, 3, 1), (2, 2, 1, 3, 1))
 
             x = randn(rng, T, x_shape) |> aType
@@ -76,9 +74,7 @@ end
                 x -> sum(first(dropout(
                     rng, x, mask, T(0.5), Val(true), Val(true), T(2), Colon())))
             end
-            test_gradients(__f, x; atol=1.0f-3, rtol=1.0f-3,
-                soft_fail=(T == Float16 ? [AutoFiniteDiff()] : []),
-                broken_backends=(T == Float16 && Sys.iswindows() ? [AutoEnzyme()] : []))
+            test_gradients(__f, x; atol=1.0f-3, rtol=1.0f-3)
 
             @jet sum(first(dropout(
                 rng, x, mask, T(0.5), Val(true), Val(true), T(2), Colon())))
@@ -106,9 +102,7 @@ end
                 x -> sum(first(dropout(
                     rng, x, mask, T(0.5), Val(true), Val(false), T(2), Colon())))
             end
-            test_gradients(__f, x; atol=1.0f-3, rtol=1.0f-3,
-                soft_fail=(T == Float16 ? [AutoFiniteDiff()] : []),
-                broken_backends=(T == Float16 && Sys.iswindows() ? [AutoEnzyme()] : []))
+            test_gradients(__f, x; atol=1.0f-3, rtol=1.0f-3)
 
             @jet sum(first(dropout(
                 rng, x, mask, T(0.5), Val(true), Val(false), T(2), Colon())))
@@ -137,9 +131,7 @@ end
                 x -> sum(first(dropout(
                     rng, x, mask, T(0.5), Val(true), Val(false), T(2), Colon())))
             end
-            test_gradients(__f, x; atol=1.0f-3, rtol=1.0f-3,
-                soft_fail=(T == Float16 ? [AutoFiniteDiff()] : []),
-                broken_backends=(T == Float16 && Sys.iswindows() ? [AutoEnzyme()] : []))
+            test_gradients(__f, x; atol=1.0f-3, rtol=1.0f-3)
 
             @jet sum(first(dropout(
                 rng, x, mask, T(0.5), Val(true), Val(false), T(2), Colon())))
@@ -165,7 +157,7 @@ end
     rng = StableRNG(12345)
 
     @testset "$mode" for (mode, aType, ongpu) in MODES
-        @testset "$T: $x_shape" for T in (Float16, Float32, Float64),
+        @testset "$T: $x_shape" for T in (BFloat16, Float32, Float64),
             x_shape in ((2, 3), (2, 2, 3), (2, 2, 3, 1), (2, 2, 1, 3, 1))
 
             x = randn(rng, T, x_shape) |> aType
@@ -186,9 +178,7 @@ end
             __f = let rng = rng
                 x -> sum(first(alpha_dropout(rng, x, T(0.5), Val(true))))
             end
-            test_gradients(__f, x; atol=1.0f-3, rtol=1.0f-3,
-                soft_fail=(T == Float16 ? [AutoFiniteDiff()] : []),
-                broken_backends=(T == Float16 && Sys.iswindows() ? [AutoEnzyme()] : []))
+            test_gradients(__f, x; atol=1.0f-3, rtol=1.0f-3)
 
             @jet sum(first(alpha_dropout(rng, x, T(0.5), Val(true))))
             @test @inferred(alpha_dropout(rng, x, T(0.5), Val(false))) isa Any
