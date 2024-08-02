@@ -1,5 +1,5 @@
 @testsetup module InstanceNormSetup
-using LuxLib, LuxTestUtils, Random, Test, Zygote, NNlib
+using LuxLib, LuxTestUtils, Random, Test, Zygote, NNlib, BFloat16s
 
 __is_training(::Val{training}) where {training} = training
 
@@ -21,20 +21,17 @@ function run_instancenorm_testing(gen_f, T, sz, training, act, aType, mode, ongp
 
     y_simple, nt_simple = instancenorm(x, scale, bias, training, act, epsilon)
 
-    fp16 = T == Float16
-    atol = fp16 ? 1.0f-2 : 1.0f-3
-    rtol = fp16 ? 1.0f-2 : 1.0f-3
+    atol = 1.0f-3
+    rtol = 1.0f-3
 
     @test y≈y_simple atol=atol rtol=rtol
 
     # Check the rrules
-    if !fp16
-        ∂x, ∂scale, ∂bias = Zygote.gradient(sum ∘ _f, x, scale, bias)
-        ∂x_simple, ∂scale_simple, ∂bias_simple = Zygote.gradient(sum ∘ _f, x, scale, bias)
-        @test ∂x≈∂x_simple atol=atol rtol=rtol
-        @test ∂scale≈∂scale_simple atol=atol rtol=rtol
-        @test ∂bias≈∂bias_simple atol=atol rtol=rtol
-    end
+    ∂x, ∂scale, ∂bias = Zygote.gradient(sum ∘ _f, x, scale, bias)
+    ∂x_simple, ∂scale_simple, ∂bias_simple = Zygote.gradient(sum ∘ _f, x, scale, bias)
+    @test ∂x≈∂x_simple atol=atol rtol=rtol
+    @test ∂scale≈∂scale_simple atol=atol rtol=rtol
+    @test ∂bias≈∂bias_simple atol=atol rtol=rtol
 
     @test @inferred(instancenorm(x, scale, bias, training, act, epsilon)) isa Any
     @jet instancenorm(x, scale, bias, training, act, epsilon)
@@ -49,13 +46,13 @@ function run_instancenorm_testing(gen_f, T, sz, training, act, aType, mode, ongp
 
     if __is_training(training)
         __f = (args...) -> sum(first(instancenorm(args..., training, act, epsilon)))
-        soft_fail = fp16 ? fp16 : [AutoFiniteDiff()]
+        soft_fail = [AutoFiniteDiff()]
         test_gradients(__f, x, scale, bias; atol, rtol, soft_fail)
     end
 end
 
 const ALL_TEST_CONFIGS = Iterators.product(
-    [Float16, Float32, Float64], ((4, 4, 6, 2), (3, 4, 2), (4, 4, 4, 3, 2)),
+    [BFloat16, Float32, Float64], ((4, 4, 6, 2), (3, 4, 2), (4, 4, 4, 3, 2)),
     (Val(true), Val(false)), (identity, relu, tanh_fast, sigmoid_fast, anonact))
 
 const TEST_BLOCKS = collect(Iterators.partition(

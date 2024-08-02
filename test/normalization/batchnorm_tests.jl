@@ -1,5 +1,5 @@
 @testsetup module BatchNormSetup
-using LuxLib, LuxTestUtils, Random, Test, Zygote, NNlib
+using LuxLib, LuxTestUtils, Random, Test, Zygote, NNlib, BFloat16s
 
 function _setup_batchnorm(gen_f, aType, T, sz; affine::Bool=true, track_stats::Bool)
     x = gen_f(T, sz) |> aType
@@ -41,9 +41,8 @@ function run_batchnorm_testing(
     y_simple, nt_simple = __batchnorm_basic(
         x, scale, bias, rm, rv, training, act, T(0.9), epsilon)
 
-    fp16 = T == Float16
-    atol = fp16 ? 1.0f-2 : 1.0f-3
-    rtol = fp16 ? 1.0f-2 : 1.0f-3
+    atol = 1.0f-3
+    rtol = 1.0f-3
 
     @test y≈y_simple atol=atol rtol=rtol
     if track_stats
@@ -82,22 +81,9 @@ function run_batchnorm_testing(
         skip_backends = []
         act === relu && push!(skip_backends, AutoFiniteDiff())
 
-        soft_fail = if fp16
-            if Sys.iswindows()
-                [AutoTracker(), AutoFiniteDiff(), AutoReverseDiff(), AutoForwardDiff()]
-            else
-                true
-            end
-        else
-            false
-        end
-
-        broken_backends = Sys.iswindows() && fp16 ? [AutoEnzyme()] : []
-
         __f = (args...) -> sum(first(batchnorm(
             args..., rm, rv, training, act, T(0.9), epsilon)))
-        test_gradients(
-            __f, x, scale, bias; atol, rtol, skip_backends, soft_fail, broken_backends)
+        test_gradients(__f, x, scale, bias; atol, rtol, skip_backends)
     end
 
     if anonact !== act
@@ -109,7 +95,7 @@ function run_batchnorm_testing(
 end
 
 const ALL_TEST_CONFIGS = Iterators.product(
-    [Float16, Float32, Float64], ((4, 4, 6, 2), (8, 2), (4, 4, 4, 3, 2)),
+    [BFloat16, Float32, Float64], ((4, 4, 6, 2), (8, 2), (4, 4, 4, 3, 2)),
     (Val(true), Val(false)), (true, false), (true, false),
     (identity, relu, tanh_fast, sigmoid_fast, anonact))
 

@@ -1,5 +1,5 @@
 @testsetup module DenseSetup
-using LuxLib, LuxTestUtils, Random, Test, Zygote, NNlib
+using LuxLib, LuxTestUtils, Random, Test, Zygote, NNlib, BFloat16s
 
 anonact = x -> x^3
 
@@ -25,24 +25,21 @@ function run_dense_testing(gen_f, Tw, Tx, M, N, hasbias, activation, aType, mode
         @test length(@inferred(Zygote.gradient(__f, activation, w, x, bias)))==4 broken=true
     end
 
-    fp16 = Tx == Float16 || Tw == Float16
-    atol = fp16 ? 1.0f-1 : 1.0f-3
-    rtol = fp16 ? 1.0f-1 : 1.0f-3
+    atol = 1.0f-3
+    rtol = 1.0f-3
 
     skip_backends = []
     Tw != Tx && push!(skip_backends, AutoReverseDiff())
-    fp16 && push!(skip_backends, AutoFiniteDiff())
 
     __f_grad = let activation = activation
         (w, x, b) -> __f(activation, w, x, b)
     end
-    test_gradients(__f_grad, w, x, bias; atol, rtol, skip_backends,
-        soft_fail=(fp16 ? [AutoFiniteDiff()] : []))
+    test_gradients(__f_grad, w, x, bias; atol, rtol, skip_backends)
 end
 
 const ALL_TEST_CONFIGS = Iterators.product(
-    ((Float16, Float16), (Float32, Float16), (Float32, Float32),
-        (Float32, Float64), (Float64, Float64)),
+    ((BFloat16, BFloat16), (Float32, BFloat16),
+        (Float32, Float32), (Float32, Float64), (Float64, Float64)),
     (4, 8),
     (4, 8),
     (true, false),

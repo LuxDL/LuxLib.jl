@@ -1,5 +1,5 @@
 @testsetup module ConvSetup
-using LuxLib, LuxTestUtils, Random, Test, Zygote, NNlib
+using LuxLib, LuxTestUtils, Random, Test, Zygote, NNlib, BFloat16s
 
 _expand(N, i::Tuple) = i
 _expand(N, i::Integer) = ntuple(_ -> i, N)
@@ -28,9 +28,8 @@ function run_conv_testing(gen_f::Function, activation, kernel, stride, padding,
 
     y_generic = LuxLib._generic_conv_bias_activation(activation, weight, x, bias, cdims)
 
-    fp16 = Tx == Float16 || Tw == Float16
-    atol = fp16 ? 1.0f-1 : 1.0f-3
-    rtol = fp16 ? 1.0f-1 : 1.0f-3
+    atol = 1.0f-3
+    rtol = 1.0f-3
     # Operation reordering has an effect on the accuracy of the results
     @test y≈y_generic atol=atol rtol=rtol
     @test eltype(y) == promote_type(Tw, Tx)
@@ -61,14 +60,13 @@ function run_conv_testing(gen_f::Function, activation, kernel, stride, padding,
     mp && push!(skip_backends, AutoReverseDiff())
     ((mp && ongpu) || (mode == "amdgpu" && (Tx == Float64 || Tw == Float64))) &&
         push!(skip_backends, AutoTracker())
-    test_gradients(__f_grad, weight, x, bias; atol, rtol, skip_backends,
-        soft_fail=(fp16 ? [AutoFiniteDiff()] : []))
+    test_gradients(__f_grad, weight, x, bias; atol, rtol, skip_backends)
 end
 
 anonact = x -> gelu(x)
 
-const ELTYPES = [(Float16, Float16), (Float32, Float16), (Float32, Float32),
-    (Float32, Float64), (Float64, Float64)]
+const ELTYPES = [(BFloat16, BFloat16), (Float32, BFloat16),
+    (Float32, Float32), (Float32, Float64), (Float64, Float64)]
 const ACTIVATIONS = [
     identity, tanh, tanh_fast, sigmoid, sigmoid_fast, relu, gelu, swish, anonact]
 

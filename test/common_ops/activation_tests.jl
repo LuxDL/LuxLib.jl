@@ -8,7 +8,7 @@
     @testset "$mode" for (mode, aType, ongpu) in MODES
         @testset "$f: $T" for f in [identity, relu, sigmoid, sigmoid_fast, softplus,
                 logsigmoid, gelu, swish, lisht, tanh, tanh_fast],
-            T in [Float16, Float32, Float64]
+            T in [BFloat16, Float32, Float64]
 
             x = rand(rng, T, 4, 3) |> aType
 
@@ -16,9 +16,8 @@
             y2 = apply_act_fast(f, x)
             y3 = apply_act_fast2(f, x)
 
-            fp16 = T == Float16
-            atol = fp16 ? 1.0f-1 : 1.0f-3
-            rtol = fp16 ? 1.0f-1 : 1.0f-3
+            atol = 1.0f-3
+            rtol = 1.0f-3
 
             @test y1≈y2 atol=atol rtol=rtol
             @test y1≈y3 atol=atol rtol=rtol
