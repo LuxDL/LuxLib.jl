@@ -1,5 +1,5 @@
 @testitem "Efficient JVPs" tags=[:others] setup=[SharedTestSetup] begin
-    using ForwardDiff, Zygote, ComponentArrays
+    using ForwardDiff, Zygote, ComponentArrays, NNlib
     using LuxTestUtils: check_approx
 
     # Computes (∂f/∂x)u

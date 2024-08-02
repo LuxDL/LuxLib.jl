@@ -16,14 +16,10 @@ using MLDataDevices: get_device_type, AMDGPUDevice, CUDADevice, CPUDevice,
 using NNlib: NNlib, ConvDims, conv, conv!, relu, gelu, σ, ∇conv_data, ∇conv_filter
 using Octavian: Octavian
 using Random: Random, AbstractRNG, rand!
-using Reexport: @reexport
-using Setfield: @set!
 using StaticArraysCore: StaticArraysCore, StaticArray, StaticVector
 using Statistics: Statistics, mean, var
 using SLEEFPirates: SLEEFPirates
 using UnrolledUtilities: unrolled_any, unrolled_all, unrolled_filter, unrolled_mapreduce
-
-@reexport using NNlib
 
 const CRC = ChainRulesCore
 const KA = KernelAbstractions
@@ -53,8 +49,6 @@ include("impl/fused_conv.jl")
 include("impl/forward_diff.jl")
 include("impl/matmul.jl")
 include("impl/normalization.jl")
-
-include("deprecations.jl")
 
 export batchnorm, groupnorm, instancenorm, layernorm, alpha_dropout, dropout
 export fused_dense_bias_activation, fused_conv_bias_activation
