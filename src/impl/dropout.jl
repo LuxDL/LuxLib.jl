@@ -7,8 +7,8 @@ end
 
 dropout(rng::AbstractRNG, x::AbstractArray, ::T, ::False, ::T, dims) where {T} = (x, x, rng)
 
-function dropout(rng::AbstractRNG, x::AbstractArray, mask::AbstractArray,
-        p::T, training::StaticBool, ::True, invp::T, dims) where {T}
+function dropout(rng::AbstractRNG, x::AbstractArray, ::AbstractArray, p::T,
+        training::StaticBool, ::True, invp::T, dims) where {T}
     return dropout(rng, x, p, training, invp, dims)
 end
 
@@ -140,6 +140,16 @@ function alpha_dropout!(res::AbstractArray, ::LoopedArrayOp, noise::AbstractArra
         end
     end
 end
+
+function alpha_dropout_simd_loop!(
+        res::AbstractArray{T}, ::LoopedArrayOp, noise::AbstractArray{T},
+        p::Real, x::AbstractArray{T}, α::Real, A::Real, B::Real) where {T}
+    @simd ivdep for I in indices((noise, x, res))
+        res[I] = ifelse(noise[I] > p, x[I], α) * A + B
+    end
+end
+
+Utils.@enzyme_reverse_alternative alpha_dropout! alpha_dropout_simd_loop!
 
 dropout_fptype(x) = float(real(Utils.remove_tracking(eltype(x))))
 

@@ -16,7 +16,7 @@ function groupnorm_affine_normalize(
         internal_operation_mode((x, μ, σ², γ, β)), act, x, μ, σ², γ, β, ϵ)
 end
 
-function groupnorm_affine_normalize(
+@stable default_mode="disable" function groupnorm_affine_normalize(
         ::GenericBroadcastOp, act::F, x::AbstractArray{<:Number, N},
         μ::AbstractArray{<:Number, N}, σ²::AbstractArray{<:Number, N},
         γ::Optional{<:AbstractVector}, β::Optional{<:AbstractVector}, ϵ::Real) where {F, N}
@@ -24,15 +24,15 @@ function groupnorm_affine_normalize(
         act, x, μ, σ², reshape_norm_dims(x, γ), reshape_norm_dims(x, β), ϵ)
 end
 
-function groupnorm_affine_normalize(
+@stable default_mode="disable" function groupnorm_affine_normalize(
         opmode::AbstractInternalArrayOpMode, act::F, x::AbstractArray{<:Number, N},
         μ::AbstractArray{<:Number, N}, σ²::AbstractArray{<:Number, N},
         γ::Optional{<:AbstractVector}, β::Optional{<:AbstractVector}, ϵ::Real) where {F, N}
     x′ = reshape(x, :, size(x, N - 2), size(x, N - 1), size(x, N))
     μ′ = reshape(μ, 1, 1, size(x, N - 1), size(x, N))
     σ²′ = reshape(σ², 1, 1, size(x, N - 1), size(x, N))
-    γ′ = Utils.reshape(γ, 1, size(x, N - 2), size(x, N - 1), 1)
-    β′ = Utils.reshape(β, 1, size(x, N - 2), size(x, N - 1), 1)
+    γ′ = get_utils(:reshape)(γ, 1, size(x, N - 2), size(x, N - 1), 1)
+    β′ = get_utils(:reshape)(β, 1, size(x, N - 2), size(x, N - 1), 1)
 
     return reshape(
         groupnorm_affine_normalize_internal(opmode, act, x′, μ′, σ²′, γ′, β′, ϵ), size(x))

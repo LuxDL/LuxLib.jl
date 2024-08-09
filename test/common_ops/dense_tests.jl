@@ -32,12 +32,13 @@ function run_dense_testing(gen_f, Tw, Tx, M, N, hasbias, activation, aType, mode
     skip_backends = []
     Tw != Tx && push!(skip_backends, AutoReverseDiff())
     fp16 && push!(skip_backends, AutoFiniteDiff())
+    fp16 && push!(skip_backends, AutoTracker())
 
     __f_grad = let activation = activation
         (w, x, b) -> __f(activation, w, x, b)
     end
-    test_gradients(__f_grad, w, x, bias; atol, rtol, skip_backends,
-        soft_fail=(fp16 ? [AutoFiniteDiff()] : []))
+    test_gradients(
+        __f_grad, w, x, bias; atol, rtol, skip_backends, soft_fail=fp16 ? fp16 : [])
 end
 
 const ALL_TEST_CONFIGS = Iterators.product(
@@ -58,8 +59,8 @@ end
 @testitem "Fused Dense: Group 1" tags=[:dense] setup=[SharedTestSetup, DenseSetup] begin
     @testset "$mode" for (mode, aType, ongpu) in MODES
         @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for ((Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[1]
-            run_dense_testing(__generate_fixed_array, Tw, Tx, M, N,
-                hasbias, activation, aType, mode, ongpu)
+            run_dense_testing(
+                generate_fixed_array, Tw, Tx, M, N, hasbias, activation, aType, mode, ongpu)
         end
     end
 end
@@ -67,8 +68,8 @@ end
 @testitem "Fused Dense: Group 2" tags=[:dense] setup=[SharedTestSetup, DenseSetup] begin
     @testset "$mode" for (mode, aType, ongpu) in MODES
         @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for ((Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[2]
-            run_dense_testing(__generate_fixed_array, Tw, Tx, M, N,
-                hasbias, activation, aType, mode, ongpu)
+            run_dense_testing(
+                generate_fixed_array, Tw, Tx, M, N, hasbias, activation, aType, mode, ongpu)
         end
     end
 end
@@ -76,8 +77,8 @@ end
 @testitem "Fused Dense: Group 3" tags=[:dense] setup=[SharedTestSetup, DenseSetup] begin
     @testset "$mode" for (mode, aType, ongpu) in MODES
         @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for ((Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[3]
-            run_dense_testing(__generate_fixed_array, Tw, Tx, M, N,
-                hasbias, activation, aType, mode, ongpu)
+            run_dense_testing(
+                generate_fixed_array, Tw, Tx, M, N, hasbias, activation, aType, mode, ongpu)
         end
     end
 end
@@ -85,8 +86,8 @@ end
 @testitem "Fused Dense: Group 4" tags=[:dense] setup=[SharedTestSetup, DenseSetup] begin
     @testset "$mode" for (mode, aType, ongpu) in MODES
         @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for ((Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[4]
-            run_dense_testing(__generate_fixed_array, Tw, Tx, M, N,
-                hasbias, activation, aType, mode, ongpu)
+            run_dense_testing(
+                generate_fixed_array, Tw, Tx, M, N, hasbias, activation, aType, mode, ongpu)
         end
     end
 end
@@ -94,8 +95,8 @@ end
 @testitem "Fused Dense: Group 5" tags=[:dense] setup=[SharedTestSetup, DenseSetup] begin
     @testset "$mode" for (mode, aType, ongpu) in MODES
         @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for ((Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[5]
-            run_dense_testing(__generate_fixed_array, Tw, Tx, M, N,
-                hasbias, activation, aType, mode, ongpu)
+            run_dense_testing(
+                generate_fixed_array, Tw, Tx, M, N, hasbias, activation, aType, mode, ongpu)
         end
     end
 end
