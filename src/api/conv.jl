@@ -1,4 +1,3 @@
-# The cases here are manually split up else Zygote becomes type unstable.
 """
     fused_conv_bias_activation(σ::F, weight::AbstractArray, x::AbstractArray,
         b::Optional{<:AbstractVector}, cdims::ConvDims) where {F}
@@ -31,16 +30,6 @@ and minimizes reallocations by reusing the output buffer for multiple operations
 function fused_conv_bias_activation(
         σ::F, weight::AbstractArray{<:Number, N}, x::AbstractArray{<:Number, N},
         b::Optional{<:AbstractVector}, cdims::ConvDims) where {F, N}
-    return fused_conv_bias_activation(select_fastest_activation(σ, weight, x, b),
-        attempt_fast_implementation((weight, x, b)), weight, x, b, cdims)
-end
-
-for (fast_mode, fop) in (
-    (True, :_fused_conv_bias_activation_impl), (False, :_generic_conv_bias_activation))
-    @eval function fused_conv_bias_activation(
-            σ::F, ::$(fast_mode), weight::AbstractArray{<:Number, N},
-            x::AbstractArray{<:Number, N},
-            b::Optional{<:AbstractVector}, cdims::ConvDims) where {F, N}
-        return $(fop)(σ, weight, x, b, cdims)
-    end
+    σ′ = get_impl(:select_fastest_activation)(σ, weight, x, b)
+    return get_impl(:fused_conv)(σ′, weight, x, b, cdims)
 end

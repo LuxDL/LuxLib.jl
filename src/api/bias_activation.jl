@@ -11,20 +11,12 @@ single last dimension.
   - `x`: Input to be transformed
   - `bias`: Bias to be added. Can be `nothing`.
 
-See also [`bias_activation!!`](@ref), [`fast_activation!!`](@ref).
+See also [`bias_activation!!`](@ref), [`fast_activation`](@ref).
 """
 function bias_activation(σ::F, x::AbstractArray, bias::Optional{<:AbstractVector}) where {F}
-    _bias_act_check(x, bias)
-    return _bias_activation_impl(select_fastest_activation(σ, x, bias),
-        attempt_fast_implementation((x, bias)), x, bias)
-end
-
-for (fast_mode, fop) in (
-    (True, :__bias_activation_impl), (False, :__generic_bias_activation))
-    @eval function _bias_activation_impl(σ::F, ::$(fast_mode), x::AbstractArray,
-            bias::Optional{<:AbstractVector}) where {F}
-        return $(fop)(σ, x, bias)
-    end
+    bias_act_check(x, bias)
+    σ′ = get_impl(:select_fastest_activation)(σ, x, bias)
+    return get_impl(:bias_activation)(σ′, x, bias)
 end
 
 """
@@ -38,21 +30,13 @@ See also [`bias_activation`](@ref), [`fast_activation!!`](@ref).
 """
 function bias_activation!!(
         σ::F, x::AbstractArray, bias::Optional{<:AbstractVector}) where {F}
-    _bias_act_check(x, bias)
-    return _bias_activation_impl!!(select_fastest_activation(σ, x, bias),
-        attempt_fast_implementation((x, bias)), x, bias)
+    bias_act_check(x, bias)
+    σ′ = get_impl(:select_fastest_activation)(σ, x, bias)
+    return get_impl(:bias_activation!!)(σ′, x, bias)
 end
 
-for (fast_mode, fop) in (
-    (True, :__bias_activation_impl!!), (False, :__generic_bias_activation))
-    @eval function _bias_activation_impl!!(σ::F, ::$(fast_mode), x::AbstractArray,
-            bias::Optional{<:AbstractVector}) where {F}
-        return $(fop)(σ, x, bias)
-    end
-end
-
-_bias_act_check(x, b) = nothing
-function _bias_act_check(x::AbstractArray{<:Number, N}, bias::AbstractVector) where {N}
+bias_act_check(_, __) = nothing
+function bias_act_check(x::AbstractArray{<:Number, N}, bias::AbstractVector) where {N}
     if N == 1
         @assert length(bias) == length(x)
     else
@@ -60,4 +44,4 @@ function _bias_act_check(x::AbstractArray{<:Number, N}, bias::AbstractVector) wh
     end
 end
 
-CRC.@non_differentiable _bias_act_check(::Any, ::Any)
+CRC.@non_differentiable bias_act_check(::Any, ::Any)

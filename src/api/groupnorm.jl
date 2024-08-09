@@ -1,5 +1,5 @@
 @doc doc"""
-    groupnorm(x, scale, bias, groups, σ::F=identity,
+    groupnorm(x, scale, bias, groups::Int, σ::F=identity,
         epsilon::Real=eps(eltype(x)) ^ (5 // 7))
 
 Group Normalization. For details see [1].
@@ -30,32 +30,27 @@ The normalized array is returned.
 """
 function groupnorm(x::AbstractArray{<:Real, N}, scale::Optional{<:AbstractVector},
         bias::Optional{<:AbstractVector}, groups::Int, σ::F=identity,
-        epsilon::Real=__default_epsilon(x)) where {F, N}
-    _test_valid_groupnorm_arguments(x, scale, bias, groups)
-
-    sz = size(x)
-    x_reshaped = reshape(x, sz[1:(N - 2)]..., sz[N - 1] ÷ groups, groups, sz[N])
-    x_ = _groupnorm_impl(x_reshaped, scale, bias, _get_groupnorm_reduce_dims(x), epsilon,
-        select_fastest_activation(σ, x, scale, bias, x_reshaped))
-
-    return reshape(x_, sz)
+        epsilon::Real=get_utils(:default_epsilon)(x)) where {F, N}
+    assert_valid_groupnorm_arguments(x, scale, bias, groups)
+    σ′ = get_impl(:select_fastest_activation)(σ, x, scale, bias)
+    return get_impl(:groupnorm)(x, scale, bias, groups, σ′, epsilon)
 end
 
-@generated function _get_groupnorm_reduce_dims(::AbstractArray{T, N}) where {T, N}
-    return :($(static.(Tuple(collect(1:(N - 1))))))
-end
-
-function _test_valid_groupnorm_arguments(
+function assert_valid_groupnorm_arguments(
         x::AbstractArray{T, N}, scale, bias, groups) where {T, N}
-    if scale !== nothing && bias !== nothing && length(scale) != length(bias) != size(x, 3)
-        throw(ArgumentError("Length of `scale` and `bias` must be equal to the number of \
-                             channels (N - 1 dim of the input array)."))
-    end
-    if size(x, N - 1) % groups != 0
-        throw(ArgumentError("Number of channels $(size(x, N - 1)) must be divisible by \
-                             the number of groups $groups."))
-    end
+    @assert length(scale)==length(bias)==size(x, N - 1) "Length of `scale` and `bias` must \
+                                                         be equal to the number of \
+                                                         channels ((N - 1) dim of the \
+                                                         input array)."
+    assert_valid_groupnorm_arguments(x, nothing, nothing, groups)
     return nothing
 end
 
-CRC.@non_differentiable _test_valid_groupnorm_arguments(::Any...)
+function assert_valid_groupnorm_arguments(
+        x::AbstractArray{T, N}, ::Nothing, ::Nothing, groups::Int) where {T, N}
+    @assert size(x, N - 1) % groups==0 "Number of channels $(size(x, N - 1)) must be \
+                                        divisible by the number of groups $groups."
+    return nothing
+end
+
+CRC.@non_differentiable assert_valid_groupnorm_arguments(::Any...)

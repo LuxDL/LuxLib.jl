@@ -1,154 +1,238 @@
-# Wrappers over Base & LinearAlgen implementations to use poly algs if needed
+# Wrappers over Base & LinearAlgebra implementations to use poly algs if needed
 matmuladd(A, B, ::Nothing) = matmul(A, B)
 function matmuladd(A::AbstractMatrix, B::AbstractVector, bias::AbstractVector)
-    return vec(matmuladd(A, reshape(B, :, 1), bias))
+    return matmuladd(A, reshape(B, :, 1), bias)
 end
 function matmuladd(A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
     return matmuladd(internal_operation_mode((A, B, bias)), A, B, bias)
 end
 
-function matmuladd(::AbstractInternalArrayOpMode, A::AbstractMatrix,
-        B::AbstractMatrix, bias::AbstractVector)
+function matmuladd(
+        ::GenericBroadcastOp, A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
     return muladd(A, B, bias)
 end
-function matmuladd(
-        opmode::LoopedArrayOp, A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
-    C = similar(A, promote_type(eltype(A), eltype(B)), size(A, 1), size(B, 2))
+function matmuladd(opmode::AbstractInternalArrayOpMode, A::AbstractMatrix,
+        B::AbstractMatrix, bias::AbstractVector)
+    if size(A, 2) != size(B, 1)
+        throw(DimensionMismatch(lazy"A has shape ($(size(A, 1)), $(size(A, 2))) but B has shape ($(size(B, 1)), $(size(B, 2)))"))
+    end
+    if length(bias) != size(A, 1)
+        throw(DimensionMismatch(lazy"bias has length $(length(bias)) but A has shape ($(size(A, 1)), $(size(A, 2)))"))
+    end
+    C = similar(A, promote_type(eltype(A), eltype(B), eltype(bias)), size(A, 1), size(B, 2))
     matmuladd!(C, opmode, A, B, bias)
     return C
 end
 
-matmuladd!(C, A, B, ::Nothing) = matmul!(C, A, B)
-function matmuladd!(
-        C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
-    matmuladd!(C, internal_operation_mode((A, B, bias)), A, B, bias)
-    return
-end
-function matmuladd!(C::AbstractMatrix, ::AbstractInternalArrayOpMode,
-        A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
-    C .= bias
-    mul!(C, A, B, true, true)
-    return
-end
-function matmuladd!(C::AbstractMatrix, ::LoopedArrayOp, A::AbstractMatrix,
-        B::AbstractMatrix, bias::AbstractVector)
-    dims = (size(C, 1), size(A, 2), size(B, 2))
-    if unrolled_any(≤(2048), dims) &&
-       unrolled_all(≤(10_000), dims) &&
-       LoopVectorization.check_args(C, A, B)
-        __matmuladd_octavian!(C, A, B, bias)
-        return
-    end
-    __matmuladd_generic!(C, A, B, bias)
-    return
-end
-
-function __matmuladd_octavian!(
-        C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
-    # NOTE: Octavian doesn't do size checks.
-    #       See https://github.com/JuliaLinearAlgebra/Octavian.jl/issues/109
+matmul(A::AbstractMatrix, B::AbstractVector) = vec(matmul(A, reshape(B, :, 1)))
+function matmul(A::AbstractMatrix, B::AbstractMatrix)
     if size(A, 2) != size(B, 1)
         throw(DimensionMismatch(lazy"A has shape ($(size(A, 1)), $(size(A, 2))) but B has shape ($(size(B, 1)), $(size(B, 2)))"))
     end
-
-    if length(bias) != size(A, 1)
-        throw(DimensionMismatch(lazy"bias has length $(length(bias)) but A has shape ($(size(A, 1)), $(size(A, 2)))"))
-    end
-
-    Octavian.matmul!(C, A, B)
-    __bias_add_impl!(C, internal_operation_mode((C, bias)), C, bias)
-    return
-end
-
-function __matmuladd_generic!(
-        C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
-    C .= bias
-    mul!(C, A, B, true, true)
-    return
-end
-
-function matmul(A::AbstractMatrix, B::AbstractVector)
-    return vec(matmul(A, reshape(B, :, 1)))
-end
-function matmul(A::AbstractMatrix, B::AbstractMatrix)
     return matmul(internal_operation_mode((A, B)), A, B)
 end
 
-matmul(::AbstractInternalArrayOpMode, A::AbstractMatrix, B::AbstractMatrix) = A * B
-function matmul(opmode::LoopedArrayOp, A::AbstractMatrix, B::AbstractMatrix)
+matmul(::GenericBroadcastOp, A::AbstractMatrix, B::AbstractMatrix) = A * B
+function matmul(::AbstractInternalArrayOpMode, A::AbstractMatrix, B::AbstractMatrix)
     C = similar(A, promote_type(eltype(A), eltype(B)), size(A, 1), size(B, 2))
-    matmul!(C, opmode, A, B)
+    matmul!(C, A, B)
     return C
 end
 
-function matmul!(C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix)
-    matmul!(C, internal_operation_mode((A, B)), A, B)
+# Slightly higher level. Here we make decisions about which implementation to use
+function matmuladd!(C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, ::Nothing)
+    matmul!(C, A, B)
     return
 end
-function matmul!(C::AbstractMatrix, ::AbstractInternalArrayOpMode,
-        A::AbstractMatrix, B::AbstractMatrix)
-    mul!(C, A, B)
+function matmuladd!(
+        C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
+    matmuladd!(C, internal_operation_mode((C, A, B, bias)), A, B, bias)
     return
 end
-function matmul!(C::AbstractMatrix, ::LoopedArrayOp, A::AbstractMatrix, B::AbstractMatrix)
-    dims = (size(C, 1), size(A, 2), size(B, 2))
-    if unrolled_any(≤(2048), dims) &&
-       unrolled_all(≤(10_000), dims) &&
-       LoopVectorization.check_args(C, A, B)
-        __matmul_octavian!(C, A, B)
+
+function matmuladd!(C::AbstractMatrix, ::AbstractInternalArrayOpMode,
+        A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
+    matmuladd_generic!(C, A, B, bias)
+    return
+end
+
+function matmuladd!(C::AbstractMatrix, ::GPUBroadcastOp{CUDADevice},
+        A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
+    cublasLt_fused_dense!(C, identity, A, B, bias)
+    return
+end
+
+function matmuladd!(C::AbstractMatrix, opmode::LoopedArrayOp,
+        A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
+    matmuladd!(C, opmode, System.use_octavian(), A, B, bias)
+    return
+end
+
+function matmuladd!(C::AbstractMatrix, ::LoopedArrayOp, ::False,
+        A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
+    if LV.check_args(C, A, B) &&
+       Utils.unrolled_all(≤(256), (size(C, 1), size(A, 2), size(B, 2)))
+        matmuladd_loopvec!(C, A, B, bias)
         return
     end
-    __matmul_generic!(C, A, B)
+    matmuladd_generic!(C, A, B, bias)
     return
 end
 
-function __matmul_octavian!(C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix)
-    # NOTE: Octavian doesn't do size checks.
-    #       See https://github.com/JuliaLinearAlgebra/Octavian.jl/issues/109
-    if size(A, 2) != size(B, 1)
-        throw(DimensionMismatch(lazy"A has shape ($(size(A, 1)), $(size(A, 2))) but B has shape ($(size(B, 1)), $(size(B, 2)))"))
+function matmuladd!(C::AbstractMatrix, opmode::LoopedArrayOp, ::True,
+        A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
+    if LV.check_args(C, A, B)
+        dims = (size(C, 1), size(A, 2), size(B, 2))
+        if Utils.unrolled_all(≤(256), dims)
+            matmuladd_loopvec!(C, A, B, bias)
+            return
+        elseif Utils.unrolled_any(≤(2048), dims) && Utils.unrolled_all(≤(10_000), dims)
+            matmuladd_octavian!(C, A, B, bias)
+            return
+        end
     end
-    Octavian.matmul!(C, A, B)
+    matmuladd!(C, GenericBroadcastOp(), A, B, bias)
     return
 end
 
-function __matmul_generic!(C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix)
-    mul!(C, A, B)
+function matmul!(C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix)
+    matmul!(C, internal_operation_mode((C, A, B)), A, B)
+    return
+end
+
+function matmul!(C::AbstractMatrix, ::AbstractInternalArrayOpMode,
+        A::AbstractMatrix, B::AbstractMatrix)
+    matmul_generic!(C, A, B, true, false)
+    return
+end
+
+function matmul!(
+        C::AbstractMatrix, opmode::LoopedArrayOp, A::AbstractMatrix, B::AbstractMatrix)
+    return matmul!(C, opmode, System.use_octavian(), A, B)
+end
+
+function matmul!(
+        C::AbstractMatrix, ::LoopedArrayOp, ::True, A::AbstractMatrix, B::AbstractMatrix)
+    dims = (size(C, 1), size(A, 2), size(B, 2))
+    if LV.check_args(C, A, B)
+        if Utils.unrolled_all(≤(16), dims)
+            serial_matmul_loopvec!(C, A, B, true, false)
+            return
+        elseif Utils.unrolled_any(≤(2048), dims) && Utils.unrolled_all(≤(10_000), dims)
+            matmul_octavian!(C, A, B, true, false)
+            return
+        end
+    end
+    matmul_generic!(C, A, B, true, false)
+    return
+end
+
+function matmul!(
+        C::AbstractMatrix, ::LoopedArrayOp, ::False, A::AbstractMatrix, B::AbstractMatrix)
+    if LV.check_args(C, A, B) &&
+       Utils.unrolled_all(≤(256), (size(C, 1), size(A, 2), size(B, 2)))
+        matmul_loopvec!(C, A, B, true, false)
+        return
+    end
+    matmul_generic!(C, A, B, true, false)
+    return
+end
+
+# Low-Level Matmul implementations -- Either call libraries or implement our own
+function matmul_octavian!(
+        C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, α::Number, β::Number)
+    Octavian.matmul!(C, A, B, α, β)
+    return
+end
+
+function matmul_generic!(
+        C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, α::Number, β::Number)
+    mul!(C, A, B, α, β)
+    return
+end
+
+for serial in (true, false)
+    opname = serial ? :serial_matmul_loopvec! : :matmul_loopvec!
+    @eval function $opname(
+            C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, α::Number, β::Number)
+        if !iszero(β) # Secial case this because Base.FastMath.mul_fast(NaN, false) = NaN
+            @turbo thread=$(!serial) for K in indices((C, B), 2), J in indices((C, A), 1)
+                Cⱼₖ = zero(eltype(C))
+                for I in indices((A, B), (2, 1))
+                    Cⱼₖ += A[J, I] * B[I, K]
+                end
+                C[J, K] = α * Cⱼₖ + β * C[J, K]
+            end
+        else
+            @turbo thread=$(!serial) for K in indices((C, B), 2), J in indices((C, A), 1)
+                Cⱼₖ = zero(eltype(C))
+                for I in indices((A, B), (2, 1))
+                    Cⱼₖ += A[J, I] * B[I, K]
+                end
+                C[J, K] = α * Cⱼₖ
+            end
+        end
+    end
+end
+
+function matmuladd_loopvec!(
+        C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
+    @tturbo for K in indices((C, B), 2), J in indices((C, A), 1)
+        Cⱼₖ = zero(eltype(C))
+        for I in indices((A, B), (2, 1))
+            Cⱼₖ += A[J, I] * B[I, K]
+        end
+        C[J, K] = bias[J] + Cⱼₖ
+    end
+    return
+end
+
+function matmuladd_generic!(
+        C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
+    C .= bias
+    matmul_generic!(C, A, B, true, true)
+    return
+end
+
+function matmuladd_octavian!(
+        C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
+    matmul_octavian!(C, A, B, true, false)
+    bias_add!(C, opmode, C, bias)
     return
 end
 
 # ChainRules
-## `matmul`
-function CRC.rrule(
-        ::typeof(matmul), opmode::LoopedArrayOp, A::AbstractMatrix, B::AbstractMatrix)
-    proj_A = CRC.ProjectTo(A)
-    proj_B = CRC.ProjectTo(B)
+function CRC.rrule(::typeof(matmul), A::AbstractMatrix, B::AbstractMatrix)
+    𝒫A = CRC.ProjectTo(A)
+    𝒫B = CRC.ProjectTo(B)
     ∇matmul = @closure Δ -> begin
         Δ_ = CRC.unthunk(Δ)
-        ∂A = CRC.@thunk(proj_A(matmul(opmode, Δ_, B')))
-        ∂B = CRC.@thunk(proj_B(matmul(opmode, A', Δ_)))
-        return ∂∅, ∂∅, ∂A, ∂B
+        ∂A = CRC.@thunk(𝒫A(matmul(Δ_, B')))
+        ∂B = CRC.@thunk(𝒫B(matmul(A', Δ_)))
+        return ∂∅, ∂A, ∂B
     end
-    return matmul(opmode, A, B), ∇matmul
+    return matmul(A, B), ∇matmul
 end
 
-## `matmuladd`
-function CRC.rrule(::typeof(matmuladd), opmode::LoopedArrayOp,
-        A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
-    proj_A = CRC.ProjectTo(A)
-    proj_B = CRC.ProjectTo(B)
-    proj_bias = CRC.ProjectTo(bias)
+function CRC.rrule(
+        ::typeof(matmuladd), A::AbstractMatrix, B::AbstractMatrix, bias::AbstractVector)
+    𝒫A = CRC.ProjectTo(A)
+    𝒫B = CRC.ProjectTo(B)
+    𝒫bias = CRC.ProjectTo(bias)
     ∇matmuladd = @closure Δ -> begin
         Δ_ = CRC.unthunk(Δ)
-        ∂A = CRC.@thunk(proj_A(matmul(opmode, Δ_, B')))
-        ∂B = CRC.@thunk(proj_B(matmul(opmode, A', Δ_)))
-        ∂bias = CRC.@thunk(proj_bias(__added_bias_gradient(bias, Δ_)))
-        return ∂∅, ∂∅, ∂A, ∂B, ∂bias
+        ∂A = CRC.@thunk(𝒫A(matmul(Δ_, B')))
+        ∂B = CRC.@thunk(𝒫B(matmul(A', Δ_)))
+        ∂bias = CRC.@thunk(𝒫bias(∇bias_add(bias, Δ_)))
+        return ∂∅, ∂A, ∂B, ∂bias
     end
-    return matmuladd(opmode, A, B, bias), ∇matmuladd
+    return matmuladd(A, B, bias), ∇matmuladd
 end
 
 # EnzymeRules
-@enzyme_reverse_alternative __matmul_octavian! __matmul_generic!
+Utils.@enzyme_reverse_alternative matmul_octavian! matmul_generic!
+Utils.@enzyme_reverse_alternative serial_matmul_loopvec! matmul_generic!
+Utils.@enzyme_reverse_alternative matmul_loopvec! matmul_generic!
 
-@enzyme_reverse_alternative __matmuladd_octavian! __matmuladd_generic!
+Utils.@enzyme_reverse_alternative matmuladd_octavian! matmuladd_generic!
+Utils.@enzyme_reverse_alternative matmuladd_loopvec! matmuladd_generic!

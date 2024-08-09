@@ -31,11 +31,9 @@ Normalized Array of same size as `x`.
 [1] Ba, Jimmy Lei, Jamie Ryan Kiros, and Geoffrey E. Hinton. "Layer normalization." arXiv
     preprint arXiv:1607.06450 (2016).
 """
-function layernorm(
-        x::AbstractArray{<:Number, N}, scale::Optional{<:AbstractArray{<:Number, N}},
-        bias::Optional{<:AbstractArray{<:Number, N}}, σ::F=identity,
-        dims=Colon(), epsilon::Real=__default_epsilon(x)) where {N, F}
-    μ, σ² = fast_mean_var(x; dims, corrected=false)
-    return _affine_normalize(
-        select_fastest_activation(σ, x, scale, bias), x, μ, σ², scale, bias, epsilon)
+function layernorm(x::AbstractArray{<:Number}, scale::Optional{<:AbstractArray{<:Number}},
+        bias::Optional{<:AbstractArray{<:Number}}, σ::F=identity,
+        dims=Colon(), epsilon::Real=get_utils(:default_epsilon)(x)) where {F}
+    σ′ = get_impl(:select_fastest_activation)(σ, x, scale, bias)
+    return get_impl(:layernorm)(x, scale, bias, σ′, dims, epsilon)
 end

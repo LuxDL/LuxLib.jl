@@ -1,4 +1,3 @@
-# The cases here are manually split up else Zygote becomes type unstable.
 """
     fused_dense_bias_activation(σ::F, weight::AbstractMatrix, x::AbstractMatrix,
         b::Optional{<:AbstractVector}) where {F}
@@ -22,18 +21,12 @@ multiple operations.
     backends or backends that support mutation. Backends like `Tracker` and `ReverseDiff`
     fallback to the generic implementation.
   - For CUDA Arrays, this uses a special fused implementation via cuBLASLt.
-  - For small CPU Arrays, we use LoopVectorization.jl.
+  - For small CPU Arrays, we use LoopVectorization.jl. On `x86_64` we use Octavian for
+    medium sized matrices. This is overridden if special BLAS implementations are loaded
+    (currently `MKL`, `AppleAccelerate`, and `BLISBLAS`).
 """
 function fused_dense_bias_activation(σ::F, weight::AbstractMatrix, x::AbstractMatrix,
         b::Optional{<:AbstractVector}) where {F}
-    return fused_dense_bias_activation(select_fastest_activation(σ, weight, x, b),
-        attempt_fast_implementation((weight, x, b)), weight, x, b)
-end
-
-for (fast_mode, fop) in (
-    (True, :__fused_dense_bias_activation_impl), (False, :__generic_dense_bias_activation))
-    @eval function fused_dense_bias_activation(σ::F, ::$(fast_mode), weight::AbstractMatrix,
-            x::AbstractMatrix, b::Optional{<:AbstractVector}) where {F}
-        return $(fop)(σ, weight, x, b)
-    end
+    σ′ = get_impl(:select_fastest_activation)(σ, weight, x, b)
+    return get_impl(:fused_dense)(σ′, weight, x, b)
 end

@@ -1,114 +1,100 @@
-function __batched_matmul_impl(
-        ::False, ::Type, A::AbstractArray{<:Any, 3}, B::AbstractArray{<:Any, 3})
-    return batched_mul(A, B)  # Simple fallback to NNlib version
+# Entry Point
+function batched_matmul(x::AbstractArray{<:Number, 3}, y::AbstractArray{<:Number, 3})
+    return batched_matmul(internal_operation_mode((x, y)), x, y)
 end
 
-function __batched_matmul_impl(::True, ::Type{<:AbstractGPUDevice},
-        A::AbstractArray{<:Any, 3}, B::AbstractArray{<:Any, 3})
-    return batched_mul(A, B)  # GPU versions are well optimized
+function batched_matmul(
+        ::GenericBroadcastOp, x::AbstractArray{<:Number, 3}, y::AbstractArray{<:Number, 3})
+    return NNlib.batched_mul(x, y)
 end
 
-function __batched_matmul_impl(::True, ::Type{AMDGPUDevice}, A::AbstractArray{<:Complex, 3},
-        B::AbstractArray{<:Complex, 3})
+function batched_matmul(::GPUBroadcastOp{<:AbstractGPUDevice},
+        x::AbstractArray{<:Number, 3}, y::AbstractArray{<:Number, 3})
+    return NNlib.batched_mul(x, y)  # GPU versions are well optimized
+end
+
+function batched_matmul(::GPUBroadcastOp{AMDGPUDevice},
+        x::AbstractArray{<:Number, 3}, y::AbstractArray{<:Number, 3})
     @warn "Using fallback implementation of `batched_matmul` for complex numbers on \
            AMDGPUDevice" maxlog=1
-    @assert size(A, 3) == size(B, 3) || size(A, 3) == 1 || size(B, 3) == 1
-    size(A, 3) == size(B, 3) && return stack(*, batchview(A), batchview(B))
-    size(A, 2) == 1 && stack(map(Base.Fix1(*, batchview(A, 1)), batchview(B)))
-    return stack(map(Base.Fix2(*, batchview(B, 1)), batchview(A)))
+    @assert size(x, 3) == size(y, 3) || size(x, 3) == 1 || size(y, 3) == 1
+    size(x, 3) == size(y, 3) && return stack(*, Utils.batchview(x), Utils.batchview(y))
+    size(x, 2) == 1 && stack(map(Base.Fix1(*, Utils.batchview(x, 1)), Utils.batchview(y)))
+    return stack(map(Base.Fix2(*, Utils.batchview(y, 1)), Utils.batchview(x)))
 end
 
-function __batched_matmul_impl(
-        ::True, ::Type{CPUDevice}, A::AbstractArray{<:Any, 3}, B::AbstractArray{<:Any, 3})
-    if (size(A, 3) != size(B, 3) && size(A, 3) != 1 && size(B, 3) != 1) ||
-       (size(A, 2) != size(B, 1))
-        throw(DimensionMismatch(lazy"size(A) = $(size(A)), size(B) = $(size(B)) inconsistent for batched_matmul."))
+function batched_matmul(
+        opmode::LoopedArrayOp, x::AbstractArray{<:Number, 3}, y::AbstractArray{<:Number, 3})
+    if (size(x, 3) != size(y, 3) && size(x, 3) != 1 && size(y, 3) != 1) ||
+       (size(x, 2) != size(y, 1))
+        throw(DimensionMismatch(lazy"size(x) = $(size(x)), size(y) = $(size(y)) inconsistent for batched_matmul."))
     end
-    C = similar(A, promote_type(eltype(A), eltype(B)), size(A, 1),
-        size(B, 2), max(size(A, 3), size(B, 3)))
-    __batched_matmul_impl!(C, internal_operation_mode((C, A, B)), A, B)
-    return C
+    z = similar(x, promote_type(eltype(x), eltype(y)), size(x, 1),
+        size(y, 2), max(size(x, 3), size(y, 3)))
+    batched_matmul!(z, opmode, x, y)
+    return z
 end
 
-function __batched_matmul_impl!(C::AbstractArray{<:Any, 3}, ::AbstractInternalArrayOpMode,
-        A::AbstractArray{<:Any, 3}, B::AbstractArray{<:Any, 3})
-    batched_mul!(C, A, B)
+function batched_matmul!(z::AbstractArray{<:Number, 3}, ::AbstractInternalArrayOpMode,
+        x::AbstractArray{<:Number, 3}, y::AbstractArray{<:Number, 3})
+    batched_mul!(z, x, y)
     return
 end
 
-function __batched_matmul_impl!(C::AbstractArray{<:Any, 3}, ::LoopedArrayOp,
-        A::AbstractArray{<:Any, 3}, B::AbstractArray{<:Any, 3})
-    if !LoopVectorization.check_args(batchview(C, 1), batchview(A, 1), batchview(B, 1))
-        batched_mul!(C, A, B)
+function batched_matmul!(z::AbstractArray{<:Number, 3}, ::LoopedArrayOp,
+        x::AbstractArray{<:Number, 3}, y::AbstractArray{<:Number, 3})
+    if !LV.check_args(
+        Utils.batchview(z, 1), Utils.batchview(x, 1), Utils.batchview(y, 1)) ||
+       Utils.known(System.explicit_blas_loaded())
+        NNlib.batched_mul!(z, x, y)
         return
     end
-    __batched_matmul_loopvec_impl!(C, A, B)
+    batched_matmul_loopvec_impl!(z, x, y)
     return
 end
 
-function __batched_matmul_loopvec_impl!(
-        C::AbstractArray{<:Any, 3}, A::AbstractArray{<:Any, 3},
-        B::AbstractArray{<:Any, 3}, α::Number=true, β::Number=false)
-    if size(A, 3) == size(B, 3)
-        @batch for L in indices((C, A, B), 3)
-            __serial_loopvec_matmul!(
-                batchview(C, L), batchview(A, L), batchview(B, L), α, β)
+function batched_matmul_loopvec_impl!(
+        z::AbstractArray{<:Number, 3}, x::AbstractArray{<:Number, 3},
+        y::AbstractArray{<:Number, 3}, α::Number=true, β::Number=false)
+    if size(x, 3) == size(y, 3)
+        @batch for L in indices((z, x, y), 3)
+            serial_matmul_loopvec!(
+                Utils.batchview(z, L), Utils.batchview(x, L), Utils.batchview(y, L), α, β)
         end
-    elseif size(A, 3) == 1
-        @batch for L in indices((C, B), 3)
-            __serial_loopvec_matmul!(
-                batchview(C, L), batchview(A, 1), batchview(B, L), α, β)
+    elseif size(x, 3) == 1
+        @batch for L in indices((z, y), 3)
+            serial_matmul_loopvec!(
+                Utils.batchview(z, L), Utils.batchview(x, 1), Utils.batchview(y, L), α, β)
         end
-    else # has to be size(B, 3) == 1
-        @batch for L in indices((C, A), 3)
-            __serial_loopvec_matmul!(
-                batchview(C, L), batchview(A, L), batchview(B, 1), α, β)
-        end
-    end
-end
-
-function __serial_loopvec_matmul!(
-        C::AbstractMatrix, A::AbstractMatrix, B::AbstractMatrix, α::Number, β::Number)
-    if !iszero(β) # Secial case this because Base.FastMath.mul_fast(NaN, false) = NaN
-        @turbo for K in indices((C, B), 2), J in indices((C, A), 1)
-            Cⱼₖ = zero(eltype(C))
-            for I in indices((A, B), (2, 1))
-                Cⱼₖ += A[J, I] * B[I, K]
-            end
-            C[J, K] = α * Cⱼₖ + β * C[J, K]
-        end
-    else
-        @turbo for K in indices((C, B), 2), J in indices((C, A), 1)
-            Cⱼₖ = zero(eltype(C))
-            for I in indices((A, B), (2, 1))
-                Cⱼₖ += A[J, I] * B[I, K]
-            end
-            C[J, K] = α * Cⱼₖ
+    else # has to be size(y, 3) == 1
+        @batch for L in indices((z, x), 3)
+            serial_matmul_loopvec!(
+                Utils.batchview(z, L), Utils.batchview(x, L), Utils.batchview(y, 1), α, β)
         end
     end
 end
 
-function CRC.rrule(
-        ::typeof(batched_matmul), A::AbstractArray{<:Any, 3}, B::AbstractArray{<:Any, 3})
-    function ∇batched_matmul(_Δ)
-        Δ = CRC.unthunk(_Δ)
-        ∂A = CRC.@thunk begin
-            tmp = batched_matmul(Δ, batched_adjoint(B))
-            size(A, 3) == 1 ? sum(tmp; dims=3) : tmp
+function CRC.rrule(::typeof(batched_matmul), x::AbstractArray{<:Number, 3},
+        y::AbstractArray{<:Number, 3})
+    ∇batched_matmul = @closure Δ_ -> begin
+        Δ = CRC.unthunk(Δ_)
+        ∂x = CRC.@thunk begin
+            tmp = batched_matmul(Δ, NNlib.batched_adjoint(y))
+            size(x, 3) == 1 ? sum(tmp; dims=3) : tmp
         end
-        ∂B = CRC.@thunk begin
-            tmp = batched_matmul(batched_adjoint(A), Δ)
-            size(B, 3) == 1 ? sum(tmp; dims=3) : tmp
+        ∂y = CRC.@thunk begin
+            tmp = batched_matmul(NNlib.batched_adjoint(x), Δ)
+            size(y, 3) == 1 ? sum(tmp; dims=3) : tmp
         end
-        return ∂∅, ∂A, ∂B
+        return ∂∅, ∂x, ∂y
     end
-    return batched_matmul(A, B), ∇batched_matmul
+    return batched_matmul(x, y), ∇batched_matmul
 end
 
 # This is type-piracy but needed to fix a blocking issue. TODO: upstream to NNlib
 # Enzyme causes a "active variables passed by value to jl_new_task are not yet supported"
 # warning without this patch.
-for func in (NNlib.batched_mul!, __batched_matmul_loopvec_impl!)
+for func in (NNlib.batched_mul!, batched_matmul_loopvec_impl!)
     @eval begin
         function EnzymeRules.augmented_primal(
                 cfg::EnzymeRules.ConfigWidth, ::EnzymeCore.Const{typeof($(func))},
@@ -169,9 +155,10 @@ for func in (NNlib.batched_mul!, __batched_matmul_loopvec_impl!)
                     if !(typeof(A) <: EnzymeCore.Const) && dA !== A.val
                         if size(dA, 3) == 1 && size(B.val, 3) != 1
                             B′ = NNlib.batched_adjoint(B.val)
-                            dA′ = batchview(dA, 1)
+                            dA′ = Utils.batchview(dA, 1)
                             for L in indices(B′, 3)
-                                mul!(dA′, batchview(dC, L), batchview(B′, L), true, true)
+                                mul!(dA′, Utils.batchview(dC, L),
+                                    Utils.batchview(B′, L), true, true)
                             end
                         else
                             $(func)(dA, dC, NNlib.batched_adjoint(B.val), true, true)
@@ -181,9 +168,10 @@ for func in (NNlib.batched_mul!, __batched_matmul_loopvec_impl!)
                     if !(typeof(B) <: EnzymeCore.Const) && dB !== B.val
                         if size(dB, 3) == 1 && size(A.val, 3) != 1
                             A′ = NNlib.batched_adjoint(A.val)
-                            dB′ = batchview(dB, 1)
+                            dB′ = Utils.batchview(dB, 1)
                             for L in indices(A′, 3)
-                                mul!(dB′, batchview(A′, L), batchview(dC, L), true, true)
+                                mul!(dB′, Utils.batchview(A′, L),
+                                    Utils.batchview(dC, L), true, true)
                             end
                         else
                             $(func)(dB, NNlib.batched_adjoint(A.val), dC, true, true)

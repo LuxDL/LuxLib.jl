@@ -1,4 +1,4 @@
-@doc doc"""
+"""
     dropout(rng::AbstractRNG, x, p, training::Union{Val, StaticBool}, invp, dims)
     dropout(rng::AbstractRNG, x, mask, p, training::Union{Val, StaticBool},
         update_mask::Union{Val, StaticBool}, invp, dims)
@@ -26,49 +26,18 @@ Dropout: Simple Way to prevent Neural Networks for Overfitting. For details see 
 ## References
 
 [1] Srivastava, Nitish, et al. "Dropout: a simple way to prevent neural networks from
-    overfitting." The journal of machine learning research 15.1 (2014): 1929-1958.
+overfitting." The journal of machine learning research 15.1 (2014): 1929-1958.
 """
-function dropout(
-        rng::AbstractRNG, x::AbstractArray, p::T, training, invp::T, dims) where {T}
-    return dropout(rng, x, p, static(training), invp, dims)
-end
-
-function dropout(rng::AbstractRNG, x::AbstractArray, p::T, ::True, invp::T, dims) where {T}
-    mask, rng_new = _generate_dropout_mask(rng, x, p, invp; dims)
-    return __dropout_dot_mul(x, mask), mask, rng_new
-end
-
-function dropout(rng::AbstractRNG, x::AbstractArray, ::T, ::False, ::T, dims) where {T}
-    return (x, x, rng)
+function dropout(rng::AbstractRNG, x::AbstractArray, p::T,
+        training::Union{Val, StaticBool}, invp::T, dims) where {T}
+    return get_impl(:dropout)(rng, x, p, static(training), invp, dims)
 end
 
 function dropout(rng::AbstractRNG, x::AbstractArray, mask::AbstractArray,
-        p::T, update_mask, training, invp::T, dims) where {T}
-    return dropout(rng, x, mask, p, static(update_mask), static(training), invp, dims)
-end
-
-function dropout(rng::AbstractRNG, x::AbstractArray, ::AbstractArray, p::T,
-        training::StaticBool, ::True, invp::T, dims) where {T}
-    return dropout(rng, x, p, training, invp, dims)
-end
-
-function dropout(rng::AbstractRNG, x::AbstractArray{T1, N}, mask::AbstractArray{T2, N},
-        p::T, ::True, ::False, invp::T, dims) where {T, T1, T2, N}
-    if _dropout_shape(x, dims) != size(mask)
-        __depwarn("`update_mask` is `Val(false)` but `mask` is not of the same size as \
-                   `LuxLib._dropout_shape(x, dims)`. This has been deprecated and will be \
-                   removed in the next release. Set `update_mask` to `Val(true)` to \
-                   avoid this.",
-            :dropout)
-        mask, rng_new = _generate_dropout_mask(rng, x, p, invp; dims)
-        return __dropout_dot_mul(x, mask), mask, rng_new
-    end
-    return __dropout_dot_mul(x, mask), mask, rng
-end
-
-function dropout(rng::AbstractRNG, x::AbstractArray{T1, N}, mask::AbstractArray{T2, N},
-        ::T, ::False, ::False, invp::T, dims) where {T, T1, T2, N}
-    return (x, mask, rng)
+        p::T, training::Union{Val, StaticBool},
+        update_mask::Union{Val, StaticBool}, invp::T, dims) where {T}
+    return get_impl(:dropout)(
+        rng, x, mask, p, static(training), static(update_mask), invp, dims)
 end
 
 """
@@ -100,30 +69,12 @@ for a fixed dropout probability.
 [1] Klambauer, Günter, et al. "Self-normalizing neural networks." Advances in neural
 information processing systems 30 (2017).
 """
-function alpha_dropout(rng::AbstractRNG, x::AbstractArray, p, training)
-    return alpha_dropout(rng, x, p, static(training))
+function alpha_dropout(
+        rng::AbstractRNG, x::AbstractArray, p, training::Union{Val, StaticBool})
+    return get_impl(:alpha_dropout)(rng, x, p, static(training))
 end
 
-function alpha_dropout(rng::AbstractRNG, x::AbstractArray{T}, p, training::True) where {T}
-    α = T(-1.7580993408473766)
-    A = T(inv(sqrt((1 - p) * (1 + p * α^2))))
-    B = T(-A * α * p)
-    return alpha_dropout(rng, x, p, training, α, A, B)
-end
-
-function alpha_dropout(rng::AbstractRNG, x::AbstractArray, p, training::False)
-    return alpha_dropout(rng, x, p, training, 0, 0, 0)
-end
-
-function alpha_dropout(rng::AbstractRNG, x::AbstractArray, p, training, α, A, B)
-    return alpha_dropout(rng, x, p, static(training), α, A, B)
-end
-
-function alpha_dropout(rng::AbstractRNG, x::AbstractArray, p, ::True, α, A, B)
-    noise, rng = _alpha_dropout_noise(rng, x)
-    return _alpha_dropout_kernel(noise, p, x, α, A, B), rng
-end
-
-function alpha_dropout(rng::AbstractRNG, x::AbstractArray, p, ::False, α, A, B)
-    return (x, rng)
+function alpha_dropout(
+        rng::AbstractRNG, x::AbstractArray, p, training::Union{Val, StaticBool}, α, A, B)
+    return get_impl(:alpha_dropout)(rng, x, p, static(training), α, A, B)
 end

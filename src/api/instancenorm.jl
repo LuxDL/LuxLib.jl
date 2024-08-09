@@ -28,25 +28,21 @@ mean and variance.
 [1] Ulyanov, Dmitry, Andrea Vedaldi, and Victor Lempitsky. "Instance normalization: The
     missing ingredient for fast stylization." arXiv preprint arXiv:1607.08022 (2016).
 """
-function instancenorm(x::AbstractArray{<:Real, N}, scale::Optional{<:AbstractVector},
-        bias::Optional{<:AbstractVector}, training::Union{Val, StaticBool},
-        σ::F=identity, epsilon::Real=__default_epsilon(x)) where {N, F}
-    _test_valid_instancenorm_arguments(x)
+function instancenorm(x::AbstractArray, scale::Optional{<:AbstractVector},
+        bias::Optional{<:AbstractVector}, training::Union{Val, StaticBool}=Val(false),
+        σ::F=identity, epsilon::Real=get_utils(:default_epsilon)(x)) where {F}
+    assert_valid_instancenorm_arguments(x)
 
-    x_, xm, xv = _normalization(
-        x, nothing, nothing, scale, bias, _get_instancenorm_reduce_dims(x),
-        static(training), nothing, epsilon, select_fastest_activation(σ, x, scale, bias))
+    σ′ = get_impl(:select_fastest_activation)(σ, x, scale, bias)
+    y, xμ, xσ² = get_impl(:instancenorm)(
+        x, nothing, nothing, scale, bias, static(training), nothing, epsilon, σ′)
 
-    return x_, (; running_mean=xm, running_var=xv)
+    return y, (; running_mean=xμ, running_var=xσ²)
 end
 
-@generated function _get_instancenorm_reduce_dims(::AbstractArray{T, N}) where {T, N}
-    return :($(static.(Tuple([1:(N - 2)]...))))
-end
-
-function _test_valid_instancenorm_arguments(::AbstractArray{T, N}) where {T, N}
-    N > 2 || throw(ArgumentError("`ndims(x) = $(N)` must be at least > 2."))
+function assert_valid_instancenorm_arguments(::AbstractArray{T, N}) where {T, N}
+    @assert N>2 "`ndims(x) = $(N)` must be at least > 2."
     return nothing
 end
 
-CRC.@non_differentiable _test_valid_instancenorm_arguments(::Any...)
+CRC.@non_differentiable assert_valid_instancenorm_arguments(::Any...)

@@ -26,48 +26,21 @@ accordingly.
 Normalized Array of same size as `x`. And a Named Tuple containing the updated running
 mean and variance.
 
-## Performance Considerations
-
-If the input array is `2D`, `4D`, or `5D` `CuArray` with element types `Float16`, `Float32`
-and `Float64`, then the CUDNN code path will be used. In all other cases, a broadcasting
-fallback is used which is not highly optimized.
-
 ## References
 
 [1] Ioffe, Sergey, and Christian Szegedy. "Batch normalization: Accelerating deep network
     training by reducing internal covariate shift." International conference on machine
     learning. PMLR, 2015.
 """
-function batchnorm(x::AbstractArray{<:Real, N}, scale::Optional{<:AbstractVector},
-        bias::Optional{<:AbstractVector}, running_mean::Optional{<:AbstractVector},
-        running_var::Optional{<:AbstractVector},
-        training::Union{Val, StaticBool}, σ::F=identity,
-        momentum::Real=0.1f0, epsilon::Real=__default_epsilon(x)) where {F, N}
-    x_, xm, xv = _batchnorm_impl(
-        x, remove_tracking(running_mean), remove_tracking(running_var), scale,
-        bias, _get_batchnorm_reduce_dims(x), static(training), momentum, epsilon,
-        select_fastest_activation(σ, x, scale, bias, running_mean, running_var))
-    return (x_, (; running_mean=remove_tracking(xm), running_var=remove_tracking(xv)))
+function batchnorm(x::AbstractArray{T, N}, γ::Optional{<:AbstractVector},
+        β::Optional{<:AbstractVector}, rμ::Optional{<:AbstractVector},
+        rσ²::Optional{<:AbstractVector}, training::Union{Val, StaticBool},
+        act::F=identity, momentum::Real=0.1f0,
+        epsilon::Real=get_utils(:default_epsilon)(x)) where {F, T, N}
+    σ = get_impl(:select_fastest_activation)(act, x, γ, β, rμ, rσ²)
+    y, rμ, rσ² = get_impl(:batchnorm)(
+        x, γ, β, rμ, rσ², static(training), σ, momentum, epsilon)
+    return (y,
+        (; running_mean=get_utils(:remove_tracking)(rμ),
+            running_var=get_utils(:remove_tracking)(rσ²)))
 end
-
-@generated function _get_batchnorm_reduce_dims(::AbstractArray{T, N}) where {T, N}
-    return :($(static.(Tuple(collect([1:(N - 2); N])))))
-end
-
-# Currently used only in cuDNN
-function _get_batchnorm_statistics(x, running_mean, running_var, ::True)
-    return _copy_autodiff_barrier(running_mean), _copy_autodiff_barrier(running_var)
-end
-
-function _get_batchnorm_statistics(
-        x::AbstractArray{T, N}, running_mean, running_var, ::False) where {T, N}
-    dims = collect([1:(N - 2); N])
-    @assert !((running_mean === nothing) ⊻ (running_var === nothing))
-    running_mean === nothing && return fast_mean_var(x; dims, corrected=false)
-    return running_mean, running_var
-end
-
-CRC.@non_differentiable _get_batchnorm_statistics(::Any...)
-
-function batchnorm_cudnn end
-function ∇batchnorm_cudnn end

@@ -1,31 +1,97 @@
-# Used inside rrules
-__activation_gradient(Δ, out, ::typeof(identity), x) = Δ
-function __activation_gradient(Δ, out, act::F, x) where {F}
-    opmode = internal_operation_mode((Δ, out))
-    if opmode isa LoopedArrayOp  # All sizes are same
-        y = similar(out)
-        if x isa NotaNumber
-            @simd ivdep for i in eachindex(Δ, out)
-                @inbounds y[i] = only_derivative(out[i], act, x) * Δ[i]
-            end
-        else
-            @simd ivdep for I in eachindex(Δ, out, x)
-                @inbounds y[I] = only_derivative(out[I], act, x[I]) * Δ[I]
-            end
-        end
-        return y
-    end
-    only_deriv = @closure (Δᵢ, oᵢ, xᵢ) -> Δᵢ * only_derivative(oᵢ, act, xᵢ)
-    return broadcast(only_deriv, Δ, out, x)
+# Entry Points
+function activation!!(σ::F, x::AbstractArray) where {F}
+    return activation!!(internal_operation_mode(x), Traits.is_mutable_array(x), σ, x)
 end
 
-function _fast_activation!(opmode, y::AbstractArray, σ::F, x::AbstractArray) where {F}
+activation!(::typeof(identity), ::AbstractArray) = nothing
+function activation!(σ::F, x::AbstractArray) where {F}
+    activation!(x, internal_operation_mode(x), σ, x)
+    return nothing
+end
+
+activation(::typeof(identity), x::AbstractArray) = x
+activation(σ::F, x::AbstractArray) where {F} = activation(internal_operation_mode(x), σ, x)
+
+# Core Implementation
+function activation!!(
+        opmode::AbstractInternalArrayOpMode, ::False, σ::F, x::AbstractArray) where {F}
+    return activation(opmode, σ, x)
+end
+@stable default_mode="disable" function activation!!(
+        opmode::AbstractInternalArrayOpMode, ::True, σ::F, x::AbstractArray) where {F}
+    activation!(x, opmode, σ, x)
+    return x
+end
+
+function CRC.rrule(cfg::RuleConfig{>:HasReverseMode}, ::typeof(activation!!),
+        opmode::AbstractInternalArrayOpMode, ::True,
+        σ::F, x::AbstractArray{T}) where {F, T}
+    if Utils.known(Traits.activation_intermediate_not_needed(σ, T))
+        activation!(x, opmode, σ, x)
+        𝒫x_no_intermediate = CRC.ProjectTo(x)
+        ∇activation_no_intermediate_rrule = @closure Δ -> begin
+            ∂x = ∇activation(CRC.unthunk(Δ), x, σ, Utils.NotaNumber())
+            return ∂∅, ∂∅, ∂∅, ∂∅, 𝒫x_no_intermediate(∂x)
+        end
+        return x, ∇activation_no_intermediate_rrule
+    end
+
+    if Utils.known(Traits.activation_has_rrule(σ, T))
+        y = activation(opmode, σ, x)
+        𝓟x_cached = CRC.ProjectTo(x)
+        ∇activation_rrule = @closure Δ -> begin
+            ∂x = ∇activation(CRC.unthunk(Δ), y, σ, x)
+            return ∂∅, ∂∅, ∂∅, ∂∅, 𝓟x_cached(∂x)
+        end
+        return y, ∇activation_rrule
+    end
+
+    res, ∇activation_from_ad = CRC.rrule_via_ad(cfg, activation, opmode, σ, x)
+    ∇activation_fallback = @closure Δ -> begin
+        _, ∂opmode, ∂σ, ∂x = ∇activation_from_ad(Δ)
+        return ∂∅, ∂opmode, ∂∅, ∂σ, ∂x
+    end
+    return res, ∇activation_fallback
+end
+
+function activation(::AbstractInternalArrayOpMode, σ::F, x::AbstractArray) where {F}
+    return broadcast(σ, x)
+end
+@stable default_mode="disable" function activation(
+        opmode::LoopedArrayOp, σ::F, x::AbstractArray{T}) where {F, T}
+    RT = Core.Compiler._return_type(σ, Tuple{T})
+    y = similar(x, ifelse(isconcretetype(RT), RT, T))
+    activation!(y, opmode, σ, x)
+    return y
+end
+
+function CRC.rrule(cfg::RuleConfig{>:HasReverseMode}, ::typeof(activation),
+        opmode::LoopedArrayOp, σ::F, x::AbstractArray{T}) where {F, T}
+    if Utils.known(Traits.activation_has_rrule(σ, T))
+        y = activation(opmode, σ, x)
+        𝓟x = CRC.ProjectTo(x)
+        ∇activation_rrule = @closure Δ -> begin
+            ∂x = ∇activation(CRC.unthunk(Δ), y, σ, x)
+            return ∂∅, ∂∅, ∂∅, 𝓟x(∂x)
+        end
+        return y, ∇activation_rrule
+    end
+
+    z, ∇broadcast = CRC.rrule_via_ad(cfg, broadcast, σ, x)
+    ∇activation_fallback = @closure Δ -> begin
+        ∂f, ∂σ, ∂x = ∇broadcast(Δ)
+        return ∂f, ∂∅, ∂σ, ∂x
+    end
+    return z, ∇activation_fallback
+end
+
+function activation!(
+        y::AbstractArray, ::AbstractInternalArrayOpMode, σ::F, x::AbstractArray) where {F}
     broadcast!(σ, y, x)
     return
 end
-function _fast_activation!(
-        ::LoopedArrayOp, y::AbstractArray, σ::F, x::AbstractArray) where {F}
-    if LoopVectorization.check_args(y, x)
+function activation!(y::AbstractArray, ::LoopedArrayOp, σ::F, x::AbstractArray) where {F}
+    if LV.check_args(y, x)
         @tturbo for I in indices((y, x))
             y[I] = σ(x[I])
         end
@@ -36,36 +102,32 @@ function _fast_activation!(
     end
 end
 
-function _fast_activation_no_turbo!(
-        ::LoopedArrayOp, y::AbstractArray, σ::F, x::AbstractArray) where {F}
+function activation_simd_loop!(
+        y::AbstractArray, ::LoopedArrayOp, σ::F, x::AbstractArray) where {F}
     @simd ivdep for I in eachindex(y, x)
         y[I] = σ(x[I])
     end
 end
 
 function EnzymeRules.augmented_primal(
-        cfg::EnzymeRules.ConfigWidth{1}, ::EnzymeCore.Const{typeof(_fast_activation!)},
-        ::Type{RT}, opmode::EnzymeCore.Const{LoopedArrayOp},
-        y::EnzymeCore.Duplicated{<:AbstractArray}, σ::EnzymeCore.Const{F},
-        x::EnzymeCore.Duplicated{<:AbstractArray}) where {F, RT}
-    dx = one.(x.val)
+        cfg::EnzymeRules.ConfigWidth{1}, ::EnzymeCore.Const{typeof(activation!)},
+        ::Type{EnzymeCore.Const{Nothing}}, y::EnzymeCore.Duplicated{<:AbstractArray},
+        opmode::EnzymeCore.Const{LoopedArrayOp}, σ::EnzymeCore.Const{F},
+        x::EnzymeCore.Duplicated{<:AbstractArray}) where {F}
     dy = zero.(y.val)
-    EnzymeCore.autodiff(EnzymeCore.Forward, _fast_activation_no_turbo!,
-        opmode, EnzymeCore.Duplicated(y.val, dy),
-        EnzymeCore.Const(σ.val), EnzymeCore.Duplicated(x.val, dx))
-
-    primal = EnzymeRules.needs_primal(cfg) ? y.val : nothing
-    shadow = EnzymeRules.needs_shadow(cfg) ? y.dval : nothing
-
-    return EnzymeRules.AugmentedReturn(primal, shadow, (dy,))
+    EnzymeCore.autodiff(
+        EnzymeCore.Forward, activation_simd_loop!, EnzymeCore.Duplicated(y.val, dy),
+        opmode, σ, EnzymeCore.Duplicated(x.val, one.(x.val)))
+    return EnzymeRules.AugmentedReturn(nothing, nothing, (dy,))
 end
 
 function EnzymeRules.reverse(
-        ::EnzymeRules.ConfigWidth{1}, ::EnzymeCore.Const{typeof(_fast_activation!)},
-        ::Type{RT}, (dy,), opmode::EnzymeCore.Const{LoopedArrayOp},
-        y::EnzymeCore.Duplicated{<:AbstractArray}, σ::EnzymeCore.Const{F},
-        x::EnzymeCore.Duplicated{<:AbstractArray}) where {F, RT}
-    if LoopVectorization.check_args(y.dval, x.dval, dy)
+        ::EnzymeRules.ConfigWidth{1}, ::EnzymeCore.Const{typeof(activation!)},
+        ::Type{EnzymeCore.Const{Nothing}}, (dy,),
+        y::EnzymeCore.Duplicated{<:AbstractArray},
+        opmode::EnzymeCore.Const{LoopedArrayOp}, σ::EnzymeCore.Const{F},
+        x::EnzymeCore.Duplicated{<:AbstractArray}) where {F}
+    if LV.check_args(y.dval, x.dval, dy)
         @tturbo for I in indices((y.dval, x.dval, dy))
             x.dval[I] = y.dval[I] * dy[I]
         end
@@ -80,186 +142,142 @@ function EnzymeRules.reverse(
     return nothing, nothing, nothing, nothing
 end
 
-# Entry Points to the implementation
-_fast_activation(::typeof(identity), x::AbstractArray) = x
-
-@stable default_mode="disable" function _fast_activation(σ::F, x::AbstractArray) where {F}
-    return _fast_activation(internal_operation_mode(x), σ, x)
+# Gradient for activations
+∇activation(Δ, _, ::typeof(identity), x) = Δ
+function ∇activation(Δ, out, act::F, x) where {F}
+    return ∇activation(internal_operation_mode((Δ, out)), Δ, out, act, x)
 end
-
-function CRC.rrule(cfg::RuleConfig{>:HasReverseMode}, ::typeof(_fast_activation),
-        σ::F, x::AbstractArray{T}) where {F, T}
-    opmode = internal_operation_mode(x)
-
-    opmode isa LoopedArrayOp || return CRC.rrule_via_ad(cfg, broadcast, σ, x) # No need to do anything
-
-    if __needs_intermediate_but_has_rrule(σ, T)
-        y = _fast_activation(opmode, σ, x)
-        proj_x_cached = CRC.ProjectTo(x)
-        ∇fast_activation = @closure Δ -> begin
-            ∂x = __activation_gradient(CRC.unthunk(Δ), y, σ, x)
-            return ∂∅, ∂∅, proj_x_cached(∂x)
+function ∇activation(::AbstractInternalArrayOpMode, Δ, out, act::F, x) where {F}
+    ∇act = @closure (Δᵢ, oᵢ, xᵢ) -> Δᵢ * Utils.only_derivative(oᵢ, act, xᵢ)
+    return broadcast(∇act, Δ, out, x)
+end
+@inbounds function ∇activation(::LoopedArrayOp, Δ, out, act::F, x) where {F}
+    y = similar(out)
+    if x isa Utils.NotaNumber
+        @batch for i in indices((Δ, out))
+            y[i] = Utils.only_derivative(out[i], act, x) * Δ[i]
         end
-        return y, ∇fast_activation
+    else
+        @batch for i in indices((Δ, out, x))
+            y[i] = Utils.only_derivative(out[i], act, x[i]) * Δ[i]
+        end
     end
-
-    return CRC.rrule_via_ad(cfg, broadcast, σ, x)
-end
-
-_fast_activation(opmode, σ::F, x::AbstractArray) where {F} = broadcast(σ, x)
-
-function _fast_activation(opmode::LoopedArrayOp, σ::F, x::AbstractArray) where {F}
-    RT = Core.Compiler._return_type(σ, Tuple{eltype(x)})
-    y = similar(x, ifelse(isconcretetype(RT), RT, eltype(x)))
-    _fast_activation!(opmode, y, σ, x)
     return y
 end
 
-_fast_activation!(::typeof(identity), x::AbstractArray) = nothing
-
-@stable default_mode="disable" function _fast_activation!(σ::F, x::AbstractArray) where {F}
-    _fast_activation!(internal_operation_mode(x), x, σ, x)
-    return nothing
+# Switch some of the activations to use SLEEFPirates.jl if needed
+function select_fastest_activation(f::F, xs...) where {F}
+    return select_fastest_activation(
+        f, internal_operation_mode(xs), unrolled_mapreduce(Utils.eltype, promote_type, xs))
 end
 
-# Define rrule for `fast_activation!!`
-function CRC.rrule(cfg::RuleConfig{>:HasReverseMode}, ::typeof(fast_activation!!),
-        σ::F, x::AbstractArray{T}) where {F, T}
-    can_setindex(typeof(x)) || return CRC.rrule_via_ad(cfg, _fast_activation, σ, x)
+select_fastest_activation(f::F, ::AbstractInternalArrayOpMode, ::Type{T}) where {F, T} = f
 
-    σ === identity && return x, @closure(Δ->(∂∅, ∂∅, Δ))
-
-    if __no_intermediate_needed(σ, T)
-        _fast_activation!(σ, x) # Safe to overwrite x
-        proj_x_no_cached = CRC.ProjectTo(x)
-        ∇__fast_activation_impl_no_cached = @closure Δ -> begin
-            ∂x = __activation_gradient(Δ, x, σ, NotaNumber())
-            return ∂∅, ∂∅, proj_x_no_cached(∂x)
-        end
-        return x, ∇__fast_activation_impl_no_cached
-    end
-
-    if __needs_intermediate_but_has_rrule(σ, T)
-        y = _fast_activation(σ, x)
-        proj_x_cached = CRC.ProjectTo(x)
-        ∇__fast_activation_impl_cached_crc = @closure Δ -> begin
-            ∂x = __activation_gradient(CRC.unthunk(Δ), y, σ, x)
-            return ∂∅, ∂∅, proj_x_cached(∂x)
-        end
-        return y, ∇__fast_activation_impl_cached_crc
-    end
-
-    return CRC.rrule_via_ad(cfg, broadcast, σ, x)
+function select_fastest_activation(f::F, ::LoopedArrayOp, ::Type{T}) where {F, T}
+    return SLEEFActivations.fast_act(f, T)
 end
 
-# Specialized functions that use SLEEFPirates.jl to speed up the activation functions
-sigmoid_fast_sleefpirates(x::Number) = SLEEFPirates.sigmoid_fast(x)
+CRC.@non_differentiable select_fastest_activation(::Any...)
 
-softplus_sleefpirates(x::Number) = SLEEFPirates.softplus(x)
+# Fast activations via SLEEFPirates.jl
+module SLEEFActivations
 
-logsigmoid_sleefpirates(x::Number) = -softplus_sleefpirates(-x)
+using ChainRulesCore: ChainRulesCore
+using EnzymeCore: EnzymeCore, EnzymeRules
+using NNlib: NNlib
+using SLEEFPirates: SLEEFPirates
 
-gelu_sleefpirates(x::Number) = SLEEFPirates.gelu(x)
+using ....LuxLib: Numeric
+
+const CRC = ChainRulesCore
+
+sigmoid_fast(x::Number) = SLEEFPirates.sigmoid_fast(x)
+softplus(x::Number) = SLEEFPirates.softplus(x)
+logsigmoid(x::Number) = -softplus(-x)
+gelu(x::Number) = SLEEFPirates.gelu(x)
+swish(x::Number) = Base.FastMath.mul_fast(x, sigmoid_fast(x))
+lisht(x::Number) = Base.FastMath.mul_fast(x, tanh_fast(x))
+tanh(x::Number) = SLEEFPirates.tanh(x)
+tanh_fast(x::Number) = SLEEFPirates.tanh_fast(x)
 
 const gelu_λ = √(2 / π)
 const gelu_2λ = √(8 / π)
 
-function ∂gelu_sleefpirates(x::Number)
+function ∇gelu(x::Number)
     α = oftype(x, 0.044715)
     α2 = oftype(x, 0.08943)
     λλ = oftype(x, gelu_2λ)
     x2 = Base.FastMath.mul_fast(x, x)
     t = muladd(x2, α, one(x))
-    Ω = sigmoid_fast_sleefpirates(λλ * x * t)
+    Ω = sigmoid_fast(λλ * x * t)
     dσ = conj(Ω * (1 - Ω))
     return muladd(dσ * λλ * muladd(x2, α2, t), x, Ω)
 end
 
-swish_sleefpirates(x::Number) = Base.FastMath.mul_fast(x, sigmoid_fast_sleefpirates(x))
-
-lisht_sleefpirates(x::Number) = Base.FastMath.mul_fast(x, tanh_fast_sleefpirates(x))
-
-tanh_sleefpirates(x::Number) = SLEEFPirates.tanh(x)
-
-tanh_fast_sleefpirates(x::Number) = SLEEFPirates.tanh_fast(x)
-
 for (f, dfdx) in [
     #! format: off
-    (:sigmoid_fast_sleefpirates, :(conj(Base.FastMath.mul_fast(Ω, Base.FastMath.sub_fast(1, Ω))))),
-    (:softplus_sleefpirates, :(sigmoid_fast_sleefpirates(x))),
-    (:logsigmoid_sleefpirates, :(sigmoid_fast_sleefpirates(-x))),
-    (:gelu_sleefpirates, :(∂gelu_sleefpirates(x))),
-    (:swish_sleefpirates, :(Base.FastMath.add_fast(Ω, Base.FastMath.mul_fast(sigmoid_fast_sleefpirates(x), Base.FastMath.sub_fast(1, Ω))))),
-    (:tanh_sleefpirates, :(conj(Base.FastMath.sub_fast(1, Base.FastMath.mul_fast(Ω, Ω))))),
-    (:tanh_fast_sleefpirates, :(conj(Base.FastMath.sub_fast(1, Base.FastMath.mul_fast(Ω, Ω)))))
+    (:sigmoid_fast, :(conj(Base.FastMath.mul_fast(Ω, Base.FastMath.sub_fast(1, Ω))))),
+    (:softplus, :(sigmoid_fast(x))),
+    (:logsigmoid, :(sigmoid_fast(-x))),
+    (:gelu, :(∇gelu(x))),
+    (:swish, :(Base.FastMath.add_fast(Ω, Base.FastMath.mul_fast(sigmoid_fast(x), Base.FastMath.sub_fast(1, Ω))))),
+    (:tanh, :(conj(Base.FastMath.sub_fast(1, Base.FastMath.mul_fast(Ω, Ω))))),
+    (:tanh_fast, :(conj(Base.FastMath.sub_fast(1, Base.FastMath.mul_fast(Ω, Ω)))))
     #! format: on
 ]
     @eval CRC.@scalar_rule($f(x), $dfdx)
 
-    pullback = Symbol(:broadcasted_, f, :_pullback)
+    ∇f = Symbol(:∇broadcasted_, f)
     @eval function CRC.rrule(::typeof(Broadcast.broadcasted), ::typeof($f),
             x::Union{Numeric, Broadcast.Broadcasted})
         Ω = $f.(x)
-        function $pullback(dΩ)
-            x_thunk = CRC.InplaceableThunk(
-                dx -> @.(dx+=dΩ * $dfdx), CRC.@thunk @.(dΩ*$dfdx))
-            return ∂∅, ∂∅, x_thunk
+        function $∇f(dΩ)
+            ∂x = CRC.InplaceableThunk(dx -> @.(dx+=dΩ * $dfdx), CRC.@thunk @.(dΩ*$dfdx))
+            return CRC.NoTangent(), CRC.NoTangent(), ∂x
         end
-        return Ω, $pullback
+        return Ω, $∇f
     end
 end
 
 # Enzyme works for all of these except `gelu`.
 # See https://github.com/EnzymeAD/Enzyme.jl/issues/1671
 function EnzymeRules.augmented_primal(
-        cfg::EnzymeRules.ConfigWidth{1}, func::EnzymeCore.Const{typeof(gelu_sleefpirates)},
+        cfg::EnzymeRules.ConfigWidth{1}, func::EnzymeCore.Const{typeof(gelu)},
         ::Type{<:EnzymeCore.Active}, x::EnzymeCore.Active{<:Number})
     primal = EnzymeRules.needs_primal(cfg) ? func.val(x.val) : nothing
     return EnzymeRules.AugmentedReturn(primal, nothing, nothing)
 end
 
-function EnzymeRules.reverse(
-        ::EnzymeRules.ConfigWidth{1}, ::EnzymeCore.Const{typeof(gelu_sleefpirates)},
+function EnzymeRules.reverse(::EnzymeRules.ConfigWidth{1}, ::EnzymeCore.Const{typeof(gelu)},
         dret::EnzymeCore.Active, ::Nothing, x::EnzymeCore.Active{<:Number})
-    return (dret.val * ∂gelu_sleefpirates(x.val),)
+    return (dret.val * ∇gelu(x.val),)
 end
 
-function EnzymeRules.forward(::EnzymeCore.Const{typeof(gelu_sleefpirates)},
-        ::Type{<:EnzymeCore.Duplicated}, x::EnzymeCore.Duplicated{<:Number})
-    return EnzymeCore.Duplicated(
-        gelu_sleefpirates(x.val), x.dval * ∂gelu_sleefpirates(x.val))
+function EnzymeRules.forward(
+        ::EnzymeCore.Const{typeof(gelu)}, ::Type{<:EnzymeCore.Duplicated},
+        x::EnzymeCore.Duplicated{<:Number})
+    return EnzymeCore.Duplicated(gelu(x.val), x.dval * ∇gelu(x.val))
 end
 
-# Convert to SLEEFPirates.jl
-function select_fastest_activation(f::F, xs...) where {F}
-    return select_fastest_activation(
-        f, internal_operation_mode(xs), unrolled_mapreduce(__eltype, promote_type, xs))
-end
-
-select_fastest_activation(f::F, ::AbstractInternalArrayOpMode, ::Type{T}) where {F, T} = f
-function select_fastest_activation(f::F, ::LoopedArrayOp, ::Type{T}) where {F, T}
-    return sleefpirates_activation(f, T)
-end
-
-CRC.@non_differentiable select_fastest_activation(::Any...)
-
-sleefpirates_activation(f::F, ::Type{T}) where {F, T} = f
-sleefpirates_activation(f::F, ::Type{Float32}) where {F} = sleefpirates_activation(f)
+fast_act(f::F, ::Type{T}) where {F, T} = f
+fast_act(f::F, ::Type{Float32}) where {F} = fast_act(f)
 
 for (fbase, ffast) in [
     #! format: off
-    (NNlib.sigmoid_fast, sigmoid_fast_sleefpirates),
-    (NNlib.softplus, softplus_sleefpirates),
-    (NNlib.logsigmoid, logsigmoid_sleefpirates),
-    (NNlib.gelu, gelu_sleefpirates),
-    (NNlib.swish, swish_sleefpirates),
-    (NNlib.lisht, lisht_sleefpirates),
-    (Base.tanh, tanh_sleefpirates),
-    (NNlib.tanh_fast, tanh_fast_sleefpirates)
+    (NNlib.sigmoid_fast, sigmoid_fast),
+    (NNlib.softplus, softplus),
+    (NNlib.logsigmoid, logsigmoid),
+    (NNlib.gelu, gelu),
+    (NNlib.swish, swish),
+    (NNlib.lisht, lisht),
+    (Base.tanh, tanh),
+    (NNlib.tanh_fast, tanh_fast)
     #! format: on
 ]
-    @eval sleefpirates_activation(::typeof($fbase)) = $ffast
+    @eval fast_act(::typeof($fbase)) = $ffast
 end
-sleefpirates_activation(f::F) where {F} = f
+fast_act(f::F) where {F} = f
 
-CRC.@non_differentiable sleefpirates_activation(::Any...)
+CRC.@non_differentiable fast_act(::Any...)
+
+end
