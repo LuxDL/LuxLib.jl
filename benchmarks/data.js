@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1723531072937,
+  "lastUpdate": 1723540718611,
   "repoUrl": "https://github.com/LuxDL/LuxLib.jl",
   "entries": {
     "LuxLib Benchmarks": [
@@ -21360,6 +21360,10686 @@ window.BENCHMARK_DATA = {
             "value": 961430,
             "unit": "ns",
             "extra": "gctime=0\nmemory=76568\nallocs=1600\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "avikpal@mit.edu",
+            "name": "Avik Pal",
+            "username": "avik-pal"
+          },
+          "committer": {
+            "email": "avik.pal.2017@gmail.com",
+            "name": "Avik Pal",
+            "username": "avik-pal"
+          },
+          "distinct": true,
+          "id": "6a33ba1bf1f98302ea502a43124cdc8d3f53cbec",
+          "message": "test: run allocs test only on CPU",
+          "timestamp": "2024-08-13T00:00:00-07:00",
+          "tree_id": "32921d72a4e53df95cf362fd8fc5d82d8b11e1c4",
+          "url": "https://github.com/LuxDL/LuxLib.jl/commit/6a33ba1bf1f98302ea502a43124cdc8d3f53cbec"
+        },
+        "date": 1723540717951,
+        "tool": "julia",
+        "benches": [
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 5666,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 5375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 7667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 5979,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/CUDA",
+            "value": 120526,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11984\nallocs=467\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/oneAPI",
+            "value": 2429343,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=175480\nallocs=1669\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/Metal",
+            "value": 839209,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=39728\nallocs=1252\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 420214,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17360\nallocs=532\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 9750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15136\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 9750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15136\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 10750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15136\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 9959,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15136\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/CUDA",
+            "value": 563877,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=73824\nallocs=2886\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 18917075,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1105560\nallocs=9943\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/Metal",
+            "value": 2508792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=228432\nallocs=7676\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 682977,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54496\nallocs=1194\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/forward/CPU/2 thread(s)",
+            "value": 15291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/forward/CPU/4 thread(s)",
+            "value": 15083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/forward/CPU/8 thread(s)",
+            "value": 16104,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/forward/CPU/1 thread(s)",
+            "value": 11083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/forward/GPU/CUDA",
+            "value": 21560,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2384\nallocs=107\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/forward/GPU/oneAPI",
+            "value": 1330253,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34072\nallocs=305\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/forward/GPU/Metal",
+            "value": 211167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7000\nallocs=234\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/forward/GPU/AMDGPU",
+            "value": 31331,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1712\nallocs=59\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/zygote/CPU/2 thread(s)",
+            "value": 14958.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50496\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/zygote/CPU/4 thread(s)",
+            "value": 14833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50496\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/zygote/CPU/8 thread(s)",
+            "value": 15500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50496\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/zygote/CPU/1 thread(s)",
+            "value": 15125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50496\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/zygote/GPU/CUDA",
+            "value": 147820.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16840\nallocs=631\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/zygote/GPU/oneAPI",
+            "value": 8898830,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=279320\nallocs=2717\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/zygote/GPU/Metal",
+            "value": 1492542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54800\nallocs=1871\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=relu)(32 x 128)/zygote/GPU/AMDGPU",
+            "value": 153181,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16408\nallocs=389\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 83625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 81208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 81417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 135312.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 37495,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3712\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 573682,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46584\nallocs=558\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1069937.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13808\nallocs=449\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 84361,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7184\nallocs=214\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 1245750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8404800\nallocs=131\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1222729.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8404800\nallocs=131\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1228396,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8404800\nallocs=131\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 1421042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8404800\nallocs=131\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 236547,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21240\nallocs=777\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 8529095,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=869120\nallocs=8370\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 8112375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=210176\nallocs=6793\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1200824,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=85400\nallocs=2093\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 151229,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 150000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 151791.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 156791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 167095,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17904\nallocs=612\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 8047738,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=260008\nallocs=2473\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1699104,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=56448\nallocs=1813\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 175362,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18960\nallocs=437\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 1114333.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8400368\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1113896,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8400368\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1110417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8400368\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 1112375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8400368\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 706760,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=83920\nallocs=3063\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 33442570.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1260192\nallocs=11324\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 5701458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=284360\nallocs=8853\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 923331,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=73632\nallocs=1480\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 4104,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 4875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 5896,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 5458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/CUDA",
+            "value": 95340,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13104\nallocs=537\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/oneAPI",
+            "value": 5555726,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=176792\nallocs=1671\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/Metal",
+            "value": 452187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=36784\nallocs=1265\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 71941,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10944\nallocs=273\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 8666,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17152\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 9084,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17152\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 9875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17152\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 9084,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17152\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/CUDA",
+            "value": 608229,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=75968\nallocs=3041\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 34084383,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1180488\nallocs=10712\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/Metal",
+            "value": 5978187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=239336\nallocs=8156\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 389834,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=56688\nallocs=1242\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 22875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 21562.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 26291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 22500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 69838,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12544\nallocs=282\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 3070089.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=130312\nallocs=1357\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 1381895.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34240\nallocs=1047\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 74370,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16208\nallocs=306\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 128270.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=945056\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 154542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=945056\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 126875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=945056\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 119917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=945056\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 365045,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=64176\nallocs=1466\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 14075981,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=650824\nallocs=5943\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 5829791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=171424\nallocs=4733\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 480675,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=68496\nallocs=1168\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/forward/CPU/2 thread(s)",
+            "value": 1833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/forward/CPU/4 thread(s)",
+            "value": 1709,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/forward/CPU/8 thread(s)",
+            "value": 2145.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/forward/CPU/1 thread(s)",
+            "value": 1625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/forward/GPU/CUDA",
+            "value": 20816.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2384\nallocs=107\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/forward/GPU/oneAPI",
+            "value": 1134959,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34072\nallocs=305\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/forward/GPU/Metal",
+            "value": 293667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6720\nallocs=232\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/forward/GPU/AMDGPU",
+            "value": 31780,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1888\nallocs=70\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/zygote/CPU/2 thread(s)",
+            "value": 2167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3712\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/zygote/CPU/4 thread(s)",
+            "value": 2292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3712\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/zygote/CPU/8 thread(s)",
+            "value": 2583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3712\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/zygote/CPU/1 thread(s)",
+            "value": 2042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3712\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/zygote/GPU/CUDA",
+            "value": 128699.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=14616\nallocs=562\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/zygote/GPU/oneAPI",
+            "value": 9301874,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=241744\nallocs=2311\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/zygote/GPU/Metal",
+            "value": 1489750.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53216\nallocs=1850\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=relu)(2 x 128)/zygote/GPU/AMDGPU",
+            "value": 127886.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13416\nallocs=317\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 16708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 16667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 16541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 16208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 24187,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2800\nallocs=95\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 1227815,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48360\nallocs=569\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 615874.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16080\nallocs=535\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 49641,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6528\nallocs=163\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 135313,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1196368\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 144166,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1196368\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 180250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1196368\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 198500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1196368\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 189691,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19384\nallocs=711\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 31417967,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1034112\nallocs=10130\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 8744000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=247296\nallocs=8088\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 650227,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=78664\nallocs=1871\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/forward/CPU/2 thread(s)",
+            "value": 4791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/forward/CPU/4 thread(s)",
+            "value": 4875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/forward/CPU/8 thread(s)",
+            "value": 4875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/forward/CPU/1 thread(s)",
+            "value": 4208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/forward/GPU/CUDA",
+            "value": 23882,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=960\nallocs=41\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/forward/GPU/oneAPI",
+            "value": 2019459,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32136\nallocs=279\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/forward/GPU/Metal",
+            "value": 220750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7224\nallocs=264\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/forward/GPU/AMDGPU",
+            "value": 50770,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2080\nallocs=85\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/zygote/CPU/2 thread(s)",
+            "value": 19167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71920\nallocs=26\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/zygote/CPU/4 thread(s)",
+            "value": 19250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71920\nallocs=26\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/zygote/CPU/8 thread(s)",
+            "value": 19709,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71920\nallocs=26\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/zygote/CPU/1 thread(s)",
+            "value": 18583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71920\nallocs=26\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/zygote/GPU/CUDA",
+            "value": 199795.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15672\nallocs=581\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/zygote/GPU/oneAPI",
+            "value": 10312831,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=245040\nallocs=2361\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/zygote/GPU/Metal",
+            "value": 932583.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=47528\nallocs=1634\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=relu)(32 x 128)/zygote/GPU/AMDGPU",
+            "value": 180067,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13720\nallocs=343\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/forward/CPU/2 thread(s)",
+            "value": 435541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/forward/CPU/4 thread(s)",
+            "value": 314833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/forward/CPU/8 thread(s)",
+            "value": 314709,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/forward/CPU/1 thread(s)",
+            "value": 836666,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/forward/GPU/CUDA",
+            "value": 113447,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=960\nallocs=41\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/forward/GPU/oneAPI",
+            "value": 394561,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32216\nallocs=284\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/forward/GPU/Metal",
+            "value": 447000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7248\nallocs=265\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/forward/GPU/AMDGPU",
+            "value": 248842,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8240\nallocs=328\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/zygote/CPU/2 thread(s)",
+            "value": 1860375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2360672\nallocs=33\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/zygote/CPU/4 thread(s)",
+            "value": 1421000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2360672\nallocs=33\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/zygote/CPU/8 thread(s)",
+            "value": 1416000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2360672\nallocs=33\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/zygote/CPU/1 thread(s)",
+            "value": 3206583.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2360672\nallocs=33\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/zygote/GPU/CUDA",
+            "value": 248095,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18568\nallocs=713\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/zygote/GPU/oneAPI",
+            "value": 11041693,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=249664\nallocs=2442\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/zygote/GPU/Metal",
+            "value": 1959249.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=57240\nallocs=1959\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=gelu)(512 x 128)/zygote/GPU/AMDGPU",
+            "value": 762278.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16424\nallocs=499\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 6625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 6417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 7167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 6292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/CUDA",
+            "value": 94841,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11984\nallocs=467\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/oneAPI",
+            "value": 5631476.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=175480\nallocs=1669\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/Metal",
+            "value": 749541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=36216\nallocs=1237\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 60581,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10576\nallocs=250\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 12249.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51120\nallocs=87\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 11437.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51120\nallocs=87\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 12333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51120\nallocs=87\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 12041.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51120\nallocs=87\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/CUDA",
+            "value": 658215,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=72848\nallocs=2885\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 40515363.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1140992\nallocs=10323\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/Metal",
+            "value": 5809416.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=226880\nallocs=7578\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 419745,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54224\nallocs=1192\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/forward/CPU/2 thread(s)",
+            "value": 1000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/forward/CPU/4 thread(s)",
+            "value": 1000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/forward/CPU/8 thread(s)",
+            "value": 1000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/forward/CPU/1 thread(s)",
+            "value": 1000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/forward/GPU/CUDA",
+            "value": 24184,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1056\nallocs=47\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/forward/GPU/oneAPI",
+            "value": 2182876,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34200\nallocs=309\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/forward/GPU/Metal",
+            "value": 323917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7536\nallocs=278\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/forward/GPU/AMDGPU",
+            "value": 53561,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2240\nallocs=92\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/zygote/CPU/2 thread(s)",
+            "value": 2917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4880\nallocs=15\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/zygote/CPU/4 thread(s)",
+            "value": 3083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4880\nallocs=15\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/zygote/CPU/8 thread(s)",
+            "value": 3042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4880\nallocs=15\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/zygote/CPU/1 thread(s)",
+            "value": 2667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4880\nallocs=15\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/zygote/GPU/CUDA",
+            "value": 228427,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15592\nallocs=578\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/zygote/GPU/oneAPI",
+            "value": 11072737.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=249664\nallocs=2448\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/zygote/GPU/Metal",
+            "value": 1984333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=57680\nallocs=2043\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=relu)(2 x 128)/zygote/GPU/AMDGPU",
+            "value": 184952,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=14552\nallocs=352\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 22187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 20959,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 21021,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 12042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/CUDA",
+            "value": 110080.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12496\nallocs=308\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/oneAPI",
+            "value": 3310182,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=130808\nallocs=1423\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/Metal",
+            "value": 773250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=35432\nallocs=1136\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 78691,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16016\nallocs=344\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 35625.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71072\nallocs=163\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 36229,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71072\nallocs=163\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 37937,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71072\nallocs=163\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 33250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71072\nallocs=163\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/CUDA",
+            "value": 629538,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=73576\nallocs=1707\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 18729607,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=768744\nallocs=7259\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/Metal",
+            "value": 5012833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=189432\nallocs=5379\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 398774,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=77880\nallocs=1302\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 3000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 2875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 2958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 2875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/CUDA",
+            "value": 36368.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4848\nallocs=166\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/oneAPI",
+            "value": 1172110,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46520\nallocs=557\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/Metal",
+            "value": 288188,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13704\nallocs=449\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 48990,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6400\nallocs=168\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 21687.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=45312\nallocs=109\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 20875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=45312\nallocs=109\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 19833.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=45312\nallocs=109\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 19354,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=45312\nallocs=109\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/CUDA",
+            "value": 266531.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20192\nallocs=724\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 18396231,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=666960\nallocs=6483\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/Metal",
+            "value": 4540625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=149880\nallocs=5022\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 370954,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48800\nallocs=1212\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/forward/CPU/2 thread(s)",
+            "value": 396875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/forward/CPU/4 thread(s)",
+            "value": 287959,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/forward/CPU/8 thread(s)",
+            "value": 287875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/forward/CPU/1 thread(s)",
+            "value": 756041,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/forward/GPU/CUDA",
+            "value": 112751,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1168\nallocs=48\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/forward/GPU/oneAPI",
+            "value": 328908.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3888\nallocs=73\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/forward/GPU/Metal",
+            "value": 371125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2576\nallocs=97\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/forward/GPU/AMDGPU",
+            "value": 77421,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2048\nallocs=119\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/zygote/CPU/2 thread(s)",
+            "value": 1460520.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1836144\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/zygote/CPU/4 thread(s)",
+            "value": 1133458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1836144\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/zygote/CPU/8 thread(s)",
+            "value": 1134375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1836144\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/zygote/CPU/1 thread(s)",
+            "value": 2440916,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1836144\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/zygote/GPU/CUDA",
+            "value": 213626,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13808\nallocs=502\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/zygote/GPU/oneAPI",
+            "value": 10097693,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=184312\nallocs=1893\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/zygote/GPU/Metal",
+            "value": 1542958.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=43872\nallocs=1526\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=identity)(512 x 128)/zygote/GPU/AMDGPU",
+            "value": 324574,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13152\nallocs=393\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 7271,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 7250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 8375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 7583.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/CUDA",
+            "value": 151758.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13104\nallocs=537\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/oneAPI",
+            "value": 5810872.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=176792\nallocs=1671\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/Metal",
+            "value": 483042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=37592\nallocs=1260\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 60401,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10944\nallocs=273\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 16770.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=89120\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 12520.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=89120\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 16334,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=89120\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 15395.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=89120\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/CUDA",
+            "value": 1057987.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=78192\nallocs=3110\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 44253255.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1218064\nallocs=11118\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/Metal",
+            "value": 5979042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=243104\nallocs=8089\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 437265,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=59296\nallocs=1294\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 26895.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 30250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 28125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 26583.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 230484,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17904\nallocs=612\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 7898175,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=259912\nallocs=2467\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 1102708.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48472\nallocs=1542\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 118891,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18304\nallocs=396\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 155958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1060336\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 146708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1060336\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 144875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1060336\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 111667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1060336\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 1218781,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=83920\nallocs=3063\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 42831145,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1259888\nallocs=11305\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 6079229,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=257840\nallocs=7962\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 601201.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=70176\nallocs=1429\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 85375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 77791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 78542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 75146,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 237667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19024\nallocs=682\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 7302423.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262168\nallocs=2474\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 541167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50264\nallocs=1574\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 124881,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18448\nallocs=405\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 289479.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2508432\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 303333.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2508432\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 286478.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2508432\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 286437.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2508432\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 1253075.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=90592\nallocs=3393\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 40958545,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1405504\nallocs=12623\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 6712250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=290600\nallocs=8958\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 703138,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=75952\nallocs=1565\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 17250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 16833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 18125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 17792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/CUDA",
+            "value": 169842.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13104\nallocs=537\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/oneAPI",
+            "value": 5800613,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=176792\nallocs=1671\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/Metal",
+            "value": 688625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=37432\nallocs=1259\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 239982,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11344\nallocs=298\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 26854,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=89120\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 25583.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=89120\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 27750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=89120\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 27666.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=89120\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/CUDA",
+            "value": 1054857,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=79248\nallocs=3154\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 41432673,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1218064\nallocs=11118\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/Metal",
+            "value": 6137375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=243008\nallocs=8089\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 719868,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=59584\nallocs=1290\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 23208.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 21292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 21542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 13000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/CUDA",
+            "value": 143306,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12496\nallocs=308\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/oneAPI",
+            "value": 3632260,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=130808\nallocs=1423\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/Metal",
+            "value": 768542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=35272\nallocs=1135\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 242292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=22336\nallocs=601\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 35917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=62496\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 35084,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=62496\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 36166,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=62496\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 36229,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=62496\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/CUDA",
+            "value": 767284,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=62104\nallocs=1758\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 21467320,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=760440\nallocs=7294\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/Metal",
+            "value": 4778708.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=178368\nallocs=5397\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 693507,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=65304\nallocs=1305\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 75396,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 79833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 83292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 61375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 121888.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12544\nallocs=282\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 3293824,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=130312\nallocs=1357\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 1390374.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34240\nallocs=1047\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 240553,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16976\nallocs=354\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 280500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1196416\nallocs=126\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 204667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1196416\nallocs=126\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 209687.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1196416\nallocs=126\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 337916,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1196416\nallocs=126\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 566961,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=56264\nallocs=1599\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 20670839.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=677656\nallocs=6248\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 6184542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=170136\nallocs=4980\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 722413,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=60760\nallocs=1309\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 7979,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 7833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 10125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 7729.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13728\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/CUDA",
+            "value": 165196.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13104\nallocs=537\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/oneAPI",
+            "value": 5406830,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=176792\nallocs=1671\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/Metal",
+            "value": 453667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=37432\nallocs=1259\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 59920,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10912\nallocs=271\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 18729,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=80352\nallocs=86\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 18958.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=80352\nallocs=86\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 15416.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=80352\nallocs=86\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 13458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=80352\nallocs=86\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/CUDA",
+            "value": 1029801,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=75120\nallocs=2979\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 39983492,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1153424\nallocs=10570\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/Metal",
+            "value": 5791291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=230864\nallocs=7690\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 415064,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=57520\nallocs=1256\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/forward/CPU/2 thread(s)",
+            "value": 6157750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4194368\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/forward/CPU/4 thread(s)",
+            "value": 6373000.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4194368\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/forward/CPU/8 thread(s)",
+            "value": 6368458.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4194368\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/forward/CPU/1 thread(s)",
+            "value": 11899021,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4194368\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/forward/GPU/CUDA",
+            "value": 301266,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/forward/GPU/AMDGPU",
+            "value": 295003.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5280\nallocs=282\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/zygote/CPU/2 thread(s)",
+            "value": 19108833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16778320\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/zygote/CPU/4 thread(s)",
+            "value": 19910250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16778320\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/zygote/CPU/8 thread(s)",
+            "value": 19970604,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16778320\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/zygote/CPU/1 thread(s)",
+            "value": 36506208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16778128\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/zygote/GPU/CUDA",
+            "value": 1021408,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11824\nallocs=431\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=4)/zygote/GPU/AMDGPU",
+            "value": 1175522,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19920\nallocs=566\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/forward/CPU/2 thread(s)",
+            "value": 1292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/forward/CPU/4 thread(s)",
+            "value": 1291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/forward/CPU/8 thread(s)",
+            "value": 1292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/forward/CPU/1 thread(s)",
+            "value": 1250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/forward/GPU/CUDA",
+            "value": 24383,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1056\nallocs=47\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/forward/GPU/oneAPI",
+            "value": 2268472,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34200\nallocs=309\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/forward/GPU/Metal",
+            "value": 325916.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7536\nallocs=278\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/forward/GPU/AMDGPU",
+            "value": 215143,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5056\nallocs=268\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/zygote/CPU/2 thread(s)",
+            "value": 3333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5776\nallocs=12\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/zygote/CPU/4 thread(s)",
+            "value": 3167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5776\nallocs=12\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/zygote/CPU/8 thread(s)",
+            "value": 3125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5776\nallocs=12\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/zygote/CPU/1 thread(s)",
+            "value": 3584,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5776\nallocs=12\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/zygote/GPU/CUDA",
+            "value": 303025,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17960\nallocs=683\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/zygote/GPU/oneAPI",
+            "value": 11024745,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=280072\nallocs=2692\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/zygote/GPU/Metal",
+            "value": 2108541.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=63392\nallocs=2241\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=gelu)(2 x 128)/zygote/GPU/AMDGPU",
+            "value": 649017,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17640\nallocs=499\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 9146,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 8437.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 10666.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 9667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/CUDA",
+            "value": 139269,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12368\nallocs=300\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/oneAPI",
+            "value": 3727741.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=130792\nallocs=1422\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/Metal",
+            "value": 823833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=35024\nallocs=1135\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 67901,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15904\nallocs=337\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 15000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=37104\nallocs=163\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 15333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=37104\nallocs=163\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 15958.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=37104\nallocs=163\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 13688,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=37104\nallocs=163\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/CUDA",
+            "value": 736025,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71096\nallocs=1622\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 20917617,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=731136\nallocs=6851\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/Metal",
+            "value": 4800583.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=186832\nallocs=5396\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 373144,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=74024\nallocs=1176\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/forward/CPU/2 thread(s)",
+            "value": 333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/forward/CPU/4 thread(s)",
+            "value": 333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/forward/CPU/8 thread(s)",
+            "value": 292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/forward/CPU/1 thread(s)",
+            "value": 292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/forward/GPU/CUDA",
+            "value": 23346,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=960\nallocs=41\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/forward/GPU/oneAPI",
+            "value": 2037470,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32136\nallocs=279\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/forward/GPU/Metal",
+            "value": 227604.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6944\nallocs=262\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/forward/GPU/AMDGPU",
+            "value": 53360,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1776\nallocs=66\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/zygote/CPU/2 thread(s)",
+            "value": 3250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=26\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/zygote/CPU/4 thread(s)",
+            "value": 3459,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=26\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/zygote/CPU/8 thread(s)",
+            "value": 3541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=26\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/zygote/CPU/1 thread(s)",
+            "value": 2917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=26\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/zygote/GPU/CUDA",
+            "value": 218019,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13448\nallocs=512\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/zygote/GPU/oneAPI",
+            "value": 9456188,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=207448\nallocs=1954\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/zygote/GPU/Metal",
+            "value": 1564334,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=45504\nallocs=1616\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=relu)(2 x 128)/zygote/GPU/AMDGPU",
+            "value": 169412,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10728\nallocs=271\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 25062.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 23437.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 23833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 15291.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/CUDA",
+            "value": 140844.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11664\nallocs=282\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/oneAPI",
+            "value": 3323041,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=125560\nallocs=1353\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/Metal",
+            "value": 857875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32552\nallocs=1039\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 242232.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21840\nallocs=595\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 29500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53728\nallocs=106\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 29291.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53728\nallocs=106\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 29604.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53728\nallocs=106\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 30667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53728\nallocs=106\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/CUDA",
+            "value": 660728,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54152\nallocs=1599\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 19922632,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=664520\nallocs=6275\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/Metal",
+            "value": 4341750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=151768\nallocs=4612\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 654302,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=55944\nallocs=1176\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/forward/CPU/2 thread(s)",
+            "value": 14584,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/forward/CPU/4 thread(s)",
+            "value": 15000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/forward/CPU/8 thread(s)",
+            "value": 15042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/forward/CPU/1 thread(s)",
+            "value": 13625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/forward/GPU/CUDA",
+            "value": 24934,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1056\nallocs=47\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/forward/GPU/oneAPI",
+            "value": 2127054.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34200\nallocs=309\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/forward/GPU/Metal",
+            "value": 223187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7816\nallocs=280\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/forward/GPU/AMDGPU",
+            "value": 52600,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2064\nallocs=81\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/zygote/CPU/2 thread(s)",
+            "value": 27792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71488\nallocs=15\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/zygote/CPU/4 thread(s)",
+            "value": 28625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71488\nallocs=15\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/zygote/CPU/8 thread(s)",
+            "value": 28708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71488\nallocs=15\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/zygote/CPU/1 thread(s)",
+            "value": 27667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=71488\nallocs=15\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/zygote/GPU/CUDA",
+            "value": 359548,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17816\nallocs=647\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/zygote/GPU/oneAPI",
+            "value": 12426903,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=287256\nallocs=2855\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/zygote/GPU/Metal",
+            "value": 1565749.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=59712\nallocs=2061\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=relu)(32 x 128)/zygote/GPU/AMDGPU",
+            "value": 210222,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17576\nallocs=426\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 3750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 3750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 3750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 4000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/CUDA",
+            "value": 37231,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4848\nallocs=166\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/oneAPI",
+            "value": 1186729,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46520\nallocs=557\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/Metal",
+            "value": 431083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13704\nallocs=449\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 207773,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12848\nallocs=429\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 23708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54016\nallocs=111\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 23333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54016\nallocs=111\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 24208.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54016\nallocs=111\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 25000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54016\nallocs=111\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/CUDA",
+            "value": 309772,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=23592\nallocs=890\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 20935013.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=704496\nallocs=6821\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/Metal",
+            "value": 5037167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=159184\nallocs=5286\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 705803,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51672\nallocs=1338\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/forward/CPU/2 thread(s)",
+            "value": 59604,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=524352\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/forward/CPU/4 thread(s)",
+            "value": 63541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=524352\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/forward/CPU/8 thread(s)",
+            "value": 66459,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=524352\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/forward/CPU/1 thread(s)",
+            "value": 51250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=524352\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/forward/GPU/CUDA",
+            "value": 66898,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/forward/GPU/AMDGPU",
+            "value": 98211,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=14016\nallocs=54\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/zygote/CPU/2 thread(s)",
+            "value": 194479.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2098256\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/zygote/CPU/4 thread(s)",
+            "value": 128375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2098256\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/zygote/CPU/8 thread(s)",
+            "value": 153500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2098256\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/zygote/CPU/1 thread(s)",
+            "value": 293667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2098064\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/zygote/GPU/CUDA",
+            "value": 234736,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11808\nallocs=430\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=512)/zygote/GPU/AMDGPU",
+            "value": 586226,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=55344\nallocs=458\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 142729.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 136583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 142646.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 113500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 192344,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12560\nallocs=283\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 5639583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=209944\nallocs=2177\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 2072250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51008\nallocs=1611\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 170592,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=24496\nallocs=530\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 1201208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7367584\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1185000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7367584\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1184250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7367584\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 1232916,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7367584\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 580999,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=64208\nallocs=1468\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 24514134.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=808568\nallocs=7590\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 8920916,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=188720\nallocs=5330\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1085731.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=87984\nallocs=1683\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/forward/CPU/2 thread(s)",
+            "value": 292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/forward/CPU/4 thread(s)",
+            "value": 292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/forward/CPU/8 thread(s)",
+            "value": 292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/forward/CPU/1 thread(s)",
+            "value": 291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/forward/GPU/CUDA",
+            "value": 22671,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1056\nallocs=47\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/forward/GPU/oneAPI",
+            "value": 2151515,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=31944\nallocs=279\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/forward/GPU/Metal",
+            "value": 332083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6912\nallocs=262\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/forward/GPU/AMDGPU",
+            "value": 45591,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1920\nallocs=75\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/zygote/CPU/2 thread(s)",
+            "value": 1875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3584\nallocs=9\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/zygote/CPU/4 thread(s)",
+            "value": 1833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3584\nallocs=9\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/zygote/CPU/8 thread(s)",
+            "value": 1834,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3584\nallocs=9\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/zygote/CPU/1 thread(s)",
+            "value": 1792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3584\nallocs=9\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/zygote/GPU/CUDA",
+            "value": 274372,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13200\nallocs=472\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/zygote/GPU/oneAPI",
+            "value": 9760718.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=214720\nallocs=2143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/zygote/GPU/Metal",
+            "value": 1462749.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51856\nallocs=1845\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=true, act=identity)(2 x 128)/zygote/GPU/AMDGPU",
+            "value": 187892,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13264\nallocs=324\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 10750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 10583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 11187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 10771,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/CUDA",
+            "value": 138621.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11536\nallocs=274\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/oneAPI",
+            "value": 3506526.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=125544\nallocs=1352\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/Metal",
+            "value": 881291.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32304\nallocs=1039\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 242963,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18880\nallocs=548\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 10854,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19984\nallocs=106\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 11042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19984\nallocs=106\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 10833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19984\nallocs=106\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 9709,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19984\nallocs=106\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/CUDA",
+            "value": 590946.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51672\nallocs=1514\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 19761581,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=626912\nallocs=5867\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/Metal",
+            "value": 4237083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=149312\nallocs=4629\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 647472,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=52472\nallocs=1074\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 95291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 100875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 101042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 136583.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 40787,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3536\nallocs=119\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 1327823.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48376\nallocs=570\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1170291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16080\nallocs=535\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 80766,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7120\nallocs=200\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 1245375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8406496\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1243833.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8406496\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1242167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8406496\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 1346625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8406496\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 241456,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=22144\nallocs=649\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 33697285,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1001424\nallocs=9882\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 11160792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=240816\nallocs=7886\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1029111,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=80832\nallocs=1886\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 418646,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 415625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 421959,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 419333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 239594.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19024\nallocs=682\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 8059490.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262168\nallocs=2474\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 553875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50264\nallocs=1574\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 290562,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21536\nallocs=598\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 721958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2508432\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 734541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2508432\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 679500.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2508432\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 787334,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2508432\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 1162872,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=91648\nallocs=3437\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 45300122.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1405504\nallocs=12623\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 6376125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=290712\nallocs=8966\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 927770,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=76096\nallocs=1556\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 3435917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 3393083.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 3402125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 3437833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 184116.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19024\nallocs=682\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 8423762,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262264\nallocs=2480\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1435250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=58464\nallocs=1854\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 414534,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21328\nallocs=585\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 6237625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19997968\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 6115625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19997968\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 6009375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19997968\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 6181583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19997968\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 1093289,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=91648\nallocs=3437\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 51721629.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1405808\nallocs=12642\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 7558958.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=315952\nallocs=9823\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1572831,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=80400\nallocs=1678\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/forward/CPU/2 thread(s)",
+            "value": 579208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/forward/CPU/4 thread(s)",
+            "value": 462417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/forward/CPU/8 thread(s)",
+            "value": 462292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/forward/CPU/1 thread(s)",
+            "value": 974125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/forward/GPU/CUDA",
+            "value": 47573,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1056\nallocs=47\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/forward/GPU/oneAPI",
+            "value": 885633.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34280\nallocs=314\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/forward/GPU/Metal",
+            "value": 507625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7856\nallocs=282\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/forward/GPU/AMDGPU",
+            "value": 250473,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8320\nallocs=330\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/zygote/CPU/2 thread(s)",
+            "value": 1869917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2362080\nallocs=18\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/zygote/CPU/4 thread(s)",
+            "value": 1423083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2362080\nallocs=18\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/zygote/CPU/8 thread(s)",
+            "value": 1393417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2362080\nallocs=18\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/zygote/CPU/1 thread(s)",
+            "value": 3204459,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2362080\nallocs=18\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/zygote/GPU/CUDA",
+            "value": 281612.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20504\nallocs=772\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/zygote/GPU/oneAPI",
+            "value": 12940332,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=318000\nallocs=3120\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/zygote/GPU/Metal",
+            "value": 2186604,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=73832\nallocs=2545\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=gelu)(512 x 128)/zygote/GPU/AMDGPU",
+            "value": 790439,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21128\nallocs=584\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 83792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 80917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 81000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 136334,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 28696,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2800\nallocs=95\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 1362042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48376\nallocs=570\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1165437.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16080\nallocs=535\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 77930.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6656\nallocs=171\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 1332167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9455136\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1310500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9455136\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1294875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9455136\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 1539417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9455136\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 245648.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19384\nallocs=711\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 36504387,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1034544\nallocs=10157\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 12160416,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=247328\nallocs=8090\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1045671,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=83000\nallocs=1995\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 95209,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 98416,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 93209,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 136625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 51310,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4448\nallocs=152\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 750136.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46584\nallocs=558\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1146416.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13808\nallocs=449\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 78511,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6784\nallocs=189\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 1152292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7356160\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1159687.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7356160\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1151250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7356160\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 1162875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7356160\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 253277,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19648\nallocs=695\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 18569404.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=836000\nallocs=8095\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 9850000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=201080\nallocs=6529\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 927289.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=78224\nallocs=1671\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/CUDA",
+            "value": 35684,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4848\nallocs=166\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/oneAPI",
+            "value": 1189508,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46488\nallocs=555\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/Metal",
+            "value": 375250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13184\nallocs=444\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 48361,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6448\nallocs=171\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 9333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17872\nallocs=109\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 9458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17872\nallocs=109\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 9709,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17872\nallocs=109\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 8750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17872\nallocs=109\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/CUDA",
+            "value": 220828.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17968\nallocs=655\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 19457543,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=629320\nallocs=6073\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/Metal",
+            "value": 4593708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=147168\nallocs=5027\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 374784,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=45504\nallocs=1121\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/forward/CPU/2 thread(s)",
+            "value": 292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/forward/CPU/4 thread(s)",
+            "value": 291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/forward/CPU/8 thread(s)",
+            "value": 291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/forward/CPU/1 thread(s)",
+            "value": 250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/forward/GPU/CUDA",
+            "value": 33245,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1008\nallocs=38\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/forward/GPU/oneAPI",
+            "value": 1212416.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3808\nallocs=68\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/forward/GPU/Metal",
+            "value": 252292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2336\nallocs=98\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/forward/GPU/AMDGPU",
+            "value": 39560,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=400\nallocs=16\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/zygote/CPU/2 thread(s)",
+            "value": 2875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4288\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/zygote/CPU/4 thread(s)",
+            "value": 2958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4288\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/zygote/CPU/8 thread(s)",
+            "value": 2958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4288\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/zygote/CPU/1 thread(s)",
+            "value": 2667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4288\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/zygote/GPU/CUDA",
+            "value": 206636,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11104\nallocs=403\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/zygote/GPU/oneAPI",
+            "value": 8001406,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=146432\nallocs=1468\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/zygote/GPU/Metal",
+            "value": 947521,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34440\nallocs=1237\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=identity)(2 x 128)/zygote/GPU/AMDGPU",
+            "value": 151832,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8976\nallocs=247\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 283500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 233666.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 279000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 452541.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 143636.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13392\nallocs=309\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 6024073,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=215192\nallocs=2247\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 2830666,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53728\nallocs=1707\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 353524,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=27328\nallocs=682\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 2252958.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10507984\nallocs=205\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1971396,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10508720\nallocs=231\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1965125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10508720\nallocs=231\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 3184375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10507248\nallocs=179\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 788040.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=69016\nallocs=1898\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 32413829,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1009352\nallocs=9736\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 10984250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=230520\nallocs=6929\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1508985,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=100744\nallocs=2222\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/forward/CPU/2 thread(s)",
+            "value": 49864562.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33554496\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/forward/CPU/4 thread(s)",
+            "value": 35526104,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33554496\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/forward/CPU/8 thread(s)",
+            "value": 35534604.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33554496\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/forward/CPU/1 thread(s)",
+            "value": 96906750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33554496\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/forward/GPU/CUDA",
+            "value": 1602281,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=528\nallocs=24\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/forward/GPU/AMDGPU",
+            "value": 1012550.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9328\nallocs=348\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/zygote/CPU/2 thread(s)",
+            "value": 154278000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134218832\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/zygote/CPU/4 thread(s)",
+            "value": 112306708.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134218832\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/zygote/CPU/8 thread(s)",
+            "value": 112267208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134218832\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/zygote/CPU/1 thread(s)",
+            "value": 299170562.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134218640\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/zygote/GPU/CUDA",
+            "value": 6511679,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11840\nallocs=432\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=32)/zygote/GPU/AMDGPU",
+            "value": 5596708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=27072\nallocs=736\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/forward/CPU/2 thread(s)",
+            "value": 20500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/forward/CPU/4 thread(s)",
+            "value": 18979.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/forward/CPU/8 thread(s)",
+            "value": 18895.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/forward/CPU/1 thread(s)",
+            "value": 21479.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/forward/GPU/CUDA",
+            "value": 21787,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2384\nallocs=107\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/forward/GPU/oneAPI",
+            "value": 1152173,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34072\nallocs=305\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/forward/GPU/Metal",
+            "value": 221958.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7016\nallocs=235\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/forward/GPU/AMDGPU",
+            "value": 27530,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1744\nallocs=61\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/zygote/CPU/2 thread(s)",
+            "value": 19250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50496\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/zygote/CPU/4 thread(s)",
+            "value": 17958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50496\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/zygote/CPU/8 thread(s)",
+            "value": 18333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50496\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/zygote/CPU/1 thread(s)",
+            "value": 23583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50496\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/zygote/GPU/CUDA",
+            "value": 300928,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16840\nallocs=631\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/zygote/GPU/oneAPI",
+            "value": 9776479,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=279320\nallocs=2717\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/zygote/GPU/Metal",
+            "value": 1527499.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=55432\nallocs=1888\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=tanh)(32 x 128)/zygote/GPU/AMDGPU",
+            "value": 155081.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16408\nallocs=389\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 9125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 8562.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 10625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 9291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/CUDA",
+            "value": 135575.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12368\nallocs=300\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/oneAPI",
+            "value": 3573182,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=130792\nallocs=1422\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/Metal",
+            "value": 741083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=35024\nallocs=1135\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 239662,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=22368\nallocs=599\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 12604,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=24800\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 13125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=24800\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 13208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=24800\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 12000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=24800\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/CUDA",
+            "value": 714590,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=59624\nallocs=1673\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 23955784,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=722832\nallocs=6886\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/Metal",
+            "value": 5174000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=175760\nallocs=5420\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 658192,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=62024\nallocs=1207\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 24167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 23333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 23771,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 12750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/CUDA",
+            "value": 138674,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11664\nallocs=282\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/oneAPI",
+            "value": 3507579,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=125560\nallocs=1353\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/Metal",
+            "value": 834729,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32552\nallocs=1039\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 69605.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15584\nallocs=342\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 26459,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49328\nallocs=104\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 27250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49328\nallocs=104\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 27250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49328\nallocs=104\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 24084,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49328\nallocs=104\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/CUDA",
+            "value": 658444,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=52312\nallocs=1515\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 19252927,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=659512\nallocs=6207\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/Metal",
+            "value": 4266166,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=149360\nallocs=4560\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 351114,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54248\nallocs=1080\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/CUDA",
+            "value": 36229,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4848\nallocs=166\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/oneAPI",
+            "value": 1181895.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46488\nallocs=555\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/Metal",
+            "value": 361166,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13184\nallocs=444\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 207762,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12704\nallocs=424\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 10645.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19024\nallocs=111\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 10750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19024\nallocs=111\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 11312.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19024\nallocs=111\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 9708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19024\nallocs=111\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/CUDA",
+            "value": 239781,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21368\nallocs=821\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 22179895.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=666856\nallocs=6411\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/Metal",
+            "value": 4623750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=155640\nallocs=5295\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=false)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 660857,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48104\nallocs=1230\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/forward/CPU/2 thread(s)",
+            "value": 18229.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/forward/CPU/4 thread(s)",
+            "value": 17667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/forward/CPU/8 thread(s)",
+            "value": 17750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/forward/CPU/1 thread(s)",
+            "value": 16042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/forward/GPU/CUDA",
+            "value": 22020,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2384\nallocs=107\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/forward/GPU/oneAPI",
+            "value": 1142720.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34072\nallocs=305\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/forward/GPU/Metal",
+            "value": 208583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7016\nallocs=235\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/forward/GPU/AMDGPU",
+            "value": 183976.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8192\nallocs=326\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/zygote/CPU/2 thread(s)",
+            "value": 27667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=67136\nallocs=14\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/zygote/CPU/4 thread(s)",
+            "value": 23958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=67136\nallocs=14\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/zygote/CPU/8 thread(s)",
+            "value": 24458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=67136\nallocs=14\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/zygote/CPU/1 thread(s)",
+            "value": 39813,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=67136\nallocs=14\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/zygote/GPU/CUDA",
+            "value": 318318.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19208\nallocs=736\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/zygote/GPU/oneAPI",
+            "value": 11247905.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=311984\nallocs=2991\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/zygote/GPU/Metal",
+            "value": 1653584,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=61448\nallocs=2089\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(32, act=gelu)(32 x 128)/zygote/GPU/AMDGPU",
+            "value": 609656,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18264\nallocs=438\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 283541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 268708.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 258292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 418500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 194481.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12560\nallocs=283\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 5876691,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=209944\nallocs=2177\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 2239521,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51008\nallocs=1611\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 350624,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=23680\nallocs=479\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 2170437,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9453952\nallocs=126\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1898125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9453952\nallocs=126\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1899250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9453952\nallocs=126\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 3112875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9453952\nallocs=126\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 596416.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=56296\nallocs=1601\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 27732536,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=835400\nallocs=7895\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 9503125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=187352\nallocs=5572\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1220368,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=78600\nallocs=1717\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/forward/CPU/2 thread(s)",
+            "value": 784414542,
+            "unit": "ns",
+            "extra": "gctime=435959\nmemory=536870976\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/forward/CPU/4 thread(s)",
+            "value": 544453125,
+            "unit": "ns",
+            "extra": "gctime=429625\nmemory=536870976\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/forward/CPU/8 thread(s)",
+            "value": 543868417,
+            "unit": "ns",
+            "extra": "gctime=481167\nmemory=536870976\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/forward/CPU/1 thread(s)",
+            "value": 1558543396,
+            "unit": "ns",
+            "extra": "gctime=51007000\nmemory=536870976\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/forward/GPU/CUDA",
+            "value": 22531135,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=528\nallocs=24\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/forward/GPU/AMDGPU",
+            "value": 14125284,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20992\nallocs=348\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/zygote/CPU/2 thread(s)",
+            "value": 2520154916,
+            "unit": "ns",
+            "extra": "gctime=31866000\nmemory=2147484752\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/zygote/CPU/4 thread(s)",
+            "value": 3028247583,
+            "unit": "ns",
+            "extra": "gctime=128523542\nmemory=2147484752\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/zygote/CPU/8 thread(s)",
+            "value": 1785416500,
+            "unit": "ns",
+            "extra": "gctime=31667167\nmemory=2147484752\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/zygote/CPU/1 thread(s)",
+            "value": 5276441125,
+            "unit": "ns",
+            "extra": "gctime=49513083\nmemory=2147484560\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/zygote/GPU/CUDA",
+            "value": 370167702,
+            "unit": "ns",
+            "extra": "gctime=299608479\nmemory=12048\nallocs=437\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=512)/zygote/GPU/AMDGPU",
+            "value": 88591528,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=65536\nallocs=806\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 77334,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 76000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 79520.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 77333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=394480\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 238909,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19024\nallocs=682\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 7687562,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262168\nallocs=2474\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 907646,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50264\nallocs=1574\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 110681,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17968\nallocs=375\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 228208.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2246000\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 204666.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2246000\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 268125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2246000\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 263687.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2246000\nallocs=143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 1145954,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=87408\nallocs=3262\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 43117043,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1339888\nallocs=12085\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 5909792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=275608\nallocs=8519\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 645816,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=73344\nallocs=1486\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/forward/CPU/2 thread(s)",
+            "value": 199894375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134217792\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/forward/CPU/4 thread(s)",
+            "value": 139076750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134217792\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/forward/CPU/8 thread(s)",
+            "value": 139291083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134217792\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/forward/CPU/1 thread(s)",
+            "value": 388391292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134217792\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/forward/GPU/CUDA",
+            "value": 5840370.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=528\nallocs=24\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/forward/GPU/AMDGPU",
+            "value": 3416480,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11584\nallocs=348\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/zygote/CPU/2 thread(s)",
+            "value": 620881354.5,
+            "unit": "ns",
+            "extra": "gctime=2733042\nmemory=536872016\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/zygote/CPU/4 thread(s)",
+            "value": 439155375,
+            "unit": "ns",
+            "extra": "gctime=2642000\nmemory=536872016\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/zygote/CPU/8 thread(s)",
+            "value": 439252041.5,
+            "unit": "ns",
+            "extra": "gctime=2707583.5\nmemory=536872016\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/zygote/CPU/1 thread(s)",
+            "value": 1199353000,
+            "unit": "ns",
+            "extra": "gctime=3059541\nmemory=536871824\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/zygote/GPU/CUDA",
+            "value": 26619992,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11840\nallocs=432\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(512, Bsize=128)/zygote/GPU/AMDGPU",
+            "value": 22060656,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=37312\nallocs=806\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 16041,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 15958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 16125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 15916,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 28461,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3536\nallocs=119\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 1221292.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48360\nallocs=569\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 580333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16080\nallocs=535\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 50580,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6560\nallocs=165\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 125708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1065232\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 125292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1065232\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 150187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1065232\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 122458.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1065232\nallocs=149\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 245054,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=22144\nallocs=649\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 31170466.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1000992\nallocs=9855\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 9009042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=240176\nallocs=7869\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 536516,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=75840\nallocs=1739\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 11062.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 10583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 11208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 9125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/CUDA",
+            "value": 135544,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11536\nallocs=274\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/oneAPI",
+            "value": 3344137,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=125544\nallocs=1352\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/Metal",
+            "value": 785396,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32304\nallocs=1039\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 73301,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15424\nallocs=332\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 10291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19312\nallocs=104\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 10500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19312\nallocs=104\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 10416,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19312\nallocs=104\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 9125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19312\nallocs=104\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/CUDA",
+            "value": 585798,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49832\nallocs=1430\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 18593571,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=621904\nallocs=5799\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/Metal",
+            "value": 4004875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=147104\nallocs=4574\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 325613.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51080\nallocs=997\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 2875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 2833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 2917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 2792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/CUDA",
+            "value": 26852,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3808\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/oneAPI",
+            "value": 1360129,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48312\nallocs=569\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/Metal",
+            "value": 289541.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15976\nallocs=535\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 48810,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6832\nallocs=185\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 24354.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50640\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 23042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50640\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 24334,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50640\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 23021,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50640\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/CUDA",
+            "value": 273639,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=22304\nallocs=678\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 23336269,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=754720\nallocs=7448\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/Metal",
+            "value": 5257125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=172776\nallocs=5797\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 395924,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=55072\nallocs=1352\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/forward/CPU/2 thread(s)",
+            "value": 213583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/forward/CPU/4 thread(s)",
+            "value": 213708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/forward/CPU/8 thread(s)",
+            "value": 216167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/forward/CPU/1 thread(s)",
+            "value": 217646,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/forward/GPU/CUDA",
+            "value": 25092,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2384\nallocs=107\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/forward/GPU/oneAPI",
+            "value": 1152450.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34072\nallocs=305\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/forward/GPU/Metal",
+            "value": 260750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7024\nallocs=235\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/forward/GPU/AMDGPU",
+            "value": 191612,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4848\nallocs=255\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/zygote/CPU/2 thread(s)",
+            "value": 398542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051456\nallocs=18\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/zygote/CPU/4 thread(s)",
+            "value": 339333.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051456\nallocs=18\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/zygote/CPU/8 thread(s)",
+            "value": 363667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051456\nallocs=18\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/zygote/CPU/1 thread(s)",
+            "value": 620229.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051456\nallocs=18\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/zygote/GPU/CUDA",
+            "value": 256096,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19208\nallocs=736\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/zygote/GPU/oneAPI",
+            "value": 11733285,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=312080\nallocs=2997\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/zygote/GPU/Metal",
+            "value": 2248958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=69416\nallocs=2364\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=gelu)(512 x 128)/zygote/GPU/AMDGPU",
+            "value": 624416,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19976\nallocs=563\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/forward/CPU/2 thread(s)",
+            "value": 5041.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32832\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/forward/CPU/4 thread(s)",
+            "value": 6666,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32832\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/forward/CPU/8 thread(s)",
+            "value": 7166,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32832\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/forward/CPU/1 thread(s)",
+            "value": 4270.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32832\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/forward/GPU/CUDA",
+            "value": 16615,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/forward/GPU/AMDGPU",
+            "value": 73470,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2768\nallocs=80\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/zygote/CPU/2 thread(s)",
+            "value": 12187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132176\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/zygote/CPU/4 thread(s)",
+            "value": 11000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132176\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/zygote/CPU/8 thread(s)",
+            "value": 11167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132176\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/zygote/CPU/1 thread(s)",
+            "value": 16416.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=131984\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/zygote/GPU/CUDA",
+            "value": 234396,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11808\nallocs=430\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=32)/zygote/GPU/AMDGPU",
+            "value": 374809,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17376\nallocs=405\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/forward/CPU/2 thread(s)",
+            "value": 40020.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=131136\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/forward/CPU/4 thread(s)",
+            "value": 50833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=131136\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/forward/CPU/8 thread(s)",
+            "value": 52916,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=131136\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/forward/CPU/1 thread(s)",
+            "value": 13667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=131136\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/forward/GPU/CUDA",
+            "value": 20382,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/forward/GPU/AMDGPU",
+            "value": 79985.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4864\nallocs=70\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/zygote/CPU/2 thread(s)",
+            "value": 36729,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=525392\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/zygote/CPU/4 thread(s)",
+            "value": 31333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=525392\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/zygote/CPU/8 thread(s)",
+            "value": 35583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=525392\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/zygote/CPU/1 thread(s)",
+            "value": 63146,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=525200\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/zygote/GPU/CUDA",
+            "value": 211105,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11808\nallocs=430\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=128)/zygote/GPU/AMDGPU",
+            "value": 416914.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=24032\nallocs=398\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/forward/CPU/2 thread(s)",
+            "value": 2584,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/forward/CPU/4 thread(s)",
+            "value": 2458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/forward/CPU/8 thread(s)",
+            "value": 2500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/forward/CPU/1 thread(s)",
+            "value": 2125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/forward/GPU/CUDA",
+            "value": 20455,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2384\nallocs=107\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/forward/GPU/oneAPI",
+            "value": 1127292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34072\nallocs=305\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/forward/GPU/Metal",
+            "value": 303000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6736\nallocs=233\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/forward/GPU/AMDGPU",
+            "value": 29140,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1936\nallocs=73\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/zygote/CPU/2 thread(s)",
+            "value": 3083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3712\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/zygote/CPU/4 thread(s)",
+            "value": 3042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3712\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/zygote/CPU/8 thread(s)",
+            "value": 3208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3712\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/zygote/CPU/1 thread(s)",
+            "value": 2667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3712\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/zygote/GPU/CUDA",
+            "value": 224852,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=14616\nallocs=562\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/zygote/GPU/oneAPI",
+            "value": 9140032.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=241744\nallocs=2311\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/zygote/GPU/Metal",
+            "value": 1475896,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53848\nallocs=1867\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=tanh)(2 x 128)/zygote/GPU/AMDGPU",
+            "value": 139151,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13464\nallocs=320\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 4167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 4958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 6625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 5125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/CUDA",
+            "value": 163099.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13104\nallocs=537\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/oneAPI",
+            "value": 5686982,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=176792\nallocs=1671\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/Metal",
+            "value": 458354.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=36832\nallocs=1268\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 62771,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10960\nallocs=274\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 8333.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15936\nallocs=86\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 8542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15936\nallocs=86\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 8750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15936\nallocs=86\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 8458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15936\nallocs=86\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/CUDA",
+            "value": 962571.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=72896\nallocs=2910\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 39276158.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1115848\nallocs=10164\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/Metal",
+            "value": 5672354.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=226584\nallocs=7733\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 387704,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54416\nallocs=1177\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 35958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 29583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 29667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 55042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 38494,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4448\nallocs=152\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 1205023,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46568\nallocs=557\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 503125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13808\nallocs=449\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 207663,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12896\nallocs=429\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 237666,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1194896\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 208042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1194896\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 245062.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1194896\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 332250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1194896\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 278891,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=23080\nallocs=861\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 27801270.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=873200\nallocs=8412\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 8307292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=210480\nallocs=6798\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 800658,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=76520\nallocs=1676\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/forward/CPU/2 thread(s)",
+            "value": 3314125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8388672\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/forward/CPU/4 thread(s)",
+            "value": 2330083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8388672\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/forward/CPU/8 thread(s)",
+            "value": 2339083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8388672\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/forward/CPU/1 thread(s)",
+            "value": 6309875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8388672\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/forward/GPU/CUDA",
+            "value": 204533.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/forward/GPU/AMDGPU",
+            "value": 204087.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5376\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/zygote/CPU/2 thread(s)",
+            "value": 11472583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33555536\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/zygote/CPU/4 thread(s)",
+            "value": 8342500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33555536\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/zygote/CPU/8 thread(s)",
+            "value": 8324375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33555536\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/zygote/CPU/1 thread(s)",
+            "value": 21081500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33555344\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/zygote/GPU/CUDA",
+            "value": 735611,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11808\nallocs=430\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=128)/zygote/GPU/AMDGPU",
+            "value": 1061691,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=27520\nallocs=483\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 7187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 4854.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 6625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 5000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/CUDA",
+            "value": 156130,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11984\nallocs=467\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/oneAPI",
+            "value": 5499153,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=175480\nallocs=1669\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/Metal",
+            "value": 743104,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=35872\nallocs=1240\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 56480,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10832\nallocs=266\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 7083.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12128\nallocs=85\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 7250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12128\nallocs=85\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 7834,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12128\nallocs=85\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 7291.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12128\nallocs=85\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/CUDA",
+            "value": 814028,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=67568\nallocs=2685\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 36157042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1038792\nallocs=9369\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/Metal",
+            "value": 5491334,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=211920\nallocs=7188\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 384494,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49472\nallocs=1082\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 121000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 141145.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 148708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 116708.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 160115.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13392\nallocs=309\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 5664774,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=215192\nallocs=2247\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 2693854.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53728\nallocs=1707\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 183212,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=24656\nallocs=515\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 1374292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9459296\nallocs=202\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1349833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9460032\nallocs=228\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1352854.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9460032\nallocs=228\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 1489187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9458560\nallocs=176\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 783596,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=67176\nallocs=1814\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 31718893.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1004344\nallocs=9668\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 11346875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=228840\nallocs=6900\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1126782,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=92936\nallocs=1901\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/forward/CPU/2 thread(s)",
+            "value": 33208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=128\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/forward/CPU/4 thread(s)",
+            "value": 36459,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=128\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/forward/CPU/8 thread(s)",
+            "value": 34667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=128\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/forward/CPU/1 thread(s)",
+            "value": 666,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=128\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/forward/GPU/CUDA",
+            "value": 15809,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/forward/GPU/AMDGPU",
+            "value": 81441,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2224\nallocs=91\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/zygote/CPU/2 thread(s)",
+            "value": 2750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1360\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/zygote/CPU/4 thread(s)",
+            "value": 2833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1360\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/zygote/CPU/8 thread(s)",
+            "value": 3084,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1360\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/zygote/CPU/1 thread(s)",
+            "value": 2167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1168\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/zygote/GPU/CUDA",
+            "value": 151632.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9456\nallocs=360\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=4)/zygote/GPU/AMDGPU",
+            "value": 352754,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11808\nallocs=321\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 16333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 16208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 16250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 16292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 37480,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4448\nallocs=152\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 1261728,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46568\nallocs=557\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 357229.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13808\nallocs=449\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 49360,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6032\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 116208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=932624\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 117541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=932624\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 159062.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=932624\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 118729,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=932624\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 256612,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19648\nallocs=695\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 27268107,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=835664\nallocs=8074\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 7907875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=201080\nallocs=6529\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=identity, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 518415,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=72592\nallocs=1484\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/forward/CPU/2 thread(s)",
+            "value": 3917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/forward/CPU/4 thread(s)",
+            "value": 4000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/forward/CPU/8 thread(s)",
+            "value": 3917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/forward/CPU/1 thread(s)",
+            "value": 3917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/forward/GPU/CUDA",
+            "value": 22734,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1056\nallocs=47\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/forward/GPU/oneAPI",
+            "value": 2140613,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=31944\nallocs=279\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/forward/GPU/Metal",
+            "value": 252333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7192\nallocs=264\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/forward/GPU/AMDGPU",
+            "value": 46341,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1696\nallocs=61\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/zygote/CPU/2 thread(s)",
+            "value": 15104.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54640\nallocs=9\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/zygote/CPU/4 thread(s)",
+            "value": 15000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54640\nallocs=9\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/zygote/CPU/8 thread(s)",
+            "value": 14917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54640\nallocs=9\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/zygote/CPU/1 thread(s)",
+            "value": 14875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54640\nallocs=9\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/zygote/GPU/CUDA",
+            "value": 341706,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15424\nallocs=541\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/zygote/GPU/oneAPI",
+            "value": 11876073.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=252312\nallocs=2550\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/zygote/GPU/Metal",
+            "value": 1007688,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=52992\nallocs=1845\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=identity)(32 x 128)/zygote/GPU/AMDGPU",
+            "value": 191842,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16128\nallocs=388\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 140417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 156208.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 143750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 163375.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1052048\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 161339,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13392\nallocs=309\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 5761252,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=215192\nallocs=2247\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 2298666.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53728\nallocs=1707\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 186422,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=24400\nallocs=499\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 1271708.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8410608\nallocs=199\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1282396,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8411344\nallocs=225\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1283562.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8411344\nallocs=225\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 1348791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8409872\nallocs=173\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 767664,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=65584\nallocs=1732\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 30754088,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=971176\nallocs=9398\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 11079125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=221536\nallocs=6675\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1235932.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=96928\nallocs=2036\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 53083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 65791.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 69083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 22041.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134288\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 124723.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12544\nallocs=282\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 3374492,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=130312\nallocs=1357\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 1414917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34240\nallocs=1047\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 79931,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16624\nallocs=332\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 127458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1065232\nallocs=123\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 129395.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1065232\nallocs=123\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 164958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1065232\nallocs=123\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 172875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1065232\nallocs=123\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 573736.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54424\nallocs=1515\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 19953137.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=672648\nallocs=6180\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 6254000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=167768\nallocs=4931\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 494530,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=58264\nallocs=1163\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/forward/CPU/2 thread(s)",
+            "value": 24166,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4352\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/forward/CPU/4 thread(s)",
+            "value": 29416,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4352\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/forward/CPU/8 thread(s)",
+            "value": 30083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4352\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/forward/CPU/1 thread(s)",
+            "value": 1209,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4352\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/forward/GPU/CUDA",
+            "value": 16823,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/forward/GPU/AMDGPU",
+            "value": 83635.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2416\nallocs=103\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/zygote/CPU/2 thread(s)",
+            "value": 4917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18256\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/zygote/CPU/4 thread(s)",
+            "value": 5042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18256\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/zygote/CPU/8 thread(s)",
+            "value": 5208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18256\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/zygote/CPU/1 thread(s)",
+            "value": 4395.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18064\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/zygote/GPU/CUDA",
+            "value": 231486,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11808\nallocs=430\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(16, Bsize=4)/zygote/GPU/AMDGPU",
+            "value": 385338.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15344\nallocs=413\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 306999.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 309334,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 308542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 307937.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 258633.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17904\nallocs=612\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 7898830,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=259912\nallocs=2467\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 1092833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48472\nallocs=1542\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 281213,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21504\nallocs=596\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 541354,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1320960\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 540291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1320960\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 582958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1320960\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 539083.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1320960\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 1187031,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=85904\nallocs=3212\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 43495919.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1323248\nallocs=11817\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 6403333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=270096\nallocs=8369\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 871138.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=70432\nallocs=1458\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 24583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 24833.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 26292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 23062,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 132419,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13376\nallocs=308\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 3610662,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=135560\nallocs=1427\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 1510937.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=36960\nallocs=1143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 76620.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17104\nallocs=337\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 131083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1070352\nallocs=199\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 133375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1070352\nallocs=199\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 167125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1070352\nallocs=199\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 143104,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1069616\nallocs=173\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 888953,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=65552\nallocs=1730\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 25509584,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=813336\nallocs=7745\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 7609208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=203472\nallocs=6071\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=identity, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 545790,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=73344\nallocs=1429\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 6646.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 6542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 8417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 7229,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/CUDA",
+            "value": 158803,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11984\nallocs=467\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/oneAPI",
+            "value": 5627528,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=175480\nallocs=1669\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/Metal",
+            "value": 745021,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=36072\nallocs=1237\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 71751,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10944\nallocs=273\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 10604,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=42336\nallocs=85\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 10646,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=42336\nallocs=85\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 10708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=42336\nallocs=85\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 10062.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=42336\nallocs=85\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/CUDA",
+            "value": 893691,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=69792\nallocs=2754\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 38333951,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1076368\nallocs=9775\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/Metal",
+            "value": 5595833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=214048\nallocs=7166\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 392219,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=52224\nallocs=1139\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 5583.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 5312.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 6187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 6312.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1632\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/CUDA",
+            "value": 161654,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11984\nallocs=467\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/oneAPI",
+            "value": 5497219,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=175480\nallocs=1669\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/Metal",
+            "value": 729875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=35872\nallocs=1240\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 61581,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10896\nallocs=270\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 7500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13360\nallocs=87\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 7500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13360\nallocs=87\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 8125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13360\nallocs=87\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 7500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13360\nallocs=87\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/CUDA",
+            "value": 837498,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=70624\nallocs=2816\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 37746860.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1103416\nallocs=9917\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/Metal",
+            "value": 5732334,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=224192\nallocs=7605\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 399155,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51312\nallocs=1125\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/forward/CPU/2 thread(s)",
+            "value": 14514958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33554496\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/forward/CPU/4 thread(s)",
+            "value": 10137437.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33554496\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/forward/CPU/8 thread(s)",
+            "value": 10138041.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33554496\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/forward/CPU/1 thread(s)",
+            "value": 27723187,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=33554496\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/forward/GPU/CUDA",
+            "value": 530014,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=528\nallocs=24\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/forward/GPU/AMDGPU",
+            "value": 393674,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20992\nallocs=348\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/zygote/CPU/2 thread(s)",
+            "value": 46312708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134218832\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/zygote/CPU/4 thread(s)",
+            "value": 33426624.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134218832\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/zygote/CPU/8 thread(s)",
+            "value": 33439083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134218832\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/zygote/CPU/1 thread(s)",
+            "value": 85128333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134218640\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/zygote/GPU/CUDA",
+            "value": 2667948.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11840\nallocs=432\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=512)/zygote/GPU/AMDGPU",
+            "value": 3284033,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=62064\nallocs=736\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 74791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 81812,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 85520.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 64979,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 140220.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13376\nallocs=308\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 3497446.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=135560\nallocs=1427\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 1544624.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=36960\nallocs=1143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 230967.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17824\nallocs=382\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 249917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1332720\nallocs=205\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 260292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1332720\nallocs=205\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 258021,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1332720\nallocs=205\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 394812.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1331984\nallocs=179\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 809697.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=68984\nallocs=1896\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 26131097.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=851512\nallocs=8083\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 7804854,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=213432\nallocs=6345\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 804683,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=77032\nallocs=1604\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 3291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 3125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 3208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 2875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/CUDA",
+            "value": 33271,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4112\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/oneAPI",
+            "value": 1219535.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46520\nallocs=557\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/Metal",
+            "value": 286500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13704\nallocs=449\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 49680,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6688\nallocs=186\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 20167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49664\nallocs=110\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 20042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49664\nallocs=110\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 21916.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49664\nallocs=110\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 18916.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49664\nallocs=110\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/CUDA",
+            "value": 302828.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21768\nallocs=806\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 20125259,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=700080\nallocs=6758\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/Metal",
+            "value": 4689646,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=156960\nallocs=5239\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 386869,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49704\nallocs=1224\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/forward/CPU/2 thread(s)",
+            "value": 6750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/forward/CPU/4 thread(s)",
+            "value": 6166,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/forward/CPU/8 thread(s)",
+            "value": 6125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/forward/CPU/1 thread(s)",
+            "value": 8583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/forward/GPU/CUDA",
+            "value": 24090,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=960\nallocs=41\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/forward/GPU/oneAPI",
+            "value": 2083960,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32136\nallocs=279\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/forward/GPU/Metal",
+            "value": 229375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7224\nallocs=264\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/forward/GPU/AMDGPU",
+            "value": 216363,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8240\nallocs=328\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/zygote/CPU/2 thread(s)",
+            "value": 33000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=88640\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/zygote/CPU/4 thread(s)",
+            "value": 29167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=88640\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/zygote/CPU/8 thread(s)",
+            "value": 29229.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=88640\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/zygote/CPU/1 thread(s)",
+            "value": 44542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=88640\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/zygote/GPU/CUDA",
+            "value": 313937,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18088\nallocs=683\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/zygote/GPU/oneAPI",
+            "value": 12778533,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=249376\nallocs=2424\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/zygote/GPU/Metal",
+            "value": 984521,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=49456\nallocs=1681\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=gelu)(32 x 128)/zygote/GPU/AMDGPU",
+            "value": 621277,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=14440\nallocs=375\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 35541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 29500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 29541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 54542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 30008,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3536\nallocs=119\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 1201698,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48360\nallocs=569\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 566042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16080\nallocs=535\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 205792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13008\nallocs=430\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 249520.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1327504\nallocs=153\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 250208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1327504\nallocs=153\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 248083.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1327504\nallocs=153\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 352292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1327504\nallocs=153\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 260108,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21224\nallocs=795\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 32780152.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1038528\nallocs=10193\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 9426458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=249624\nallocs=8141\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 848399,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=77992\nallocs=1820\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 609917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 649958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 653583.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 612791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 234518,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19024\nallocs=682\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 8546996,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262264\nallocs=2480\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1393833.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=58464\nallocs=1854\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 235152,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17840\nallocs=367\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 2243687.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17900528\nallocs=145\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 2224187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17900528\nallocs=145\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 2233166,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17900528\nallocs=145\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 2227375.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17900528\nallocs=145\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 1077130.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=87408\nallocs=3262\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 46440103,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1340192\nallocs=12104\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 7073917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=301472\nallocs=9392\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=identity, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1378594,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=77904\nallocs=1624\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 54792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 67042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 72584,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 25353.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=134544\nallocs=43\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 129120,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13376\nallocs=308\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 3508315,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=135560\nallocs=1427\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 1535042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=36960\nallocs=1143\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 79491,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16608\nallocs=306\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 142791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1201536\nallocs=202\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 142229,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1201536\nallocs=202\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 178750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1201536\nallocs=202\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 149250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1200800\nallocs=176\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 855357,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=67144\nallocs=1812\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 25800049,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=846504\nallocs=8015\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 7964958.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=211016\nallocs=6293\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=true)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 562596,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=74024\nallocs=1426\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 3167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 3166,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 3208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 2875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/CUDA",
+            "value": 23719,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3072\nallocs=104\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/oneAPI",
+            "value": 1236576,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48312\nallocs=569\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/Metal",
+            "value": 441416.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15976\nallocs=535\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 49960,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6800\nallocs=183\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 25916,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54992\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 26479,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54992\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 26667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54992\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 23250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54992\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/CUDA",
+            "value": 281890,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19960\nallocs=740\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 24333361,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=787840\nallocs=7723\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/Metal",
+            "value": 5406604,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=179760\nallocs=6011\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 407974,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=55816\nallocs=1354\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 10459,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 10187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 11708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 9729.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3360\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/CUDA",
+            "value": 138994,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11536\nallocs=274\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/oneAPI",
+            "value": 3428482,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=125544\nallocs=1352\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/Metal",
+            "value": 844292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32304\nallocs=1039\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 70961,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15408\nallocs=331\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 9521,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18640\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 9334,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18640\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 9750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18640\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 8792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18640\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/CUDA",
+            "value": 561712.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48240\nallocs=1348\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 18062582,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=588736\nallocs=5529\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/Metal",
+            "value": 4042375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=139848\nallocs=4354\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 333563,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50000\nallocs=975\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/forward/CPU/2 thread(s)",
+            "value": 2187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/forward/CPU/4 thread(s)",
+            "value": 1917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/forward/CPU/8 thread(s)",
+            "value": 2500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/forward/CPU/1 thread(s)",
+            "value": 1896,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1280\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/forward/GPU/CUDA",
+            "value": 21480,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2384\nallocs=107\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/forward/GPU/oneAPI",
+            "value": 1136073,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34072\nallocs=305\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/forward/GPU/Metal",
+            "value": 301875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6736\nallocs=233\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/forward/GPU/AMDGPU",
+            "value": 194157,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4592\nallocs=239\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/zygote/CPU/2 thread(s)",
+            "value": 3375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4800\nallocs=14\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/zygote/CPU/4 thread(s)",
+            "value": 3208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4800\nallocs=14\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/zygote/CPU/8 thread(s)",
+            "value": 3417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4800\nallocs=14\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/zygote/CPU/1 thread(s)",
+            "value": 3541.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4800\nallocs=14\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/zygote/GPU/CUDA",
+            "value": 245892,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16984\nallocs=667\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/zygote/GPU/oneAPI",
+            "value": 9864736.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=274408\nallocs=2585\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/zygote/GPU/Metal",
+            "value": 1651792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=59552\nallocs=2064\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(2, act=gelu)(2 x 128)/zygote/GPU/AMDGPU",
+            "value": 596225,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=14840\nallocs=357\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/forward/CPU/2 thread(s)",
+            "value": 249958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/forward/CPU/4 thread(s)",
+            "value": 238542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/forward/CPU/8 thread(s)",
+            "value": 240958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/forward/CPU/1 thread(s)",
+            "value": 287583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/forward/GPU/CUDA",
+            "value": 24819,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2384\nallocs=107\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/forward/GPU/oneAPI",
+            "value": 1164759,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34072\nallocs=305\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/forward/GPU/Metal",
+            "value": 302792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7024\nallocs=235\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/forward/GPU/AMDGPU",
+            "value": 37221,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1264\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/zygote/CPU/2 thread(s)",
+            "value": 260959,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=789264\nallocs=16\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/zygote/CPU/4 thread(s)",
+            "value": 230854,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=789264\nallocs=16\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/zygote/CPU/8 thread(s)",
+            "value": 243625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=789264\nallocs=16\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/zygote/CPU/1 thread(s)",
+            "value": 355958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=789264\nallocs=16\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/zygote/GPU/CUDA",
+            "value": 245550,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16840\nallocs=631\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/zygote/GPU/oneAPI",
+            "value": 10576198.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=279416\nallocs=2723\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/zygote/GPU/Metal",
+            "value": 2090375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=62792\nallocs=2148\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=tanh)(512 x 128)/zygote/GPU/AMDGPU",
+            "value": 220303,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16424\nallocs=390\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 16958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 16667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 16709,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 16292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132096\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 34127,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3712\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 1190609,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46568\nallocs=557\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 575166,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13808\nallocs=449\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 50590,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6096\nallocs=146\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 130041,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1063760\nallocs=131\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 134354,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1063760\nallocs=131\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 150250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1063760\nallocs=131\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 144313,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1063760\nallocs=131\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 275288.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21240\nallocs=777\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 27343790,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=868784\nallocs=8349\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 8269583.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=208216\nallocs=6749\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 531965,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=73864\nallocs=1519\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 14875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 15333.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 16583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 15500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5408\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/CUDA",
+            "value": 159815.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11984\nallocs=467\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/oneAPI",
+            "value": 5715654,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=175480\nallocs=1669\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/Metal",
+            "value": 738500.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=36072\nallocs=1237\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 241632,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17360\nallocs=532\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 24125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=52896\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 22770.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=52896\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 25084,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=52896\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 23312.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=52896\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/CUDA",
+            "value": 939258.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=76048\nallocs=2955\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 40271623.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1143136\nallocs=10349\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/Metal",
+            "value": 5735104,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=228768\nallocs=7603\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=false)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 702207,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=56656\nallocs=1212\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 12000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 11354,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 13750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 12229,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7344\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/CUDA",
+            "value": 143419,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12496\nallocs=308\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/oneAPI",
+            "value": 3445932,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=130808\nallocs=1423\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/Metal",
+            "value": 793125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=35272\nallocs=1135\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 71931,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16064\nallocs=347\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 30208.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53696\nallocs=139\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 30041.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53696\nallocs=139\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 30187.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53696\nallocs=139\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 29166.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53696\nallocs=139\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/CUDA",
+            "value": 780608,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=58672\nallocs=1592\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 21266521,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=722264\nallocs=6956\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/Metal",
+            "value": 4483333.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=168552\nallocs=5131\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 370559,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=62528\nallocs=1187\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 13209,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 12208.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 13584,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 12624.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7088\nallocs=32\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/CUDA",
+            "value": 141607.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11664\nallocs=282\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/oneAPI",
+            "value": 3299074.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=125560\nallocs=1353\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/Metal",
+            "value": 873333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32552\nallocs=1039\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 70911,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15584\nallocs=342\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 24499.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=44928\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 24291.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=44928\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 24042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=44928\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 23021,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=44928\nallocs=102\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/CUDA",
+            "value": 636640,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=50720\nallocs=1433\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 19226101,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=626344\nallocs=5937\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/Metal",
+            "value": 4129500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=141904\nallocs=4343\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=false)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 343508.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53120\nallocs=1055\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/forward/CPU/2 thread(s)",
+            "value": 30958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2304\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/forward/CPU/4 thread(s)",
+            "value": 34666.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2304\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/forward/CPU/8 thread(s)",
+            "value": 32000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2304\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/forward/CPU/1 thread(s)",
+            "value": 2042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2304\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/forward/GPU/CUDA",
+            "value": 16886,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/forward/GPU/AMDGPU",
+            "value": 74771,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5248\nallocs=94\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/zygote/CPU/2 thread(s)",
+            "value": 5833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10064\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/zygote/CPU/4 thread(s)",
+            "value": 5083.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10064\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/zygote/CPU/8 thread(s)",
+            "value": 5583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10064\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/zygote/CPU/1 thread(s)",
+            "value": 6333.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9872\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/zygote/GPU/CUDA",
+            "value": 153112,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9456\nallocs=360\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=128)/zygote/GPU/AMDGPU",
+            "value": 371114,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=24064\nallocs=400\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 666,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/CUDA",
+            "value": 26459,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3808\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/oneAPI",
+            "value": 1189285.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48280\nallocs=567\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/Metal",
+            "value": 407917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15456\nallocs=530\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 48560,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6656\nallocs=174\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 10667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19200\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 10125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19200\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 10958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19200\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 9937.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19200\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/CUDA",
+            "value": 203719.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20080\nallocs=609\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 23442320,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=717080\nallocs=7038\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/Metal",
+            "value": 5222000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=169528\nallocs=5800\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 391134,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=52096\nallocs=1281\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/2 thread(s)",
+            "value": 3791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/4 thread(s)",
+            "value": 3791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/8 thread(s)",
+            "value": 3791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/forward/CPU/1 thread(s)",
+            "value": 4041,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=5440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/CUDA",
+            "value": 27597,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3808\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/oneAPI",
+            "value": 1228030,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48312\nallocs=569\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/Metal",
+            "value": 416375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15976\nallocs=535\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/forward/GPU/AMDGPU",
+            "value": 209822,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13040\nallocs=431\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 28625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=59344\nallocs=130\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 27604,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=59344\nallocs=130\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 29166.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=59344\nallocs=130\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 30542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=59344\nallocs=130\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/CUDA",
+            "value": 288598.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21784\nallocs=824\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/oneAPI",
+            "value": 26484085.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=792256\nallocs=7786\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/Metal",
+            "value": 5463000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=182032\nallocs=6061\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(32 x 32)/zygote/GPU/AMDGPU",
+            "value": 715712,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=57592\nallocs=1456\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 149333.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 170041,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 150979.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 164542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 226051,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17904\nallocs=612\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 7779305.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=260008\nallocs=2473\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1506417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=56672\nallocs=1822\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 193802,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19200\nallocs=452\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 1335333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10496000\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1324438,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10496000\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1317416,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10496000\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 1302479,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10496000\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 1009508,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=84848\nallocs=3168\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 48047380,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1323552\nallocs=11836\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 6617042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=294760\nallocs=9207\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1119921,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=73568\nallocs=1525\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/2 thread(s)",
+            "value": 26250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/4 thread(s)",
+            "value": 26250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/8 thread(s)",
+            "value": 27312.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/CPU/1 thread(s)",
+            "value": 26000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=132624\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/CUDA",
+            "value": 272956.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17904\nallocs=612\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/oneAPI",
+            "value": 7608254,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=259912\nallocs=2467\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/Metal",
+            "value": 1240292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48472\nallocs=1542\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/forward/GPU/AMDGPU",
+            "value": 119791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17760\nallocs=362\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 127417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1320960\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 121667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1320960\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 161333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1320960\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 117833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1320960\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/CUDA",
+            "value": 1224957,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=84848\nallocs=3168\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/oneAPI",
+            "value": 44525416,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1323248\nallocs=11817\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/Metal",
+            "value": 6173750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=270240\nallocs=8372\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=false)(16 x 16 x 4 x 32)/zygote/GPU/AMDGPU",
+            "value": 609046,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=70080\nallocs=1454\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 666,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/CUDA",
+            "value": 23270,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3072\nallocs=104\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/oneAPI",
+            "value": 1176428,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48280\nallocs=567\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/Metal",
+            "value": 411584,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15456\nallocs=530\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 49150,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6720\nallocs=178\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 11375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19776\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 11500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19776\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 12167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19776\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 10292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19776\nallocs=129\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/CUDA",
+            "value": 209724,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17736\nallocs=671\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 25320827,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=750200\nallocs=7313\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/Metal",
+            "value": 5374792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=176168\nallocs=6017\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=true)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 394309,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=52856\nallocs=1284\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 6375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 5812.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 7167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 7104,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2400\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/CUDA",
+            "value": 170484,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13104\nallocs=537\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/oneAPI",
+            "value": 5711305,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=176792\nallocs=1671\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/Metal",
+            "value": 442937.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=36832\nallocs=1268\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 240193,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17280\nallocs=531\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 9958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17152\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 10291,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17152\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 10708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17152\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 10125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17152\nallocs=88\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/CUDA",
+            "value": 986824,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=77024\nallocs=3085\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 40792975,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1180488\nallocs=10712\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/Metal",
+            "value": 5726666.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=239320\nallocs=8161\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 683391.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=56672\nallocs=1223\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/forward/CPU/2 thread(s)",
+            "value": 584,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/forward/CPU/4 thread(s)",
+            "value": 625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/forward/CPU/8 thread(s)",
+            "value": 583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/forward/CPU/1 thread(s)",
+            "value": 583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1088\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/forward/GPU/CUDA",
+            "value": 23543,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=960\nallocs=41\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/forward/GPU/oneAPI",
+            "value": 2055333.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32136\nallocs=279\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/forward/GPU/Metal",
+            "value": 217562.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6944\nallocs=262\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/forward/GPU/AMDGPU",
+            "value": 215142,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4976\nallocs=266\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/zygote/CPU/2 thread(s)",
+            "value": 4375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6608\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/zygote/CPU/4 thread(s)",
+            "value": 4375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6608\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/zygote/CPU/8 thread(s)",
+            "value": 4375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6608\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/zygote/CPU/1 thread(s)",
+            "value": 4500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6608\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/zygote/GPU/CUDA",
+            "value": 242915,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15864\nallocs=614\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/zygote/GPU/oneAPI",
+            "value": 10876384,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=211784\nallocs=2017\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/zygote/GPU/Metal",
+            "value": 1538395.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=47232\nallocs=1666\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(2, bias=false, act=gelu)(2 x 128)/zygote/GPU/AMDGPU",
+            "value": 604316,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12472\nallocs=367\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 9417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 9104,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 10250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 9166,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3616\nallocs=36\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/CUDA",
+            "value": 141242,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12368\nallocs=300\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/oneAPI",
+            "value": 3585526.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=130792\nallocs=1422\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/Metal",
+            "value": 512979.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=35024\nallocs=1135\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 70381,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16016\nallocs=344\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 11792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=23456\nallocs=139\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 12042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=23456\nallocs=139\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 11792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=23456\nallocs=139\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 11104,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=23456\nallocs=139\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/CUDA",
+            "value": 686347,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=56192\nallocs=1507\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 21841556,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=684656\nallocs=6548\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/Metal",
+            "value": 4337583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=166296\nallocs=5145\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(2, act=identity, affine=true)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 354193,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=59696\nallocs=1125\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/forward/CPU/2 thread(s)",
+            "value": 127209,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262208\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/forward/CPU/4 thread(s)",
+            "value": 128541.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262208\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/forward/CPU/8 thread(s)",
+            "value": 129916,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262208\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/forward/CPU/1 thread(s)",
+            "value": 180875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262208\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/forward/GPU/CUDA",
+            "value": 46918,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/forward/GPU/AMDGPU",
+            "value": 94671,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1664\nallocs=56\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/zygote/CPU/2 thread(s)",
+            "value": 332333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049680\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/zygote/CPU/4 thread(s)",
+            "value": 315584,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049680\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/zygote/CPU/8 thread(s)",
+            "value": 329417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049680\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/zygote/CPU/1 thread(s)",
+            "value": 613084,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049488\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/zygote/GPU/CUDA",
+            "value": 211645.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11808\nallocs=430\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=4)/zygote/GPU/AMDGPU",
+            "value": 489390,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=14720\nallocs=374\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/forward/CPU/2 thread(s)",
+            "value": 397708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/forward/CPU/4 thread(s)",
+            "value": 288625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/forward/CPU/8 thread(s)",
+            "value": 287542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/forward/CPU/1 thread(s)",
+            "value": 756167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/forward/GPU/CUDA",
+            "value": 44431,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1056\nallocs=47\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/forward/GPU/oneAPI",
+            "value": 1451228,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32024\nallocs=284\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/forward/GPU/Metal",
+            "value": 496875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7232\nallocs=266\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/forward/GPU/AMDGPU",
+            "value": 84001,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2640\nallocs=120\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/zygote/CPU/2 thread(s)",
+            "value": 1461270.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1837680\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/zygote/CPU/4 thread(s)",
+            "value": 1132292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1837680\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/zygote/CPU/8 thread(s)",
+            "value": 1134312,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1837680\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/zygote/CPU/1 thread(s)",
+            "value": 2444000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1837680\nallocs=13\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/zygote/GPU/CUDA",
+            "value": 271970,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15744\nallocs=561\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/zygote/GPU/oneAPI",
+            "value": 11468991.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=252648\nallocs=2571\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/zygote/GPU/Metal",
+            "value": 1741917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=61088\nallocs=2128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=identity)(512 x 128)/zygote/GPU/AMDGPU",
+            "value": 353274,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16736\nallocs=426\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 649125.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 663770.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 650709,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 610292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3146992\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 228005,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19024\nallocs=682\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 7957705.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262264\nallocs=2480\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1337041.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=58464\nallocs=1854\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 247902,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18240\nallocs=392\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 2478750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19997968\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 2444521,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19997968\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 2621250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19997968\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 2452125.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19997968\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 1093721,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=90592\nallocs=3393\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 53500554.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1405808\nallocs=12642\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 7212667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=315488\nallocs=9811\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=relu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1477445,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=79456\nallocs=1637\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/forward/CPU/2 thread(s)",
+            "value": 32875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=576\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/forward/CPU/4 thread(s)",
+            "value": 35792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=576\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/forward/CPU/8 thread(s)",
+            "value": 23458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=576\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/forward/CPU/1 thread(s)",
+            "value": 1000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=576\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/forward/GPU/CUDA",
+            "value": 16216,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/forward/GPU/AMDGPU",
+            "value": 73541,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2448\nallocs=60\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/zygote/CPU/2 thread(s)",
+            "value": 3250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3152\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/zygote/CPU/4 thread(s)",
+            "value": 3250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3152\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/zygote/CPU/8 thread(s)",
+            "value": 3583,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3152\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/zygote/CPU/1 thread(s)",
+            "value": 3083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2960\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/zygote/GPU/CUDA",
+            "value": 152724,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9456\nallocs=360\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=32)/zygote/GPU/AMDGPU",
+            "value": 350644,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=14224\nallocs=337\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 224042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 179042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 178542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 413417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 44729,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3536\nallocs=119\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 1421066,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48376\nallocs=570\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1196895.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16080\nallocs=535\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 243542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13088\nallocs=431\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 2218250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10503776\nallocs=153\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1925625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10503776\nallocs=153\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1937604,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10503776\nallocs=153\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 3142438,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10503776\nallocs=153\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 255848,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=21224\nallocs=795\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 37475104.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1038960\nallocs=10220\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 11827208.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=250264\nallocs=8158\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=true)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1238792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=83496\nallocs=2017\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/forward/CPU/2 thread(s)",
+            "value": 3958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/forward/CPU/4 thread(s)",
+            "value": 3959,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/forward/CPU/8 thread(s)",
+            "value": 4041,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/forward/CPU/1 thread(s)",
+            "value": 3916,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16640\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/forward/GPU/CUDA",
+            "value": 34742,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1008\nallocs=38\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/forward/GPU/oneAPI",
+            "value": 1217650,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3808\nallocs=68\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/forward/GPU/Metal",
+            "value": 183896,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2536\nallocs=95\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/forward/GPU/AMDGPU",
+            "value": 41211,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1152\nallocs=63\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/zygote/CPU/2 thread(s)",
+            "value": 16084,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=55216\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/zygote/CPU/4 thread(s)",
+            "value": 16125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=55216\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/zygote/CPU/8 thread(s)",
+            "value": 16041,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=55216\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/zygote/CPU/1 thread(s)",
+            "value": 15792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=55216\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/zygote/GPU/CUDA",
+            "value": 277059,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13328\nallocs=472\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/zygote/GPU/oneAPI",
+            "value": 9399043,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=184024\nallocs=1875\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/zygote/GPU/Metal",
+            "value": 884792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=36104\nallocs=1248\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=false, act=identity)(32 x 128)/zygote/GPU/AMDGPU",
+            "value": 169132,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11648\nallocs=299\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/forward/CPU/2 thread(s)",
+            "value": 401916,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/forward/CPU/4 thread(s)",
+            "value": 295208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/forward/CPU/8 thread(s)",
+            "value": 293917,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/forward/CPU/1 thread(s)",
+            "value": 760666,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262192\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/forward/GPU/CUDA",
+            "value": 113587.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=960\nallocs=41\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/forward/GPU/oneAPI",
+            "value": 1047918,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=32216\nallocs=284\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/forward/GPU/Metal",
+            "value": 402562.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7264\nallocs=266\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/forward/GPU/AMDGPU",
+            "value": 89171,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3136\nallocs=151\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/zygote/CPU/2 thread(s)",
+            "value": 1486750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2098400\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/zygote/CPU/4 thread(s)",
+            "value": 1155375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2098400\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/zygote/CPU/8 thread(s)",
+            "value": 1154083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2098400\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/zygote/CPU/1 thread(s)",
+            "value": 2488500,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2098400\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/zygote/GPU/CUDA",
+            "value": 252764.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15992\nallocs=601\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/zygote/GPU/oneAPI",
+            "value": 12113391.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=245328\nallocs=2379\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/zygote/GPU/Metal",
+            "value": 1874250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=55304\nallocs=1912\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=false, act=relu)(512 x 128)/zygote/GPU/AMDGPU",
+            "value": 360953,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13960\nallocs=358\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 792,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/CUDA",
+            "value": 26873,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=3808\nallocs=128\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/oneAPI",
+            "value": 1185633.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=48280\nallocs=567\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/Metal",
+            "value": 419459,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=15456\nallocs=530\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 209462,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12976\nallocs=427\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 11750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20352\nallocs=130\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 12042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20352\nallocs=130\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 12458,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20352\nallocs=130\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 11166.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20352\nallocs=130\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/CUDA",
+            "value": 217572.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19560\nallocs=755\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 25607177,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=754616\nallocs=7376\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/Metal",
+            "value": 5449625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=178032\nallocs=6069\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=gelu, affine=true)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 697007,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=53720\nallocs=1329\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/forward/CPU/2 thread(s)",
+            "value": 834041,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2097216\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/forward/CPU/4 thread(s)",
+            "value": 616958,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2097216\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/forward/CPU/8 thread(s)",
+            "value": 620417,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2097216\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/forward/CPU/1 thread(s)",
+            "value": 1546750,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2097216\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/forward/GPU/CUDA",
+            "value": 130755.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/forward/GPU/AMDGPU",
+            "value": 169152,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2992\nallocs=94\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/zygote/CPU/2 thread(s)",
+            "value": 2694250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8389712\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/zygote/CPU/4 thread(s)",
+            "value": 1999125.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8389712\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/zygote/CPU/8 thread(s)",
+            "value": 2002958.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8389712\nallocs=31\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/zygote/CPU/1 thread(s)",
+            "value": 4936937.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8389520\nallocs=29\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/zygote/GPU/CUDA",
+            "value": 259174.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11808\nallocs=430\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(128, Bsize=32)/zygote/GPU/AMDGPU",
+            "value": 865304,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20784\nallocs=485\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/2 thread(s)",
+            "value": 625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/4 thread(s)",
+            "value": 625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/8 thread(s)",
+            "value": 625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/forward/CPU/1 thread(s)",
+            "value": 542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1440\nallocs=19\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/CUDA",
+            "value": 32929,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4112\nallocs=142\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/oneAPI",
+            "value": 1146085.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46488\nallocs=555\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/Metal",
+            "value": 408083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13184\nallocs=444\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/forward/GPU/AMDGPU",
+            "value": 49361,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=6560\nallocs=178\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/2 thread(s)",
+            "value": 10000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18448\nallocs=110\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/4 thread(s)",
+            "value": 10375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18448\nallocs=110\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/8 thread(s)",
+            "value": 11125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18448\nallocs=110\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/zygote/CPU/1 thread(s)",
+            "value": 9167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18448\nallocs=110\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/CUDA",
+            "value": 232376,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=19544\nallocs=737\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/oneAPI",
+            "value": 22184580.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=662440\nallocs=6348\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/Metal",
+            "value": 4712479.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=153776\nallocs=5243\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(2, act=relu, affine=false)(4 x 32)/zygote/GPU/AMDGPU",
+            "value": 366978.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46680\nallocs=1150\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 2413625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 2398667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 2397292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 2401062.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1050128\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 225263.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=17904\nallocs=612\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 8000413,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=260008\nallocs=2473\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1561000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=56672\nallocs=1822\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 360853,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18960\nallocs=437\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 4675687.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10496000\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 4655063,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10496000\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 4661375,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10496000\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 4631833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=10496000\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 999018.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=85904\nallocs=3212\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 47052650.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1323552\nallocs=11836\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 6598291.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=295432\nallocs=9232\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "layernorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1263628,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=73632\nallocs=1511\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/forward/CPU/2 thread(s)",
+            "value": 178771,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/forward/CPU/4 thread(s)",
+            "value": 192125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/forward/CPU/8 thread(s)",
+            "value": 189416,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/forward/CPU/1 thread(s)",
+            "value": 156542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/forward/GPU/CUDA",
+            "value": 24201,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2384\nallocs=107\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/forward/GPU/oneAPI",
+            "value": 1198660,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34072\nallocs=305\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/forward/GPU/Metal",
+            "value": 265292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7024\nallocs=235\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/forward/GPU/AMDGPU",
+            "value": 40190,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1360\nallocs=37\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/zygote/CPU/2 thread(s)",
+            "value": 214125.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=789264\nallocs=16\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/zygote/CPU/4 thread(s)",
+            "value": 192625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=789264\nallocs=16\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/zygote/CPU/8 thread(s)",
+            "value": 193687.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=789264\nallocs=16\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/zygote/CPU/1 thread(s)",
+            "value": 221167,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=789264\nallocs=16\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/zygote/GPU/CUDA",
+            "value": 244352.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16840\nallocs=631\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/zygote/GPU/oneAPI",
+            "value": 10177168,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=279416\nallocs=2723\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/zygote/GPU/Metal",
+            "value": 2107833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=62792\nallocs=2148\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "bias_activation(512, act=relu)(512 x 128)/zygote/GPU/AMDGPU",
+            "value": 223327.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16328\nallocs=384\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/forward/CPU/2 thread(s)",
+            "value": 21333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8448\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/forward/CPU/4 thread(s)",
+            "value": 25625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8448\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/forward/CPU/8 thread(s)",
+            "value": 25416,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8448\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/forward/CPU/1 thread(s)",
+            "value": 5208.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8448\nallocs=1\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/forward/GPU/CUDA",
+            "value": 18372,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=512\nallocs=23\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/forward/GPU/AMDGPU",
+            "value": 86060,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=14800\nallocs=103\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/zygote/CPU/2 thread(s)",
+            "value": 12292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34640\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/zygote/CPU/4 thread(s)",
+            "value": 10208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34640\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/zygote/CPU/8 thread(s)",
+            "value": 11125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34640\nallocs=27\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/zygote/CPU/1 thread(s)",
+            "value": 18083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34448\nallocs=25\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/zygote/GPU/CUDA",
+            "value": 251484.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=11808\nallocs=430\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchedmm(2, Bsize=512)/zygote/GPU/AMDGPU",
+            "value": 378414,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=52528\nallocs=415\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/forward/CPU/2 thread(s)",
+            "value": 541979.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/forward/CPU/4 thread(s)",
+            "value": 438834,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/forward/CPU/8 thread(s)",
+            "value": 439271,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/forward/CPU/1 thread(s)",
+            "value": 898000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=262384\nallocs=6\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/forward/GPU/CUDA",
+            "value": 47644,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1056\nallocs=47\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/forward/GPU/oneAPI",
+            "value": 1364019,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34280\nallocs=314\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/forward/GPU/Metal",
+            "value": 426208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7856\nallocs=282\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/forward/GPU/AMDGPU",
+            "value": 89591,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2672\nallocs=119\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/zygote/CPU/2 thread(s)",
+            "value": 1626854,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2100080\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/zygote/CPU/4 thread(s)",
+            "value": 1306916.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2100080\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/zygote/CPU/8 thread(s)",
+            "value": 1304041,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2100080\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/zygote/CPU/1 thread(s)",
+            "value": 2630334,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=2100080\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/zygote/GPU/CUDA",
+            "value": 307020,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18136\nallocs=667\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/zygote/GPU/oneAPI",
+            "value": 13069592,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=287592\nallocs=2876\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/zygote/GPU/Metal",
+            "value": 2081333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=67816\nallocs=2344\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(512, bias=true, act=relu)(512 x 128)/zygote/GPU/AMDGPU",
+            "value": 380834,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=18008\nallocs=453\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 241250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 189542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 190208,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 442458.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1049824\nallocs=20\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 56485,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4448\nallocs=152\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 1007328,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=46584\nallocs=558\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 1148625,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=13808\nallocs=449\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 236942,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12896\nallocs=429\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 2132292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9453440\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1850083.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9453440\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1853229.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9453440\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 3053833,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=9453440\nallocs=133\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 276153,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=23080\nallocs=861\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 31054554,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=873536\nallocs=8433\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 10815146,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=211136\nallocs=6816\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "batchnorm(4, act=gelu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1246027,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=81144\nallocs=1818\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/forward/CPU/2 thread(s)",
+            "value": 16542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/forward/CPU/4 thread(s)",
+            "value": 16292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/forward/CPU/8 thread(s)",
+            "value": 16333,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/forward/CPU/1 thread(s)",
+            "value": 18125,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=16832\nallocs=5\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/forward/GPU/CUDA",
+            "value": 24674.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1056\nallocs=47\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/forward/GPU/oneAPI",
+            "value": 2148830.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=34200\nallocs=309\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/forward/GPU/Metal",
+            "value": 232916.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=7816\nallocs=280\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/forward/GPU/AMDGPU",
+            "value": 218072,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=4896\nallocs=258\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/zygote/CPU/2 thread(s)",
+            "value": 32042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=87936\nallocs=12\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/zygote/CPU/4 thread(s)",
+            "value": 28042,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=87936\nallocs=12\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/zygote/CPU/8 thread(s)",
+            "value": 28250,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=87936\nallocs=12\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/zygote/CPU/1 thread(s)",
+            "value": 44000,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=87936\nallocs=12\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/zygote/GPU/CUDA",
+            "value": 369827,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20184\nallocs=752\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/zygote/GPU/oneAPI",
+            "value": 13800925,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=317664\nallocs=3099\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/zygote/GPU/Metal",
+            "value": 1722292,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=65736\nallocs=2263\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "dense(32, bias=true, act=gelu)(32 x 128)/zygote/GPU/AMDGPU",
+            "value": 674507,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=20632\nallocs=571\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/2 thread(s)",
+            "value": 147041.5,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/4 thread(s)",
+            "value": 151875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/8 thread(s)",
+            "value": 149083,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/CPU/1 thread(s)",
+            "value": 164667,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=1051792\nallocs=39\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/CUDA",
+            "value": 190946,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=12560\nallocs=283\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/oneAPI",
+            "value": 5609237,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=209944\nallocs=2177\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/Metal",
+            "value": 2134708,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=51008\nallocs=1611\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/forward/GPU/AMDGPU",
+            "value": 202262,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=23552\nallocs=471\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/2 thread(s)",
+            "value": 1270542,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8405264\nallocs=123\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/4 thread(s)",
+            "value": 1272146,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8405264\nallocs=123\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/8 thread(s)",
+            "value": 1273791,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8405264\nallocs=123\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/CPU/1 thread(s)",
+            "value": 1461604,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=8405264\nallocs=123\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/CUDA",
+            "value": 587031,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=54456\nallocs=1517\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/oneAPI",
+            "value": 27660603,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=830392\nallocs=7827\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/Metal",
+            "value": 9606875,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=185000\nallocs=5524\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "groupnorm(4, act=relu, affine=false)(16 x 16 x 32 x 32)/zygote/GPU/AMDGPU",
+            "value": 1100951,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=78952\nallocs=1749\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
           }
         ]
       }
