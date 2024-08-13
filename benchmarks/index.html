@@ -8,7 +8,7 @@
     />
     <style>
       html {
-        font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto,
+        font-family: "Comic Sans", BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto,
           Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
           Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -73,12 +73,18 @@
         flex-wrap: wrap;
       }
       .chartCard {
-        margin: 10px;
-        width: 50vw;
-        height: 50vh;
+        width: 20vw;
+        height: 25vh;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 0px;
+        margin-right: 8px;
+        margin-left: 8px;
+        margin-top: 0px;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
       }
       .option-container {
         display: flex;
@@ -159,7 +165,7 @@
                 const result = { commit, date, tool, bench };
                 const splitted_name = bench.name.split("/");
                 const benchmarkName = splitted_name[0];
-                const simMethod = splitted_name[1];
+                const variant = splitted_name[1];
                 const device = splitted_name[2];
                 const backend = splitted_name[3];
 
@@ -168,11 +174,11 @@
                 }
 
                 const mapBenchmarkName = map.get(benchmarkName);
-                if (mapBenchmarkName.get(simMethod) === undefined) {
-                  mapBenchmarkName.set(simMethod, new Map());
+                if (mapBenchmarkName.get(variant) === undefined) {
+                  mapBenchmarkName.set(variant, new Map());
                 }
 
-                const mapSimMethod = mapBenchmarkName.get(simMethod);
+                const mapSimMethod = mapBenchmarkName.get(variant);
                 if (mapSimMethod.get(device) === undefined) {
                   mapSimMethod.set(device, new Map());
                 }
@@ -229,7 +235,6 @@
         function renderAllChars(dataSets) {
           function renderGraph(parent, name, graphData) {
             const canvas = document.createElement("canvas");
-            canvas.width = 10;
             parent.appendChild(canvas);
 
             const datasets = [];
@@ -268,7 +273,6 @@
                           .find((val) => val.split("=")[0] === "allocs")
                           ?.split("=")[1]
                       );
-                    case "allocations":
                     case "time":
                     default:
                       return d.bench.value / 1e6;
@@ -287,12 +291,8 @@
                 ? "Time (ms)"
                 : pageOption === "memory"
                 ? "Memory (MB)"
-                : "";
+                : "Allocations";
             const options = {
-              title: {
-                display: true,
-                text: name.toUpperCase(),
-              },
               scales: {
                 xAxes: [
                   {
@@ -306,11 +306,12 @@
                   {
                     scaleLabel: {
                       display: true,
-                      labelString: yAxisLabel,
+                      labelString: yAxisLabel + " (log scale)",
                     },
                     ticks: {
                       beginAtZero: true,
                     },
+                    type: "logarithmic",
                   },
                 ],
               },
@@ -378,15 +379,26 @@
             });
           }
 
-          function renderRow(benchmarkName, simMethod, rowData, parent) {
-            const graphsElem = document.createElement("div");
-            graphsElem.className = "chartCard";
-            parent.appendChild(graphsElem);
+          function renderRow(benchmarkName, variant, rowData, parent) {
+            const mainDiv = document.createElement("div");
+            parent.appendChild(mainDiv);
 
             const devices = [...rowData.keys()].sort();
             for (const device of devices) {
               const graphTitle =
-                benchmarkName + " + " + simMethod + " + " + device;
+                benchmarkName + " + " + variant + " + " + device;
+
+              const titleElem = document.createElement("h6");
+              titleElem.textContent = graphTitle.toUpperCase();
+              titleElem.style.textAlign = "center";
+              titleElem.style.marginBottom = "0.25em";
+              titleElem.style.marginTop = "0.25em";
+              mainDiv.appendChild(titleElem);
+
+              const graphsElem = document.createElement("div");
+              graphsElem.className = "chartCard";
+              mainDiv.appendChild(graphsElem);
+
               renderGraph(graphsElem, graphTitle, rowData.get(device));
             }
           }
@@ -400,11 +412,11 @@
           const simMethods = [...dataSet.get(benchmarkNames[0]).keys()].sort();
 
           for (const benchmarkName of benchmarkNames) {
-            for (const simMethod of simMethods) {
+            for (const variant of simMethods) {
               renderRow(
                 benchmarkName,
-                simMethod,
-                dataSet.get(benchmarkName).get(simMethod),
+                variant,
+                dataSet.get(benchmarkName).get(variant),
                 div1
               );
             }
