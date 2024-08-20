@@ -217,7 +217,7 @@ function groupnorm_affine_normalize_internal!(
     KA.synchronize(backend)
 end
 
-@kernel cpu=false inbounds=true function groupnorm_affine_normalize_kernel!(
+@kernel inbounds=true function groupnorm_affine_normalize_kernel!(
         y::AbstractArray{<:Number, 4}, @Const(f),
         @Const(x), @Const(μ), @Const(σ²), @Const(γ::Nothing), @Const(β::Nothing), @Const(ϵ))
     i, j, k, l = @index(Global, NTuple)
@@ -226,7 +226,7 @@ end
     y[i, j, k, l] = f(muladd(x[i, j, k, l], γ′, β′))
 end
 
-@kernel cpu=false inbounds=true function groupnorm_affine_normalize_kernel!(
+@kernel inbounds=true function groupnorm_affine_normalize_kernel!(
         y::AbstractArray{<:Number, 4}, @Const(f), @Const(x),
         @Const(μ), @Const(σ²), @Const(γ), @Const(β), @Const(ϵ))
     i, j, k, l = @index(Global, NTuple)
@@ -400,7 +400,7 @@ function ∇groupnorm_affine_normalize!(
     KA.synchronize(backend)
 end
 
-@kernel cpu=false inbounds=true function ∇groupnorm_affine_normalize_kernel!(
+@kernel inbounds=true function ∇groupnorm_affine_normalize_kernel!(
         ∂x, ∂σ², @Const(∂γ::Nothing), @Const(∂y), @Const(x),
         @Const(μ), @Const(σ²), @Const(ϵ), @Const(γ::Nothing))
     i, j, k, l = @index(Global, NTuple)
@@ -410,7 +410,7 @@ end
     ∂σ²[i, j, k, l] = ∂x[i, j, k, l] * (μ[1, 1, k, l] - x[i, j, k, l]) * idenom * idenom / 2
 end
 
-@kernel cpu=false inbounds=true function ∇groupnorm_affine_normalize_kernel!(
+@kernel inbounds=true function ∇groupnorm_affine_normalize_kernel!(
         ∂x, ∂σ², ∂γ, @Const(∂y), @Const(x),
         @Const(μ), @Const(σ²), @Const(ϵ), @Const(γ))
     i, j, k, l = @index(Global, NTuple)

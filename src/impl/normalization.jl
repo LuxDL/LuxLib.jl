@@ -58,7 +58,7 @@ function update_running_statistics!(rμₙ, rσ²ₙ, ::GPUBroadcastOp, rμ, rσ
     return
 end
 
-@kernel cpu=false inbounds=true function update_running_statistics_kernel!(
+@kernel inbounds=true function update_running_statistics_kernel!(
         rμₙ, rσ²ₙ, @Const(rμ), @Const(rσ²), @Const(μ),
         @Const(σ²), @Const(m₁), @Const(m₂), @Const(m₃))
     I = @index(Global)
