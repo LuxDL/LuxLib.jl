@@ -16,6 +16,7 @@ using KernelAbstractions: KernelAbstractions, @kernel, @Const, @index
 using LoopVectorization: LoopVectorization, @turbo, @tturbo, indices
 using Octavian: Octavian
 using Polyester: @batch
+using Strided: Strided, @strided
 
 using LinearAlgebra: LinearAlgebra, mul!
 using Random: Random, AbstractRNG, rand!

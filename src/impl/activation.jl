@@ -121,18 +121,8 @@ end
 function ∇activation(::AbstractInternalArrayOpMode, Δ, out, act::F, x) where {F}
     return @. Δ * Utils.only_derivative(out, act, x)
 end
-@inbounds function ∇activation(::LoopedArrayOp, Δ, out, act::F, x) where {F}
-    y = similar(out)
-    if x isa Utils.NotaNumber
-        @simd ivdep for i in indices((Δ, out))
-            @inbounds y[i] = Utils.only_derivative(out[i], act, x) * Δ[i]
-        end
-    else
-        @simd ivdep for i in indices((Δ, out, x))
-            @inbounds y[i] = Utils.only_derivative(out[i], act, x[i]) * Δ[i]
-        end
-    end
-    return y
+function ∇activation(::LoopedArrayOp, Δ, out, act::F, x) where {F}
+    return @strided @. Δ * Utils.only_derivative(out, act, x)
 end
 
 # Switch some of the activations to use SLEEFPirates.jl if needed

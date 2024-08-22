@@ -46,10 +46,10 @@ function CRC.rrule(::typeof(mean_var), x::AbstractArray; dims=:, corrected::Bool
     ∇mean_var = @closure Δ -> begin
         ∂μ, ∂σ² = CRC.unthunk(Δ)
         n = dims_denom(x, dims)
-        ∂x₁ = unsum(x, CRC.unthunk(∂μ) / n, dims)
+        ∂x₁ = unsum(x, ∂μ / n, dims)
         pre = 2 // (dims_denom(x, dims) - corrected)
-        ∂x₂ = pre .* CRC.unthunk(∂σ²) .* (x .- μ)
-        return NoTangent(), 𝒫x(add!!(∂x₁, ∂x₂))
+        ∂x₂ = @. pre * ∂σ² * (x - μ)
+        return ∂∅, 𝒫x(add!!(∂x₁, ∂x₂))
     end
 
     return (μ, σ²), ∇mean_var
