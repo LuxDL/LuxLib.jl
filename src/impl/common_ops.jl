@@ -64,7 +64,11 @@ function ∇mean_var(::AbstractInternalArrayOpMode, ∂x, xμ, ∂σ², pre)
     return ∂x
 end
 function ∇mean_var(::LoopedArrayOp, ∂x, xμ, ∂σ², pre)
-    @strided @. ∂x += pre * ∂σ² * xμ
+    if Utils.can_strided(∂x, xμ, ∂σ²)
+        @strided @. ∂x += pre * ∂σ² * xμ
+    else
+        @. ∂x += pre * ∂σ² * xμ
+    end
     return ∂x
 end
 
@@ -74,8 +78,14 @@ function dims_denom(x, dims::Union{Tuple, AbstractArray})
     return mapreduce(Base.Fix1(size, x), Base.mul_prod, unique(dims); init=1)
 end
 
-unsum(x, dy, _) = unsum_internal(internal_operation_mode((x, dy)), x, dy)
+unsum(x, dy, _) = unsum_internal(internal_operation_mode(x), x, dy)
 unsum(x, dy, ::Colon) = unsum(x, (dy,), nothing)
 
 unsum_internal(::AbstractInternalArrayOpMode, x, dy) = broadcast(last ∘ tuple, x, dy)
-unsum_internal(::LoopedArrayOp, x, dy) = @strided @. (last ∘ tuple)(x, dy)
+function unsum_internal(::LoopedArrayOp, x, dy)
+    if Utils.can_strided(x, dy)
+        return @strided @. (last ∘ tuple)(x, dy)
+    else
+        return broadcast(last ∘ tuple, x, dy)
+    end
+end

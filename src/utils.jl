@@ -9,6 +9,8 @@ using LinearAlgebra: LinearAlgebra, BLAS
 using MLDataDevices: get_device_type, CPUDevice
 using NNlib: NNlib
 using Static: Static, False, True
+using Strided: maybestrided
+using UnrolledUtilities: unrolled_all
 
 using ..LuxLib: Optional, ∂∅
 
@@ -230,6 +232,14 @@ end
     kernel(args...)
     return
 end
+
+function can_strided(x)
+    return isconcretetype(Core.Compiler._return_type(maybestrided, Tuple{typeof(x)}))
+end
+
+can_strided(xs...) = unrolled_all(can_strided, xs)
+
+CRC.@non_differentiable can_strided(::Any...)
 
 end
 

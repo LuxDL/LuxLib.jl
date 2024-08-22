@@ -89,24 +89,36 @@ function batchnorm_affine_normalize_internal!(
     γ′′ = reshape(γ′, 1, :, 1)
     β′′ = reshape(β′, 1, :, 1)
     if Utils.known(Traits.fuse_cpu_activation(act))
-        @strided @. y = act(x * γ′′ + β′′)
+        if Utils.can_strided(y, x, γ′′, β′′)
+            @strided @. y = act(x * γ′′ + β′′)
+        else
+            @. y = act(x * γ′′ + β′′)
+        end
     else
-        @strided @. y = x * γ′′ + β′′
+        if Utils.can_strided(y, x, γ′′, β′′)
+            @strided @. y = x * γ′′ + β′′
+        else
+            @. y = x * γ′′ + β′′
+        end
         activation!(y, opmode, act, y)
     end
     return
 end
 
-function compute_batchnorm_scale_bias!(γ′, β′, ::Nothing, ::Nothing, μ, σ², ϵ)
-    @strided @. γ′ = inv(sqrt(σ² + ϵ))
-    @strided @. β′ = -μ * γ′
-    return
+@fastmath @inbounds function compute_batchnorm_scale_bias!(
+        γ′, β′, ::Nothing, ::Nothing, μ, σ², ϵ)
+    @simd ivdep for I in eachindex(γ′, β′, σ², μ)
+        γ′[I] = inv(sqrt(σ²[I] + ϵ))
+        β′[I] = -μ[I] * γ′[I]
+    end
 end
 
-function compute_batchnorm_scale_bias!(γ′, β′, γ, β, μ, σ², ϵ)
-    @strided @. γ′ = γ / sqrt(σ² + ϵ)
-    @strided @. β′ = β - μ * γ′
-    return
+@fastmath @inbounds function compute_batchnorm_scale_bias!(
+        γ′, β′, γ, β, μ, σ², ϵ)
+    @simd ivdep for I in eachindex(γ′, β′, γ, β, σ², μ)
+        γ′[I] = γ[I] / sqrt(σ²[I] + ϵ)
+        β′[I] = β[I] - μ[I] * γ′[I]
+    end
 end
 
 function batchnorm_affine_normalize_internal!(
@@ -192,41 +204,77 @@ end
 function ∇batchnorm_affine_normalize(::LoopedArrayOp, ∂y::AbstractArray{∂yT, 3},
         x::AbstractArray{xT, 3}, μ::AbstractVector, σ²::AbstractVector,
         ::Nothing, ::Nothing, ϵ::Real, γ′::AbstractVector) where {∂yT, xT}
-    idenom = reshape(γ′, 1, :, 1)
-    idenom²_2 = @strided @. idenom * idenom / 2
-    μ′ = reshape(μ, 1, :, 1)
-    xμ = @strided @. x - μ′
+    if Utils.can_strided(∂y, x, μ, σ², γ′)
+        idenom = reshape(γ′, 1, :, 1)
+        idenom²_2 = @strided @. idenom * idenom / 2
+        μ′ = reshape(μ, 1, :, 1)
+        xμ = @strided @. x - μ′
 
-    ∂x = @strided @. ∂y * idenom
-    ∂μ = @strided mapreduce(-, +, ∂x; dims=(1, 3))
+        ∂x = @strided @. ∂y * idenom
+        ∂μ = @strided mapreduce(-, +, ∂x; dims=(1, 3))
 
-    ∂σ²_full = @strided @. -∂x * xμ * idenom²_2
-    ∂σ² = @strided sum(∂σ²_full; dims=(1, 3))
+        ∂σ²_full = @strided @. -∂x * xμ * idenom²_2
+        ∂σ² = @strided sum(∂σ²_full; dims=(1, 3))
 
-    return ∂x, vec(∂μ), vec(∂σ²), ∂∅, ∂∅
+        return ∂x, vec(∂μ), vec(∂σ²), ∂∅, ∂∅
+    else
+        idenom = reshape(γ′, 1, :, 1)
+        idenom²_2 = @. idenom * idenom / 2
+        μ′ = reshape(μ, 1, :, 1)
+        xμ = @. x - μ′
+
+        ∂x = @. ∂y * idenom
+        ∂μ = @. mapreduce(-, +, ∂x; dims=(1, 3))
+
+        ∂σ²_full = @. -∂x * xμ * idenom²_2
+        ∂σ² = @. sum(∂σ²_full; dims=(1, 3))
+
+        return ∂x, vec(∂μ), vec(∂σ²), ∂∅, ∂∅
+    end
 end
 
 function ∇batchnorm_affine_normalize(::LoopedArrayOp, ∂y::AbstractArray{∂yT, 3},
         x::AbstractArray{xT, 3}, μ::AbstractVector, σ²::AbstractVector,
         γ::AbstractVector, β::AbstractVector, ϵ::Real, γ′::AbstractVector) where {∂yT, xT}
-    idenom = reshape(@strided(@.(inv(sqrt(σ² + ϵ)))), 1, :, 1)
-    idenom² = @strided @. idenom^2
-    μ′ = reshape(μ, 1, :, 1)
-    xμ = @strided @. x - μ′
-    γ′′ = reshape(γ′, 1, :, 1)
+    if Utils.can_strided(∂y, x, μ, σ², γ, β, γ′)
+        idenom = reshape(@strided(@.(inv(sqrt(σ² + ϵ)))), 1, :, 1)
+        idenom² = @strided @. idenom^2
+        μ′ = reshape(μ, 1, :, 1)
+        xμ = @strided @. x - μ′
+        γ′′ = reshape(γ′, 1, :, 1)
 
-    ∂x = @strided @. ∂y * γ′′
-    ∂μ = @strided mapreduce(-, +, ∂x; dims=(1, 3))
+        ∂x = @strided @. ∂y * γ′′
+        ∂μ = @strided mapreduce(-, +, ∂x; dims=(1, 3))
 
-    ∂σ²_full = @strided @. -∂x * xμ * idenom² / 2
-    ∂σ² = @strided sum(∂σ²_full; dims=(1, 3))
+        ∂σ²_full = @strided @. -∂x * xμ * idenom² / 2
+        ∂σ² = @strided sum(∂σ²_full; dims=(1, 3))
 
-    ∂γ_full = @strided @. ∂y * xμ * idenom
-    ∂γ = @strided sum(∂γ_full; dims=(1, 3))
+        ∂γ_full = @strided @. ∂y * xμ * idenom
+        ∂γ = @strided sum(∂γ_full; dims=(1, 3))
 
-    ∂β = @strided sum(∂y; dims=(1, 3))
+        ∂β = @strided sum(∂y; dims=(1, 3))
 
-    return ∂x, vec(∂μ), vec(∂σ²), vec(∂γ), vec(∂β)
+        return ∂x, vec(∂μ), vec(∂σ²), vec(∂γ), vec(∂β)
+    else
+        idenom = reshape(γ′, 1, :, 1)
+        idenom² = @. idenom^2
+        μ′ = reshape(μ, 1, :, 1)
+        xμ = @. x - μ′
+        γ′′ = reshape(γ′, 1, :, 1)
+
+        ∂x = @. ∂y * γ′′
+        ∂μ = @. mapreduce(-, +, ∂x; dims=(1, 3))
+
+        ∂σ²_full = @. -∂x * xμ * idenom² / 2
+        ∂σ² = @. sum(∂σ²_full; dims=(1, 3))
+
+        ∂γ_full = @. ∂y * xμ * idenom
+        ∂γ = @. sum(∂γ_full; dims=(1, 3))
+
+        ∂β = @. sum(∂y; dims=(1, 3))
+
+        return ∂x, vec(∂μ), vec(∂σ²), vec(∂γ), vec(∂β)
+    end
 end
 
 function ∇batchnorm_affine_normalize(

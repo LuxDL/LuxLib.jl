@@ -122,7 +122,11 @@ function ∇activation(::AbstractInternalArrayOpMode, Δ, out, act::F, x) where 
     return @. Δ * Utils.only_derivative(out, act, x)
 end
 function ∇activation(::LoopedArrayOp, Δ, out, act::F, x) where {F}
-    return @strided @. Δ * Utils.only_derivative(out, act, x)
+    if Utils.can_strided(Δ)
+        return @strided @. Δ * Utils.only_derivative(out, act, x)
+    else
+        return @. Δ * Utils.only_derivative(out, act, x)
+    end
 end
 
 # Switch some of the activations to use SLEEFPirates.jl if needed
