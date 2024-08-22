@@ -35,21 +35,8 @@ end
 
 CRC.@non_differentiable update_running_statistics(::Any...)
 
-function update_running_statistics!(rμₙ, rσ²ₙ, ::LoopedArrayOp, rμ, rσ², μ, σ², m₁, m₂, m₃)
-    update_running_statistics_simd_loop!(
-        rμₙ, rσ²ₙ, LoopedArrayOp(), rμ, rσ², μ, σ², m₁, m₂, m₃)
-    return
-end
-
-function update_running_statistics_simd_loop!(
-        rμₙ, rσ²ₙ, ::LoopedArrayOp, rμ, rσ², μ, σ², m₁, m₂, m₃)
-    @simd ivdep for I in indices((rμₙ, rσ²ₙ))
-        rμₙ[I] = m₃ * rμ[I] + m₁ * μ[I]
-        rσ²ₙ[I] = m₃ * rσ²[I] + m₂ * σ²[I]
-    end
-end
-
-function update_running_statistics!(rμₙ, rσ²ₙ, ::GPUBroadcastOp, rμ, rσ², μ, σ², m₁, m₂, m₃)
+function update_running_statistics!(
+        rμₙ, rσ²ₙ, ::Union{LoopedArrayOp, GPUBroadcastOp}, rμ, rσ², μ, σ², m₁, m₂, m₃)
     backend = KA.get_backend(rμₙ)
     Utils.run_ka_kernel(
         update_running_statistics_kernel!, backend, nothing, size(rμₙ),
@@ -58,7 +45,7 @@ function update_running_statistics!(rμₙ, rσ²ₙ, ::GPUBroadcastOp, rμ, rσ
     return
 end
 
-@kernel cpu=false inbounds=true function update_running_statistics_kernel!(
+@kernel inbounds=true function update_running_statistics_kernel!(
         rμₙ, rσ²ₙ, @Const(rμ), @Const(rσ²), @Const(μ),
         @Const(σ²), @Const(m₁), @Const(m₂), @Const(m₃))
     I = @index(Global)
