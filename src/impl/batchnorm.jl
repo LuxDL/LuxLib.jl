@@ -193,15 +193,15 @@ function ∇batchnorm_affine_normalize(::LoopedArrayOp, ∂y::AbstractArray{∂y
         x::AbstractArray{xT, 3}, μ::AbstractVector, σ²::AbstractVector,
         ::Nothing, ::Nothing, ϵ::Real, γ′::AbstractVector) where {∂yT, xT}
     idenom = reshape(γ′, 1, :, 1)
-    idenom² = @strided @. idenom^2
+    idenom²_2 = @strided @. idenom * idenom / 2
     μ′ = reshape(μ, 1, :, 1)
     xμ = @strided @. x - μ′
 
     ∂x = @strided @. ∂y * idenom
     ∂μ = @strided mapreduce(-, +, ∂x; dims=(1, 3))
 
-    ∂σ²_full = @strided @. ∂x * xμ * idenom² / 2
-    ∂σ² = @strided mapreduce(-, +, ∂σ²_full; dims=(1, 3))
+    ∂σ²_full = @strided @. -∂x * xμ * idenom²_2
+    ∂σ² = @strided sum(∂σ²_full; dims=(1, 3))
 
     return ∂x, vec(∂μ), vec(∂σ²), ∂∅, ∂∅
 end
@@ -218,8 +218,8 @@ function ∇batchnorm_affine_normalize(::LoopedArrayOp, ∂y::AbstractArray{∂y
     ∂x = @strided @. ∂y * γ′′
     ∂μ = @strided mapreduce(-, +, ∂x; dims=(1, 3))
 
-    ∂σ²_full = @strided @. ∂x * xμ * idenom² / 2
-    ∂σ² = @strided mapreduce(-, +, ∂σ²_full; dims=(1, 3))
+    ∂σ²_full = @strided @. -∂x * xμ * idenom² / 2
+    ∂σ² = @strided sum(∂σ²_full; dims=(1, 3))
 
     ∂γ_full = @strided @. ∂y * xμ * idenom
     ∂γ = @strided sum(∂γ_full; dims=(1, 3))

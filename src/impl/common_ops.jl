@@ -39,25 +39,34 @@ function mean_var(x::AbstractArray; dims=:, corrected::Bool=true)
     return μ, var(x; dims, corrected, mean=μ)
 end
 
-function CRC.rrule(::typeof(mean_var), x::AbstractArray; dims=:, corrected::Bool=true)
-    μ, σ² = mean_var(x; dims, corrected)
+function CRC.rrule(
+        ::typeof(mean_var), x::AbstractArray{T}; dims=:, corrected::Bool=true) where {T}
+    μ = mean(x; dims)
+    xμ = x .- μ
+    n = dims_denom(x, dims)
+    σ² = sum(abs2, xμ; dims) / (n - corrected)
 
     𝒫x = CRC.ProjectTo(x)
-    ∇mean_var = @closure Δ -> begin
+    ∇mean_var_internal = @closure Δ -> begin
         ∂μ, ∂σ² = CRC.unthunk(Δ)
-        n = dims_denom(x, dims)
-        ∂x₁ = unsum(x, ∂μ / n, dims)
-        pre = 2 // (dims_denom(x, dims) - corrected)
-        ∂x₂ = @. pre * ∂σ² * (x - μ)
-        return ∂∅, 𝒫x(add!!(∂x₁, ∂x₂))
+        ∂x = ∇mean_var(unsum(x, ∂μ / n, dims), xμ, ∂σ², T(2 // (n - corrected)))
+        return ∂∅, 𝒫x(∂x)
     end
 
-    return (μ, σ²), ∇mean_var
+    return (μ, σ²), ∇mean_var_internal
 end
 
-add!!(x, y) = add!!(Traits.is_mutable_array(x), x, y)
-add!!(::True, x, y) = x .+= y
-add!!(::False, x, y) = x .+ y
+function ∇mean_var(∂x, xμ, ∂σ², pre)
+    return ∇mean_var(internal_operation_mode((∂x, xμ, ∂σ²)), ∂x, xμ, ∂σ², pre)
+end
+function ∇mean_var(::AbstractInternalArrayOpMode, ∂x, xμ, ∂σ², pre)
+    @. ∂x += pre * ∂σ² * xμ
+    return ∂x
+end
+function ∇mean_var(::LoopedArrayOp, ∂x, xμ, ∂σ², pre)
+    @strided @. ∂x += pre * ∂σ² * xμ
+    return ∂x
+end
 
 dims_denom(x, dims) = size(x, dims)
 dims_denom(x, ::Colon) = length(x)
@@ -65,5 +74,8 @@ function dims_denom(x, dims::Union{Tuple, AbstractArray})
     return mapreduce(Base.Fix1(size, x), Base.mul_prod, unique(dims); init=1)
 end
 
-unsum(x, dy, _) = broadcast(last ∘ tuple, x, dy)
-unsum(x, dy, ::Colon) = broadcast(last ∘ tuple, x, Ref(dy))
+unsum(x, dy, _) = unsum_internal(internal_operation_mode((x, dy)), x, dy)
+unsum(x, dy, ::Colon) = unsum(x, (dy,), nothing)
+
+unsum_internal(::AbstractInternalArrayOpMode, x, dy) = broadcast(last ∘ tuple, x, dy)
+unsum_internal(::LoopedArrayOp, x, dy) = @strided @. (last ∘ tuple)(x, dy)
