@@ -172,7 +172,7 @@ function ∇batchnorm_affine_normalize(
 end
 
 function ∇batchnorm_affine_normalize!(
-        ∂x::AbstractArray{∂xT, 3}, ∂σ²::AbstractArray{∂σ²T, 3}, ::Nothing,
+        ∂x::AbstractArray{∂xT, 3}, ∂σ²::AbstractArray{∂σ²T, 3},
         ∂γ::Optional{<:AbstractArray{<:Any, 3}}, ::Union{GPUBroadcastOp, LoopedArrayOp},
         ∂y::AbstractArray{∂yT, 3}, x::AbstractArray{xT, 3}, μ::AbstractVector,
         σ²::AbstractVector, γ::Optional{<:AbstractVector}, ϵ::Real,
