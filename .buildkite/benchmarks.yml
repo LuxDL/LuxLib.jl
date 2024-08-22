@@ -15,6 +15,7 @@ steps:
         command: |
           julia --project=benchmarks -e 'println("--- :julia: Instantiating project")
               using Pkg
+              Pkg.instantiate()
               Pkg.develop([PackageSpec(path=pwd())])'
 
           julia --project=benchmarks -e 'println("--- :julia: Run Benchmarks")
@@ -38,10 +39,12 @@ steps:
         command: |
           julia --project=benchmarks -e 'println("--- :julia: Instantiating project")
               using Pkg
+              Pkg.instantiate()
               Pkg.develop([PackageSpec(path=pwd())])'
 
           julia --project=benchmarks -e 'println("--- :julia: Add AMDGPU to benchmarks environment")
               using Pkg
+              Pkg.instantiate()
               Pkg.add("AMDGPU")'
 
           julia --project=benchmarks -e 'println("--- :julia: Run Benchmarks")
@@ -62,10 +65,12 @@ steps:
         command: |
           julia --project=benchmarks -e 'println("--- :julia: Instantiating project")
               using Pkg
+              Pkg.instantiate()
               Pkg.develop([PackageSpec(path=pwd())])'
 
           julia --project=benchmarks -e 'println("--- :julia: Add CUDA to benchmarks environment")
               using Pkg
+              Pkg.instantiate()
               Pkg.add("LuxCUDA")'
 
           julia --project=benchmarks -e 'println("--- :julia: Run Benchmarks")
@@ -88,10 +93,12 @@ steps:
         command: |
           julia --project=benchmarks -e 'println("--- :julia: Instantiating project")
               using Pkg
+              Pkg.instantiate()
               Pkg.develop([PackageSpec(path=pwd())])'
 
           julia --project=benchmarks -e 'println("--- :julia: Add Metal to benchmarks environment")
               using Pkg
+              Pkg.instantiate()
               Pkg.add("Metal")'
 
           julia --project=benchmarks -e 'println("--- :julia: Run Benchmarks")
@@ -114,10 +121,12 @@ steps:
         command: |
           julia --project=benchmarks -e 'println("--- :julia: Instantiating project")
               using Pkg
+              Pkg.instantiate()
               Pkg.develop([PackageSpec(path=pwd())])'
 
           julia --project=benchmarks -e 'println("--- :julia: Add oneAPI to benchmarks environment")
               using Pkg
+              Pkg.instantiate()
               Pkg.add("oneAPI")'
 
           julia --project=benchmarks -e 'println("--- :julia: Run Benchmarks")
