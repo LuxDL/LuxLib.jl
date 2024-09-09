@@ -17,7 +17,11 @@ const CRC = ChainRulesCore
 
 include("utils.jl")
 include("traits.jl")
+
+include("onednn/oneDNN.jl")
+
 include("impl/Impl.jl")
+
 include("api/API.jl")
 
 @compat(public,

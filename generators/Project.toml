@@ -1,0 +1,7 @@
+[deps]
+Clang = "40e3b903-d033-50b4-a0cc-940c62c95e31"
+oneDNN_jll = "3523a63d-8698-5b6f-b2c2-68eaa6bde0f0"
+
+[compat]
+Clang = "0.18"
+oneDNN_jll = "3.5.3"
