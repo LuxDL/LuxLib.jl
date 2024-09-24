@@ -322,4 +322,10 @@ end
 
 CRC.@non_differentiable static_training_mode_check(::Any...)
 
+function ancestor(x::AbstractArray)
+    p = parent(x)
+    p === x && return x
+    return ancestor(p)
+end
+
 end
