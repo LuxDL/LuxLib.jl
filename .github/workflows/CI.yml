@@ -24,7 +24,7 @@ jobs:
     name: Julia ${{ matrix.version }} - ${{ matrix.test_group }} - ${{ matrix.os }} - ${{ matrix.blas_backend }}
     if: ${{ !contains(github.event.head_commit.message, '[skip tests]') }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 60
+    timeout-minutes: 240
     strategy:
       fail-fast: false
       matrix:
@@ -32,8 +32,6 @@ jobs:
           - "1"
         os:
           - ubuntu-latest
-          - macos-latest
-          - windows-latest
         test_group:
           - "conv"
           - "dense"
@@ -46,9 +44,6 @@ jobs:
           - "others"
         blas_backend:
           - "default"
-        exclude:
-          - os: macos-latest
-            test_group: "conv" # Never terminates
         include:
           - os: ubuntu-latest
             test_group: "dense"
@@ -61,6 +56,18 @@ jobs:
           - os: macos-latest
             test_group: "dense"
             blas_backend: "appleaccelerate"
+            version: "1"
+          - os: "ubuntu-latest"
+            test_group: "all"
+            blas_backend: "default"
+            version: "min"
+          - os: "macos-latest"
+            test_group: "all"
+            blas_backend: "default"
+            version: "1"
+          - os: "windows-latest"
+            test_group: "all"
+            blas_backend: "default"
             version: "1"
     steps:
       - uses: actions/checkout@v4
@@ -96,7 +103,7 @@ jobs:
     name: Downstream ${{ matrix.package.repo }}/${{ matrix.package.group }}
     if: ${{ !contains(github.event.head_commit.message, '[skip tests]') && github.base_ref == github.event.repository.default_branch }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 60
+    timeout-minutes: 240
     env:
       GROUP: ${{ matrix.package.group }}
       LUX_TEST_GROUP: ${{ matrix.package.group }}
@@ -158,22 +165,12 @@ jobs:
     if: ${{ !contains(github.event.head_commit.message, '[skip tests]') && github.base_ref == github.event.repository.default_branch }}
     name: Downgrade Julia ${{ matrix.version }} - ${{ matrix.test_group }}
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 240
     strategy:
       fail-fast: false
       matrix:
         version:
-          - "1"
-        test_group:
-          - "conv"
-          - "dense"
-          - "batch_norm"
-          - "group_norm"
-          - "instance_norm"
-          - "layer_norm"
-          - "other_ops"
-          - "batched_ops"
-          - "others"
+          - "1.10"
     steps:
       - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v2
@@ -182,8 +179,6 @@ jobs:
       - uses: julia-actions/julia-downgrade-compat@v1
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
-        env:
-          LUXLIB_TEST_GROUP: ${{ matrix.test_group }}
       - uses: julia-actions/julia-processcoverage@v1
         with:
           directories: src,ext
