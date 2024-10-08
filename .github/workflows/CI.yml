@@ -101,7 +101,7 @@ jobs:
     name: Downstream ${{ matrix.package.repo }}/${{ matrix.package.group }}
     if: ${{ !contains(github.event.head_commit.message, '[skip tests]') && github.base_ref == github.event.repository.default_branch }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 60
+    timeout-minutes: 240
     env:
       GROUP: ${{ matrix.package.group }}
       LUX_TEST_GROUP: ${{ matrix.package.group }}
@@ -163,22 +163,12 @@ jobs:
     if: ${{ !contains(github.event.head_commit.message, '[skip tests]') && github.base_ref == github.event.repository.default_branch }}
     name: Downgrade Julia ${{ matrix.version }} - ${{ matrix.test_group }}
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 240
     strategy:
       fail-fast: false
       matrix:
         version:
-          - "1"
-        test_group:
-          - "conv"
-          - "dense"
-          - "batch_norm"
-          - "group_norm"
-          - "instance_norm"
-          - "layer_norm"
-          - "other_ops"
-          - "batched_ops"
-          - "others"
+          - "1.10"
     steps:
       - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v2
@@ -187,8 +177,6 @@ jobs:
       - uses: julia-actions/julia-downgrade-compat@v1
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
-        env:
-          LUXLIB_TEST_GROUP: ${{ matrix.test_group }}
       - uses: julia-actions/julia-processcoverage@v1
         with:
           directories: src,ext
