@@ -194,25 +194,8 @@ end
 
 function bias_activation_cpu!(y::AbstractArray{yT, 3}, ::False, σ::F,
         x::AbstractArray{xT, 3}, bias::AbstractVector) where {F, xT, yT}
-    if !LV.check_args(y, x, bias)
-        bias_activation_simd_loop!(y, σ, x, bias)
-        return
-    end
-    bias_activation_loop!(y, σ, x, bias)
+    bias_activation_simd_loop!(y, σ, x, bias)
     return
-end
-
-function bias_activation_loop!(y::AbstractArray{yT, 3}, σ::F, x::AbstractArray{xT, 3},
-        bias::AbstractVector) where {F, xT, yT}
-    if size(y, 1) == 1
-        @tturbo for K in indices(x, 3), J in indices((x, bias), (2, 1))
-            y[1, J, K] = σ(x[1, J, K] + bias[J])
-        end
-    else
-        @tturbo for K in indices(x, 3), J in indices((x, bias), (2, 1)), I in indices(y, 1)
-            y[I, J, K] = σ(x[I, J, K] + bias[J])
-        end
-    end
 end
 
 function bias_activation_simd_loop!(y::AbstractArray{yT, 3}, σ::F, x::AbstractArray{xT, 3},
@@ -232,8 +215,6 @@ function bias_activation_simd_loop!(y::AbstractArray{yT, 3}, σ::F, x::AbstractA
     end
     return
 end
-
-@enzyme_alternative bias_activation_loop! bias_activation_simd_loop!
 
 function bias_add!(y::AbstractArray{yT, N}, ::AbstractInternalArrayOpMode,
         x::AbstractArray{xT, N}, bias::AbstractVector) where {N, xT, yT}
