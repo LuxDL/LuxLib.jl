@@ -91,16 +91,6 @@ function activation!(
     return
 end
 function activation!(y::AbstractArray, ::LoopedArrayOp, σ::F, x::AbstractArray) where {F}
-    activation_loop!(y, σ, x)
-    return
-end
-
-function activation_loop!(y::AbstractArray, σ::F, x::AbstractArray) where {F}
-    # We use fuse activation as a proxy check for "simple functions"
-    if LV.check_args(y, x) && unsafe_known(!fuse_cpu_activation(σ))
-        LV.vmap!(σ, y, x)
-        return
-    end
     activation_simd_loop!(y, σ, x)
     return
 end
@@ -110,8 +100,6 @@ function activation_simd_loop!(y::AbstractArray, σ::F, x::AbstractArray) where 
         @inbounds y[I] = σ(x[I])
     end
 end
-
-@enzyme_alternative activation_loop! activation_simd_loop!
 
 # Gradient for activations
 ∇activation(Δ, _, ::typeof(identity), x) = Δ
