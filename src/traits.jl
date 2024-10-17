@@ -130,7 +130,10 @@ end
 
 CRC.@non_differentiable explicit_blas_loaded()
 
-use_octavian() = is_x86_64() & (INTEL_HARDWARE | AMD_RYZEN_HARDWARE)
+function use_octavian()
+    return is_extension_loaded(Val(:Octavian)) & is_x86_64() &
+           (INTEL_HARDWARE | AMD_RYZEN_HARDWARE)
+end
 
 CRC.@non_differentiable use_octavian()
 

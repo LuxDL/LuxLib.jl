@@ -201,14 +201,14 @@ end
 function bias_activation_simd_loop!(y::AbstractArray{yT, 3}, σ::F, x::AbstractArray{xT, 3},
         bias::AbstractVector) where {F, xT, yT}
     if size(y, 1) == 1
-        for K in indices(x, 3)
-            @simd ivdep for J in indices((x, bias), (2, 1))
+        for K in axes(x, 3)
+            @simd ivdep for J in axes(x, 2)
                 @inbounds y[1, J, K] = σ(x[1, J, K] + bias[J])
             end
         end
     else
-        for K in indices(x, 3), J in indices((x, bias), (2, 1))
-            @simd ivdep for I in indices(y, 1)
+        for K in axes(x, 3), J in axes(x, 2)
+            @simd ivdep for I in axes(x, 1)
                 @inbounds y[I, J, K] = σ(x[I, J, K] + bias[J])
             end
         end
@@ -232,14 +232,14 @@ end
 function bias_add_loop!(y::AbstractArray{yT, 3}, x::AbstractArray{xT, 3},
         bias::AbstractVector) where {xT, yT}
     if size(y, 1) == 1
-        for K in indices(x, 3)
-            @simd ivdep for J in indices((x, bias), (2, 1))
+        for K in axes(x, 3)
+            @simd ivdep for J in axes(x, 2)
                 @inbounds y[1, J, K] = x[1, J, K] + bias[J]
             end
         end
     else
-        for K in indices(x, 3), J in indices((x, bias), (2, 1))
-            @simd ivdep for I in indices(y, 1)
+        for K in axes(x, 3), J in axes(x, 2)
+            @simd ivdep for I in axes(y, 1)
                 @inbounds y[I, J, K] = x[I, J, K] + bias[J]
             end
         end

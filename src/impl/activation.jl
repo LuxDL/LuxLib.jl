@@ -112,11 +112,11 @@ end
 @inbounds function ∇activation(::LoopedArrayOp, Δ, out, act::F, x) where {F}
     y = similar(out)
     if x isa NotaNumber
-        @simd ivdep for i in indices((Δ, out))
+        @simd ivdep for i in eachindex(Δ, out)
             @inbounds y[i] = only_derivative(out[i], act, x) * Δ[i]
         end
     else
-        @simd ivdep for i in indices((Δ, out, x))
+        @simd ivdep for i in eachindex(Δ, out, x)
             @inbounds y[i] = only_derivative(out[i], act, x[i]) * Δ[i]
         end
     end

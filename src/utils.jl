@@ -322,4 +322,10 @@ end
 
 CRC.@non_differentiable static_training_mode_check(::Any...)
 
+@inline function can_loopvec_args(args...)
+    return can_loopvec_args_check(is_extension_loaded(Val(:LoopVectorization)), args...)
+end
+
+@inline can_loopvec_args_check(::False, args...) = false
+
 end

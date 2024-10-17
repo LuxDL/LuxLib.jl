@@ -115,7 +115,7 @@ end
 function alpha_dropout!(
         res::AbstractArray{T}, ::LoopedArrayOp, noise::AbstractArray{T},
         p::Real, x::AbstractArray{T}, α::Real, A::Real, B::Real) where {T}
-    @simd ivdep for I in indices((noise, x, res))
+    @simd ivdep for I in eachindex(noise, x, res)
         res[I] = ifelse(noise[I] > p, x[I], α) * A + B
     end
 end
@@ -151,7 +151,7 @@ end
 
 function generate_dropout_mask_loop!(y::AbstractArray{T}, p, invp) where {T}
     p, invp = T(p), T(invp)
-    @simd ivdep for I in indices(y)
+    @simd ivdep for I in eachindex(y)
         y[I] = (y[I] > p) * invp
     end
 end
