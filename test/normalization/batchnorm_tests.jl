@@ -22,7 +22,8 @@ function batchnorm_fallback(
         running_mean::LuxLib.Optional{<:AbstractVector},
         running_var::LuxLib.Optional{<:AbstractVector}, training::Val,
         σ::F=identity, momentum::Real=0.1f0, epsilon::Real=1.0f-5) where {F, N}
-    y, xm, xv = LuxLib.Impl.normalization(x, LuxLib.Utils.remove_tracking(running_mean),
+    y, xm,
+    xv = LuxLib.Impl.normalization(x, LuxLib.Utils.remove_tracking(running_mean),
         LuxLib.Utils.remove_tracking(running_var), scale, bias,
         LuxLib.Impl.batchnorm_reduce_dims(x), static(training), momentum, epsilon, σ)
     return (y,
@@ -40,7 +41,8 @@ function run_batchnorm_testing(
     x, scale, bias, rm, rv = setup_batchnorm(gen_f, aType, T, sz; track_stats, affine)
 
     y, nt = batchnorm(x, scale, bias, rm, rv, training, act, T(0.9), epsilon)
-    y_simple, nt_simple = batchnorm_fallback(
+    y_simple,
+    nt_simple = batchnorm_fallback(
         x, scale, bias, rm, rv, training, act, T(0.9), epsilon)
 
     fp16 = T == Float16
@@ -103,7 +105,8 @@ function run_batchnorm_testing(
     end
 
     if anonact !== act
-        lfn = (x, sc, b, rm, rv, tr, act, ϵ) -> sum(first(batchnorm(
+        lfn = (x, sc, b, rm, rv, tr, act,
+            ϵ) -> sum(first(batchnorm(
             x, sc, b, rm, rv, tr, act, ϵ)))
         @test @inferred(Zygote.gradient(
             lfn, x, scale, bias, rm, rv, training, act, epsilon)) isa Any
@@ -124,7 +127,8 @@ end
 
 @testitem "Batch Norm: Group 1" tags=[:batch_norm] setup=[SharedTestSetup, BatchNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $act $affine $track_stats" for (T, sz, training, affine, track_stats, act) in TEST_BLOCKS[1]
+        @testset "eltype $T, size $sz, $act $affine $track_stats" for (
+            T, sz, training, affine, track_stats, act) in TEST_BLOCKS[1]
             !fp64 && T == Float64 && continue
             run_batchnorm_testing(generate_fixed_array, T, sz, training,
                 affine, track_stats, act, aType, mode, ongpu)
@@ -134,7 +138,8 @@ end
 
 @testitem "Batch Norm: Group 2" tags=[:batch_norm] setup=[SharedTestSetup, BatchNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $act $affine $track_stats" for (T, sz, training, affine, track_stats, act) in TEST_BLOCKS[2]
+        @testset "eltype $T, size $sz, $act $affine $track_stats" for (
+            T, sz, training, affine, track_stats, act) in TEST_BLOCKS[2]
             !fp64 && T == Float64 && continue
             run_batchnorm_testing(generate_fixed_array, T, sz, training,
                 affine, track_stats, act, aType, mode, ongpu)
@@ -144,7 +149,8 @@ end
 
 @testitem "Batch Norm: Group 3" tags=[:batch_norm] setup=[SharedTestSetup, BatchNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $act $affine $track_stats" for (T, sz, training, affine, track_stats, act) in TEST_BLOCKS[3]
+        @testset "eltype $T, size $sz, $act $affine $track_stats" for (
+            T, sz, training, affine, track_stats, act) in TEST_BLOCKS[3]
             !fp64 && T == Float64 && continue
             run_batchnorm_testing(generate_fixed_array, T, sz, training,
                 affine, track_stats, act, aType, mode, ongpu)
@@ -154,7 +160,8 @@ end
 
 @testitem "Batch Norm: Group 4" tags=[:batch_norm] setup=[SharedTestSetup, BatchNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $act $affine $track_stats" for (T, sz, training, affine, track_stats, act) in TEST_BLOCKS[4]
+        @testset "eltype $T, size $sz, $act $affine $track_stats" for (
+            T, sz, training, affine, track_stats, act) in TEST_BLOCKS[4]
             !fp64 && T == Float64 && continue
             run_batchnorm_testing(generate_fixed_array, T, sz, training,
                 affine, track_stats, act, aType, mode, ongpu)
@@ -164,7 +171,8 @@ end
 
 @testitem "Batch Norm: Group 5" tags=[:batch_norm] setup=[SharedTestSetup, BatchNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $act $affine $track_stats" for (T, sz, training, affine, track_stats, act) in TEST_BLOCKS[5]
+        @testset "eltype $T, size $sz, $act $affine $track_stats" for (
+            T, sz, training, affine, track_stats, act) in TEST_BLOCKS[5]
             !fp64 && T == Float64 && continue
             run_batchnorm_testing(generate_fixed_array, T, sz, training,
                 affine, track_stats, act, aType, mode, ongpu)
@@ -182,7 +190,8 @@ end
         running_mean = rand(Float32, 6) |> aType
         running_var = rand(Float32, 6) |> aType
 
-        y, nt = batchnorm(
+        y,
+        nt = batchnorm(
             x, scale, bias, running_mean, running_var, Val(true), identity, 0.9f0, 1.0f-5)
         @test y isa aType{Float64, 4}
         @test nt.running_mean isa aType && length(nt.running_mean) == 6

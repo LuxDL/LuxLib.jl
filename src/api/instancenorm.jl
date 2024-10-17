@@ -43,11 +43,12 @@ end
 
 function instancenorm(x::AbstractArray, γ::Optional{<:AbstractVector},
         β::Optional{<:AbstractVector}, rμ::Optional{<:AbstractVector},
-        rσ²::Optional{<:AbstractVector}, training::TrainingType, σ::F=identity,
+        rσ²::Optional{<:AbstractVector}, training::TrainingType; σ::F=identity,
         momentum::Optional{<:Real}=0.1f0, epsilon::Real=default_epsilon(x)) where {F}
     assert_valid_instancenorm_arguments(x)
 
-    y, rμₙ, rσ²ₙ = instancenorm_impl(
+    y, rμₙ,
+    rσ²ₙ = instancenorm_impl(
         x, γ, β, rμ, rσ², static_training_mode(training, x, γ, β, rμ, rσ²),
         select_fastest_activation(σ, x, γ, β), momentum, epsilon)
 

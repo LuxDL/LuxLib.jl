@@ -28,7 +28,10 @@ function batchnorm(x::AbstractArray{xT, N}, γ::Optional{<:AbstractVector},
         β::Optional{<:AbstractVector}, rμ::Optional{<:AbstractVector},
         rσ²::Optional{<:AbstractVector}, training::StaticBool, act::F,
         momentum::Real, ϵ::Real) where {F, xT, N}
-    (μ, σ²), (rμ, rσ²) = compute_batch_statistics(
+    (μ,
+        σ²),
+    (rμ,
+        rσ²) = compute_batch_statistics(
         x, reshape_norm_dims(x, rμ), reshape_norm_dims(x, rσ²),
         batchnorm_reduce_dims(x), training, momentum)
     return batchnorm_affine_normalize(act, x, μ, σ², γ, β, ϵ), safe_vec(rμ), safe_vec(rσ²)
@@ -75,7 +78,7 @@ end
 function batchnorm_affine_normalize_internal!(
         y::AbstractArray{yT, 3}, opmode::LoopedArrayOp, act::F, x::AbstractArray{xT, 3},
         μ::AbstractVector, σ²::AbstractVector, γ::Optional{<:AbstractVector},
-        β::Optional{<:AbstractVector}, ϵ::Real,
+        β::Optional{<:AbstractVector}, ϵ::Real;
         γ′::Optional{<:AbstractVector}=nothing) where {F, xT, yT}
     N = size(y, 2)
     γ′ = γ′ === nothing ?
@@ -203,7 +206,7 @@ end
 function batchnorm_affine_normalize_internal!(
         y::AbstractArray{yT, 3}, ::GPUBroadcastOp, act::F, x::AbstractArray{xT, 3},
         μ::AbstractVector, σ²::AbstractVector, γ::Optional{<:AbstractVector},
-        β::Optional{<:AbstractVector}, ϵ::Real,
+        β::Optional{<:AbstractVector}, ϵ::Real;
         γ′::Optional{<:AbstractVector}=nothing) where {F, xT, yT}
     backend = KA.get_backend(y)
     run_ka_kernel(
@@ -216,40 +219,40 @@ end
         y::AbstractArray{<:Number, 3}, @Const(γ′::Nothing),
         @Const(f), @Const(x), @Const(μ), @Const(σ²),
         @Const(γ::Nothing), @Const(β::Nothing), @Const(ϵ))
-    i, j, k = @index(Global, NTuple)
-    γ′′ = inv(sqrt(σ²[j] + ϵ))
-    β′ = -μ[j] * γ′′
-    y[i, j, k] = f(muladd(x[i, j, k], γ′′, β′))
+    i, j, k=@index(Global, NTuple)
+    γ′′=inv(sqrt(σ²[j]+ϵ))
+    β′=-μ[j]*γ′′
+    y[i, j, k]=f(muladd(x[i, j, k], γ′′, β′))
 end
 
 @kernel cpu=false inbounds=true function batchnorm_affine_normalize_internal_kernel!(
         y::AbstractArray{<:Number, 3}, γ′::AbstractVector{<:Number},
         @Const(f), @Const(x), @Const(μ), @Const(σ²),
         @Const(γ::Nothing), @Const(β::Nothing), @Const(ϵ))
-    i, j, k = @index(Global, NTuple)
-    γ′[j] = inv(sqrt(σ²[j] + ϵ))
-    β′ = -μ[j] * γ′[j]
-    y[i, j, k] = f(muladd(x[i, j, k], γ′[j], β′))
+    i, j, k=@index(Global, NTuple)
+    γ′[j]=inv(sqrt(σ²[j]+ϵ))
+    β′=-μ[j]*γ′[j]
+    y[i, j, k]=f(muladd(x[i, j, k], γ′[j], β′))
 end
 
 @kernel cpu=false inbounds=true function batchnorm_affine_normalize_internal_kernel!(
         y::AbstractArray{<:Number, 3}, @Const(γ′::Nothing),
         @Const(f), @Const(x), @Const(μ), @Const(σ²),
         @Const(γ), @Const(β), @Const(ϵ))
-    i, j, k = @index(Global, NTuple)
-    γ′′ = γ[j] / sqrt(σ²[j] + ϵ)
-    β′ = muladd(-μ[j], γ′′, β[j])
-    y[i, j, k] = f(muladd(x[i, j, k], γ′′, β′))
+    i, j, k=@index(Global, NTuple)
+    γ′′=γ[j]/sqrt(σ²[j]+ϵ)
+    β′=muladd(-μ[j], γ′′, β[j])
+    y[i, j, k]=f(muladd(x[i, j, k], γ′′, β′))
 end
 
 @kernel cpu=false inbounds=true function batchnorm_affine_normalize_internal_kernel!(
         y::AbstractArray{<:Number, 3}, γ′::AbstractVector{<:Number},
         @Const(f), @Const(x), @Const(μ), @Const(σ²),
         @Const(γ), @Const(β), @Const(ϵ))
-    i, j, k = @index(Global, NTuple)
-    γ′[j] = γ[j] / sqrt(σ²[j] + ϵ)
-    β′ = muladd(-μ[j], γ′[j], β[j])
-    y[i, j, k] = f(muladd(x[i, j, k], γ′[j], β′))
+    i, j, k=@index(Global, NTuple)
+    γ′[j]=γ[j]/sqrt(σ²[j]+ϵ)
+    β′=muladd(-μ[j], γ′[j], β[j])
+    y[i, j, k]=f(muladd(x[i, j, k], γ′[j], β′))
 end
 
 function CRC.rrule(
@@ -264,7 +267,8 @@ function CRC.rrule(
         x, promote_type(safe_eltype(γ), safe_eltype(σ²), safe_eltype(ϵ)), size(x, N - 1))
 
     batchnorm_affine_normalize_internal!(y, opmode, identity, x, μ, σ², γ, β, ϵ, γ′)
-    z, ∇activation = CRC.rrule_via_ad(
+    z,
+    ∇activation = CRC.rrule_via_ad(
         cfg, activation!!, opmode, is_mutable_array(y), act, y)
 
     𝒫x, 𝒫μ, 𝒫σ² = CRC.ProjectTo(x), CRC.ProjectTo(μ), CRC.ProjectTo(σ²)
@@ -321,6 +325,7 @@ function ∇batchnorm_affine_normalize_cpu!(
         end
     else
         @fastmath @inbounds for K in indices(∂y, 3), J in indices(∂y, 2)
+
             idenom = γ′[J]
             idenom² = idenom^2
 
@@ -365,6 +370,7 @@ function ∇batchnorm_affine_normalize_cpu!(
         end
     else
         @fastmath @inbounds for K in indices(∂y, 3), J in indices(∂y, 2)
+
             idenom = inv(sqrt(σ²[J] + ϵ))
             idenom² = idenom^2
 
@@ -415,26 +421,26 @@ end
 @kernel cpu=false inbounds=true function ∇batchnorm_affine_normalize_kernel!(
         ∂x, ∂σ², @Const(∂γ::Nothing), @Const(∂y), @Const(x),
         @Const(μ), @Const(σ²), @Const(ϵ), @Const(γ′))
-    i, j, k = @index(Global, NTuple)
-    idenom = γ′[j]
-    idenom² = idenom * idenom
+    i, j, k=@index(Global, NTuple)
+    idenom=γ′[j]
+    idenom²=idenom*idenom
 
-    xμ = x[i, j, k] - μ[j]
+    xμ=x[i, j, k]-μ[j]
 
-    ∂x[i, j, k] = ∂y[i, j, k] * γ′[j]
-    ∂σ²[i, j, k] = -∂x[i, j, k] * xμ * idenom² / 2
+    ∂x[i, j, k]=∂y[i, j, k]*γ′[j]
+    ∂σ²[i, j, k]=-∂x[i, j, k]*xμ*idenom²/2
 end
 
 @kernel cpu=false inbounds=true function ∇batchnorm_affine_normalize_kernel!(
         ∂x, ∂σ², ∂γ, @Const(∂y), @Const(x),
         @Const(μ), @Const(σ²), @Const(ϵ), @Const(γ′))
-    i, j, k = @index(Global, NTuple)
-    idenom = inv(sqrt(σ²[j] + ϵ))
-    idenom² = idenom * idenom
+    i, j, k=@index(Global, NTuple)
+    idenom=inv(sqrt(σ²[j]+ϵ))
+    idenom²=idenom*idenom
 
-    xμ = x[i, j, k] - μ[j]
+    xμ=x[i, j, k]-μ[j]
 
-    ∂x[i, j, k] = ∂y[i, j, k] * γ′[j]
-    ∂σ²[i, j, k] = -∂x[i, j, k] * xμ * idenom² / 2
-    ∂γ[i, j, k] = ∂y[i, j, k] * xμ * idenom
+    ∂x[i, j, k]=∂y[i, j, k]*γ′[j]
+    ∂σ²[i, j, k]=-∂x[i, j, k]*xμ*idenom²/2
+    ∂γ[i, j, k]=∂y[i, j, k]*xμ*idenom
 end

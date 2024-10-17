@@ -61,7 +61,7 @@ end
 
 function batched_matmul_loopvec_impl!(
         z::AbstractArray{zT, 3}, x::AbstractArray{xT, 3},
-        y::AbstractArray{yT, 3}, α::Number=true, β::Number=false) where {zT, xT, yT}
+        y::AbstractArray{yT, 3}; α::Number=true, β::Number=false) where {zT, xT, yT}
     if size(x, 3) == size(y, 3)
         @batch for L in indices((z, x, y), 3)
             serial_matmul_loopvec!(batchview(z, L), batchview(x, L), batchview(y, L), α, β)

@@ -85,6 +85,7 @@ end
 function setup_bias_activation_benchmarks!(suite::BenchmarkGroup, cpu_or_gpu::String,
         backend::String, dev::MLDataDevices.AbstractDevice)
     for activation in [tanh, relu, gelu], N in [2, 32, 512]
+
         benchmark_name = "bias_activation($N, act=$activation)($N x 128)"
         suite[benchmark_name]["forward"][cpu_or_gpu][backend] = @benchmarkable begin
             bias_activation($activation, x, b)
@@ -119,9 +120,11 @@ end
 function setup_batchnorm_benchmarks!(suite::BenchmarkGroup, cpu_or_gpu::String,
         backend::String, dev::MLDataDevices.AbstractDevice)
     for activation in [identity, relu, gelu], ndims in (2, 4)
+
         shapes = [(ntuple(Returns(16), ndims - 2)..., 4, 32),
             (ntuple(Returns(16), ndims - 2)..., 32, 32)]
         for shape in shapes, affine in (true, false)
+
             benchmark_name = "batchnorm($ndims, act=$activation, affine=$affine)(\
                               $(join(shape, " x ")))"
 
@@ -130,7 +133,8 @@ function setup_batchnorm_benchmarks!(suite::BenchmarkGroup, cpu_or_gpu::String,
                     x, scale, bias, running_mean, running_var, Val(false), $activation)
                 synchronize($dev)
             end setup=begin
-                x, scale, bias, running_mean, running_var = batchnorm_setup(
+                x, scale, bias,
+                running_mean, running_var = batchnorm_setup(
                     $shape, $affine, $dev)
             end
 
@@ -140,7 +144,8 @@ function setup_batchnorm_benchmarks!(suite::BenchmarkGroup, cpu_or_gpu::String,
                 synchronize($dev)
             end setup=begin
                 reclaim($dev)
-                x, scale, bias, running_mean, running_var = batchnorm_setup(
+                x, scale, bias,
+                running_mean, running_var = batchnorm_setup(
                     $shape, $affine, $dev)
                 Zygote.gradient(sumabs2first, batchnorm, x, scale, bias,
                     running_mean, running_var, Val(true), $activation)
@@ -161,14 +166,16 @@ end
 function setup_layernorm_benchmarks!(suite::BenchmarkGroup, cpu_or_gpu::String,
         backend::String, dev::MLDataDevices.AbstractDevice)
     for activation in [identity, relu, gelu], ndims in (2, 4)
+
         shapes = [(ntuple(Returns(16), ndims - 2)..., 4, 32),
             (ntuple(Returns(16), ndims - 2)..., 32, 32)]
         for shape in shapes, affine in (true, false)
+
             benchmark_name = "layernorm($ndims, act=$activation, affine=$affine)(\
                               $(join(shape, " x ")))"
 
             suite[benchmark_name]["forward"][cpu_or_gpu][backend] = @benchmarkable begin
-                layernorm(x, scale, bias, $activation, 1:($ndims - 1))
+                layernorm(x, scale, bias, $activation, 1:($ndims-1))
                 synchronize($dev)
             end setup=begin
                 reclaim($dev)
@@ -177,13 +184,13 @@ function setup_layernorm_benchmarks!(suite::BenchmarkGroup, cpu_or_gpu::String,
 
             suite[benchmark_name]["zygote"][cpu_or_gpu][backend] = @benchmarkable begin
                 Zygote.gradient(
-                    sumabs2, layernorm, x, scale, bias, $activation, 1:($ndims - 1))
+                    sumabs2, layernorm, x, scale, bias, $activation, 1:($ndims-1))
                 synchronize($dev)
             end setup=begin
                 reclaim($dev)
                 x, scale, bias = layernorm_setup($shape, $affine, $dev)
                 Zygote.gradient(
-                    sumabs2, layernorm, x, scale, bias, $activation, 1:($ndims - 1))
+                    sumabs2, layernorm, x, scale, bias, $activation, 1:($ndims-1))
             end
         end
     end
@@ -201,9 +208,11 @@ end
 function setup_groupnorm_benchmarks!(suite::BenchmarkGroup, cpu_or_gpu::String,
         backend::String, dev::MLDataDevices.AbstractDevice)
     for activation in [identity, relu, gelu], ndims in (2, 4)
+
         shapes = [(ntuple(Returns(16), ndims - 2)..., 4, 32),
             (ntuple(Returns(16), ndims - 2)..., 32, 32)]
         for shape in shapes, affine in (true, false)
+
             benchmark_name = "groupnorm($ndims, act=$activation, affine=$affine)(\
                               $(join(shape, " x ")))"
 
@@ -237,6 +246,7 @@ end
 function setup_batched_matmul_benchmarks!(suite::BenchmarkGroup, cpu_or_gpu::String,
         backend::String, dev::MLDataDevices.AbstractDevice)
     for N in [2, 16, 128, 512], Bsize in [4, 32, 128, 512]
+
         benchmark_name = "batchedmm($N, Bsize=$Bsize)"
 
         suite[benchmark_name]["forward"][cpu_or_gpu][backend] = @benchmarkable begin

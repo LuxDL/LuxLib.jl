@@ -17,6 +17,7 @@ import NNlib: batched_mul
 ## Without the rules on BatchedAdjoint and BatchedTranspose, we end up constructing
 ## AbstractMatrix{<:TrackedReal} which is not efficient
 for T1 in (:AbstractArray, :TrackedArray), T2 in (:AbstractArray, :TrackedArray)
+
     Utils.is_tracked(T1, T2) || continue
 
     for op in (:batched_mul, :batched_matmul)
@@ -80,7 +81,6 @@ for RM in (:TrackedVector, :Nothing, :AbstractVector),
     S in (:TrackedVector, :Nothing, :AbstractVector),
     B in (:TrackedVector, :Nothing, :AbstractVector),
     XT in (:TrackedArray, :AbstractArray)
-
     Utils.is_tracked(RM, RV, S, B, XT) || continue
 
     @eval Tracker.@grad_from_chainrules LuxLib.Impl.batchnorm_cudnn(

@@ -19,7 +19,8 @@ function groupnorm_fallback(
         σ::F=identity, epsilon::Real=1.0f-5) where {F, N}
     sz = size(x)
     x_reshaped = reshape(x, sz[1:(N - 2)]..., sz[N - 1] ÷ groups, groups, sz[N])
-    y, _, _ = LuxLib.Impl.normalization(x_reshaped, nothing, nothing, scale, bias,
+    y, _,
+    _ = LuxLib.Impl.normalization(x_reshaped, nothing, nothing, scale, bias,
         LuxLib.Impl.groupnorm_reduce_dims(x), False(), nothing, epsilon, σ)
     return reshape(y, sz)
 end
@@ -94,7 +95,8 @@ end
 
 @testitem "Group Norm: Group 1" tags=[:group_norm] setup=[SharedTestSetup, GroupNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $groups, $affine, $act" for (T, sz, groups, affine, act) in TEST_BLOCKS[1]
+        @testset "eltype $T, size $sz, $groups, $affine, $act" for (
+            T, sz, groups, affine, act) in TEST_BLOCKS[1]
             !fp64 && T == Float64 && continue
             run_groupnorm_testing(T, sz, groups, affine, act, aType, mode, ongpu)
         end
@@ -103,7 +105,8 @@ end
 
 @testitem "Group Norm: Group 2" tags=[:group_norm] setup=[SharedTestSetup, GroupNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $groups, $affine, $act" for (T, sz, groups, affine, act) in TEST_BLOCKS[2]
+        @testset "eltype $T, size $sz, $groups, $affine, $act" for (
+            T, sz, groups, affine, act) in TEST_BLOCKS[2]
             !fp64 && T == Float64 && continue
             run_groupnorm_testing(T, sz, groups, affine, act, aType, mode, ongpu)
         end
@@ -112,7 +115,8 @@ end
 
 @testitem "Group Norm: Group 3" tags=[:group_norm] setup=[SharedTestSetup, GroupNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $groups, $affine, $act" for (T, sz, groups, affine, act) in TEST_BLOCKS[3]
+        @testset "eltype $T, size $sz, $groups, $affine, $act" for (
+            T, sz, groups, affine, act) in TEST_BLOCKS[3]
             !fp64 && T == Float64 && continue
             run_groupnorm_testing(T, sz, groups, affine, act, aType, mode, ongpu)
         end
@@ -121,7 +125,8 @@ end
 
 @testitem "Group Norm: Group 4" tags=[:group_norm] setup=[SharedTestSetup, GroupNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $groups, $affine, $act" for (T, sz, groups, affine, act) in TEST_BLOCKS[4]
+        @testset "eltype $T, size $sz, $groups, $affine, $act" for (
+            T, sz, groups, affine, act) in TEST_BLOCKS[4]
             !fp64 && T == Float64 && continue
             run_groupnorm_testing(T, sz, groups, affine, act, aType, mode, ongpu)
         end
@@ -130,7 +135,8 @@ end
 
 @testitem "Group Norm: Group 5" tags=[:group_norm] setup=[SharedTestSetup, GroupNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $groups, $affine, $act" for (T, sz, groups, affine, act) in TEST_BLOCKS[5]
+        @testset "eltype $T, size $sz, $groups, $affine, $act" for (
+            T, sz, groups, affine, act) in TEST_BLOCKS[5]
             !fp64 && T == Float64 && continue
             run_groupnorm_testing(T, sz, groups, affine, act, aType, mode, ongpu)
         end

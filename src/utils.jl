@@ -169,10 +169,10 @@ unrolled_mapreduce(f::F, ::O, itr, ::Val{1}) where {F, O} = f(only(itr))
 
 @generated function unrolled_mapreduce(f::F, op::O, itr, ::Val{N}) where {F, O, N}
     syms = [gensym("f_itr_$(i)") for i in 1:N]
-    op_syms = [gensym("op_$(i)") for i in 1:(N - 1)]
+    op_syms = [gensym("op_$(i)") for i in 1:(N-1)]
     f_applied = [:($(syms[i]) = f(itr[$i])) for i in 1:N]
     combine_expr = [:($(op_syms[1]) = op($(syms[1]), $(syms[2])))]
-    for i in 2:(N - 1)
+    for i in 2:(N-1)
         push!(combine_expr, :($(op_syms[i]) = op($(op_syms[i - 1]), $(syms[i + 1]))))
     end
     return quote
@@ -186,7 +186,7 @@ unrolled_mapreduce(f::F, ::O, itr, ::Val{1}) where {F, O} = f(only(itr))
 end
 
 # Working with batches
-batchview(x::AbstractArray{<:Any, 3}, k::Int) = view(x, :, :, k)
+batchview(x::AbstractArray{<:Any, 3}, k::Int) = view(x,:,:,k)
 batchview(x::NNlib.BatchedTranspose, k::Int) = transpose(batchview(parent(x), k))
 batchview(x::NNlib.BatchedAdjoint, k::Int) = adjoint(batchview(parent(x), k))
 
@@ -205,7 +205,7 @@ expand_batchdim(x::SVector{L, T}) where {L, T} = SMatrix{L, 1, T}(x)
 function CRC.rrule(::typeof(expand_batchdim), x::AbstractMatrix)
     proj_x = CRC.ProjectTo(x)
     ∇expand_batchdim = @closure Δ -> begin
-        return ∂∅, proj_x(view(Δ, :, :, 1))
+        return ∂∅, proj_x(view(Δ,:,:,1))
     end
     return expand_batchdim(x), ∇expand_batchdim
 end
@@ -235,7 +235,8 @@ macro enzyme_alternative(f₁, f₂)
         function EnzymeRules.augmented_primal(
                 ::EnzymeRules.RevConfig, ::EnzymeCore.Const{typeof($(f₁))},
                 ::Type{RT}, args...) where {RT}
-            fwd, rev = EnzymeCore.autodiff_thunk(
+            fwd,
+            rev = EnzymeCore.autodiff_thunk(
                 EnzymeCore.ReverseSplitWithPrimal, EnzymeCore.Const{typeof($(f₂))},
                 EnzymeCore.Const, typeof.(args)...)
 

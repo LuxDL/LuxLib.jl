@@ -1,9 +1,9 @@
 @testitem "Activation Functions" tags=[:other_ops] setup=[SharedTestSetup] begin
-    rng = StableRNG(1234)
+    rng=StableRNG(1234)
 
-    apply_act(f::F, x) where {F} = sum(abs2, f.(x))
-    apply_act_fast(f::F, x) where {F} = sum(abs2, fast_activation!!(f, copy(x)))
-    apply_act_fast2(f::F, x) where {F} = sum(abs2, fast_activation(f, x))
+    apply_act(f::F, x) where {F}=sum(abs2, f.(x))
+    apply_act_fast(f::F, x) where {F}=sum(abs2, fast_activation!!(f, copy(x)))
+    apply_act_fast2(f::F, x) where {F}=sum(abs2, fast_activation(f, x))
 
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
         @testset "$f: $T" for f in [identity, relu, sigmoid, sigmoid_fast, softplus,

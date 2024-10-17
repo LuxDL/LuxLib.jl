@@ -52,9 +52,12 @@ function run_dense_testing(Tw, Tx, M, N, hasbias, activation, aType, mode, ongpu
     y_zyg = fused_dense_bias_activation(activation, w, x, bias)
     @test y_simple≈y_zyg atol=atol rtol=rtol
 
-    _, ∂w_true, ∂x_true, ∂b_true = Zygote.gradient(
+    _, ∂w_true, ∂x_true,
+    ∂b_true = Zygote.gradient(
         sum ∘ dense_simple, activation, w, x, bias)
-    _, ∂w_zyg, ∂x_zyg, ∂b_zyg = Zygote.gradient(
+    _, ∂w_zyg,
+    ∂x_zyg,
+    ∂b_zyg = Zygote.gradient(
         sum ∘ fused_dense_bias_activation, activation, w, x, bias)
     @test ∂w_true≈∂w_zyg atol=atol rtol=rtol
     @test ∂x_true≈∂x_zyg atol=atol rtol=rtol
@@ -80,7 +83,8 @@ end
 
 @testitem "Fused Dense: Group 1" tags=[:dense] setup=[SharedTestSetup, DenseSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for ((Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[1]
+        @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for (
+            (Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[1]
             !fp64 && (Tx == Float64 || Tw == Float64) && continue
             run_dense_testing(Tw, Tx, M, N, hasbias, activation, aType, mode, ongpu)
         end
@@ -89,7 +93,8 @@ end
 
 @testitem "Fused Dense: Group 2" tags=[:dense] setup=[SharedTestSetup, DenseSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for ((Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[2]
+        @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for (
+            (Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[2]
             !fp64 && (Tx == Float64 || Tw == Float64) && continue
             run_dense_testing(Tw, Tx, M, N, hasbias, activation, aType, mode, ongpu)
         end
@@ -98,7 +103,8 @@ end
 
 @testitem "Fused Dense: Group 3" tags=[:dense] setup=[SharedTestSetup, DenseSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for ((Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[3]
+        @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for (
+            (Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[3]
             !fp64 && (Tx == Float64 || Tw == Float64) && continue
             run_dense_testing(Tw, Tx, M, N, hasbias, activation, aType, mode, ongpu)
         end
@@ -107,7 +113,8 @@ end
 
 @testitem "Fused Dense: Group 4" tags=[:dense] setup=[SharedTestSetup, DenseSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for ((Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[4]
+        @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for (
+            (Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[4]
             !fp64 && (Tx == Float64 || Tw == Float64) && continue
             run_dense_testing(Tw, Tx, M, N, hasbias, activation, aType, mode, ongpu)
         end
@@ -116,7 +123,8 @@ end
 
 @testitem "Fused Dense: Group 5" tags=[:dense] setup=[SharedTestSetup, DenseSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for ((Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[5]
+        @testset "eltype $Tw x $Tx, size $M x $N, bias $hasbias, activation $activation" for (
+            (Tx, Tw), M, N, hasbias, activation) in TEST_BLOCKS[5]
             !fp64 && (Tx == Float64 || Tw == Float64) && continue
             run_dense_testing(Tw, Tx, M, N, hasbias, activation, aType, mode, ongpu)
         end
@@ -147,7 +155,7 @@ end
 @testitem "`LuxLib.Impl.matmul(add)` allocations" tags=[:dense] setup=[SharedTestSetup] begin
     using BenchmarkTools, Statistics
 
-    if BACKEND_GROUP == "all" || BACKEND_GROUP == "cpu"
+    if BACKEND_GROUP=="all"||BACKEND_GROUP=="cpu"
         @testset "size $N" for N in (1, 4, 32, 256, 1024)
             x = rand(Float32, N, N)
 
@@ -168,37 +176,39 @@ end
     end
 end
 
-@testitem "Enzyme.Forward patch: dense" tags=[:dense] setup=[SharedTestSetup] skip=:(using LuxTestUtils; !LuxTestUtils.ENZYME_TESTING_ENABLED) begin
+@testitem "Enzyme.Forward patch: dense" tags=[:dense] setup=[SharedTestSetup] skip=:(using LuxTestUtils;
+!LuxTestUtils.ENZYME_TESTING_ENABLED) begin
     using LuxLib, Random, ForwardDiff, Enzyme
 
-    x = rand(Float32, 2, 2)
+    x=rand(Float32, 2, 2)
 
-    f(x) = sum(abs2, LuxLib.Impl.matmul(x, x))
+    f(x)=sum(abs2, LuxLib.Impl.matmul(x, x))
 
     @test only(Enzyme.gradient(Forward, f, x)) ≈ ForwardDiff.gradient(f, x)
 end
 
-@testitem "Enzyme rules for fused dense" tags=[:dense] setup=[SharedTestSetup] skip=:(using LuxTestUtils; !LuxTestUtils.ENZYME_TESTING_ENABLED) begin
+@testitem "Enzyme rules for fused dense" tags=[:dense] setup=[SharedTestSetup] skip=:(using LuxTestUtils;
+!LuxTestUtils.ENZYME_TESTING_ENABLED) begin
     using LuxLib, NNlib, Zygote, Enzyme
 
     # These are mostly for testing the CUDA rules since we don't enable the CUDA tests
     # in LuxTestUtils currently
     function fused_dense!(y, act, weight, x, b)
-        op = LuxLib.internal_operation_mode((y, weight, x, b))
+        op=LuxLib.internal_operation_mode((y, weight, x, b))
         LuxLib.Impl.fused_dense!(y, op, act, weight, x, b)
         return
     end
 
     function matmuladd!(C, A, B, bias)
-        op = LuxLib.internal_operation_mode((C, A, B, bias))
+        op=LuxLib.internal_operation_mode((C, A, B, bias))
         LuxLib.Impl.matmuladd!(C, op, A, B, bias)
         return
     end
 
-    rng = StableRNG(1234)
+    rng=StableRNG(1234)
 
-    ALL_ACTS = [identity, tanh, tanh_fast, sigmoid, sigmoid_fast,
-        relu, gelu, x -> x^3, x -> gelu(x)]
+    ALL_ACTS=[identity, tanh, tanh_fast, sigmoid, sigmoid_fast,
+        relu, gelu, x->x^3, x->gelu(x)]
 
     @testset "$mode" for (mode, aType, ongpu) in MODES
         mode ∈ ("cpu", "cuda") || continue

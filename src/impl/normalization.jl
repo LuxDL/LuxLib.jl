@@ -61,9 +61,9 @@ end
 @kernel cpu=false inbounds=true function update_running_statistics_kernel!(
         rμₙ, rσ²ₙ, @Const(rμ), @Const(rσ²), @Const(μ),
         @Const(σ²), @Const(m₁), @Const(m₂), @Const(m₃))
-    I = @index(Global)
-    rμₙ[I] = m₃ * rμ[I] + m₁ * μ[I]
-    rσ²ₙ[I] = m₃ * rσ²[I] + m₂ * σ²[I]
+    I=@index(Global)
+    rμₙ[I]=m₃*rμ[I]+m₁*μ[I]
+    rσ²ₙ[I]=m₃*rσ²[I]+m₂*σ²[I]
 end
 
 function update_normalization_statistics(
@@ -96,7 +96,8 @@ end
 function compute_batch_statistics(x::AbstractArray, rμ::AbstractArray,
         rσ²::AbstractArray, reduce_dims, ::True, momentum)
     μ, σ² = mean_var(x; dims=unsafe_known(reduce_dims), corrected=false)
-    rμ, rσ² = update_normalization_statistics(
+    rμ,
+    rσ² = update_normalization_statistics(
         remove_tracking(x), remove_tracking(rμ), remove_tracking(rσ²),
         remove_tracking(μ), remove_tracking(σ²), momentum, reduce_dims)
     return (aos_to_soa(μ), aos_to_soa(σ²)), (rμ, rσ²)
@@ -108,8 +109,11 @@ end
 function normalization(
         x::AbstractArray, rμ::Optional{<:AbstractVector}, rσ²::Optional{<:AbstractVector},
         γ::Optional{<:AbstractVector}, β::Optional{<:AbstractVector}, reduce_dims,
-        training::StaticBool, momentum, epsilon, act::F=identity) where {F}
-    (μ, σ²), (rμ, rσ²) = compute_batch_statistics(
+        training::StaticBool, momentum, epsilon; act::F=identity) where {F}
+    (μ,
+        σ²),
+    (rμ,
+        rσ²) = compute_batch_statistics(
         x, reshape_norm_dims(x, rμ), reshape_norm_dims(x, rσ²),
         reduce_dims, training, momentum)
     γ, β = reshape_norm_dims(x, γ), reshape_norm_dims(x, β)
@@ -136,7 +140,8 @@ function instancenorm(x::AbstractArray{xT, N}, γ::Optional{<:AbstractVector},
         β::Optional{<:AbstractVector}, rμ::Optional{<:AbstractVector},
         rσ²::Optional{<:AbstractVector}, training::StaticBool,
         act::F, momentum, epsilon) where {xT, N, F}
-    y, rμₙ, rσ²ₙ = normalization(
+    y, rμₙ,
+    rσ²ₙ = normalization(
         x, rμ, rσ², γ, β, instancenorm_reduce_dims(x), training, momentum, epsilon, act)
     return y, safe_vec(rμₙ), safe_vec(rσ²ₙ)
 end

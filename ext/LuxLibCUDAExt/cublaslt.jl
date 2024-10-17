@@ -5,7 +5,7 @@ function cublaslt_matmul_fused!(
         @nospecialize(y::TransOrAdjOrRegStridedCuMatrix{<:Real}), σ::F,
         @nospecialize(w::TransOrAdjOrRegStridedCuMatrix{<:Real}),
         @nospecialize(x::TransOrAdjOrRegStridedCuMatrix{<:Real}),
-        b::Optional{<:StridedCuVector{<:Real}},
+        b::Optional{<:StridedCuVector{<:Real}};
         aux::Optional{<:StridedCuMatrix{<:Real}}=nothing) where {F}
     transy = y isa Transpose || y isa Adjoint
     transx = x isa Transpose || x isa Adjoint
@@ -189,7 +189,7 @@ end
 
 function LuxLib.Impl.cublasLt_fused_dense!(
         z::AbstractMatrix, act::F, weight::AbstractMatrix, x::AbstractMatrix,
-        b::Optional{<:AbstractVector}, y::Optional{<:AbstractMatrix}=nothing) where {F}
+        b::Optional{<:AbstractVector}; y::Optional{<:AbstractMatrix}=nothing) where {F}
     if hasmethod(cublaslt_matmul_fused!,
         (typeof(z), typeof(act), typeof(weight), typeof(x), typeof(b), typeof(y)))
         retcode = cublaslt_matmul_fused!(z, act, weight, x, b, y)

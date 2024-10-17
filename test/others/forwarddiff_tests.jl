@@ -4,16 +4,16 @@
 
     # Computes (∂f/∂x)u
     function jvp_forwarddiff(f::F, x, u) where {F}
-        uu = reshape(u, axes(x))
-        y = ForwardDiff.Dual{typeof(ForwardDiff.Tag(f, eltype(x))), eltype(x),
+        uu=reshape(u, axes(x))
+        y=ForwardDiff.Dual{typeof(ForwardDiff.Tag(f, eltype(x))), eltype(x),
             1}.(x, ForwardDiff.Partials.(tuple.(uu)))
         return vec(ForwardDiff.partials.(vec(f(y)), 1))
     end
 
     function jvp_forwarddiff(f::F, x::ComponentArray, u) where {F}
-        xx = getdata(x)
-        uu = vec(u)
-        y = ComponentArray(
+        xx=getdata(x)
+        uu=vec(u)
+        y=ComponentArray(
             ForwardDiff.Dual{typeof(ForwardDiff.Tag(f, eltype(x))), eltype(x),
                 1}.(xx, ForwardDiff.Partials.(tuple.(uu))),
             getaxes(x))
@@ -21,19 +21,19 @@
     end
 
     ## This exists exclusively for testing. It has horrifying performance implications
-    jvp_forwarddiff_concrete(f::F, x, u) where {F} = ForwardDiff.jacobian(f, x) * vec(u)
-    jvp_zygote(f::F, x, u) where {F} = only(Zygote.jacobian(f, x)) * vec(u)
+    jvp_forwarddiff_concrete(f::F, x, u) where {F}=ForwardDiff.jacobian(f, x)*vec(u)
+    jvp_zygote(f::F, x, u) where {F}=only(Zygote.jacobian(f, x))*vec(u)
 
     function test_jvp_computation(f::F, x, u, ongpu, nested=false) where {F}
-        jvp₁ = jvp_forwarddiff(f, x, u)
-        if !(x isa ComponentArray && ongpu)
+        jvp₁=jvp_forwarddiff(f, x, u)
+        if !(x isa ComponentArray&&ongpu)
             # ComponentArray + ForwardDiff on GPU don't play nice
-            jvp₂ = jvp_forwarddiff_concrete(f, x, u)
+            jvp₂=jvp_forwarddiff_concrete(f, x, u)
             @test check_approx(jvp₁, jvp₂; atol=1e-5, rtol=1e-5)
         end
 
         if !nested
-            jvp₃ = jvp_zygote(f, x, u)
+            jvp₃=jvp_zygote(f, x, u)
             @test check_approx(jvp₁, jvp₃; atol=1e-5, rtol=1e-5)
         end
     end
@@ -51,7 +51,8 @@
                 [(2, 2, 2, 1, 4), (3, 3, 1, 4), (3, 3, 3, 2), (3, 1, 4), (3, 3, 2)]
             end
 
-            @testset "Input Dims: $(in_dims) | Weight Dims: $(w_dims)" for (in_dims, w_dims) in zip(
+            @testset "Input Dims: $(in_dims) | Weight Dims: $(w_dims)" for (
+                in_dims, w_dims) in zip(
                 input_dims, weight_dims)
                 x = randn(Float32, in_dims...) |> aType
                 w = randn(Float32, w_dims...) |> aType
@@ -96,7 +97,7 @@ end
     using ForwardDiff
     using LuxTestUtils: check_approx
 
-    rng = StableRNG(12345)
+    rng=StableRNG(12345)
 
     @testset "$mode: dropout" for (mode, aType, ongpu, fp64) in MODES
         x = randn(rng, Float32, 10, 2) |> aType

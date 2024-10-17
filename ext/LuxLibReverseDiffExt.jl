@@ -23,7 +23,6 @@ end
 for func in (:conv, :depthwiseconv, :∇conv_data, :∇conv_filter),
     xType in (:AbstractArray, :TrackedArray),
     wType in (:AbstractArray, :TrackedArray)
-
     Utils.is_tracked(xType, wType) || continue
 
     @eval @grad_from_chainrules NNlib.$(func)(

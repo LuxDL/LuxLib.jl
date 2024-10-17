@@ -53,7 +53,8 @@ function run_instancenorm_testing(gen_f, T, sz, training, act, aType, mode, ongp
     @jet instancenorm(x, scale, bias, rm, rv, training, act, T(0.1), epsilon)
 
     if anonact !== act && is_training(training)
-        lfn = (x, sc, b, rm, rv, act, m, ϵ) -> sum(first(instancenorm(
+        lfn = (x, sc, b, rm, rv, act, m,
+            ϵ) -> sum(first(instancenorm(
             x, sc, b, rm, rv, Val(true), act, m, ϵ)))
         @test @inferred(Zygote.gradient(
             lfn, x, scale, bias, rm, rv, act, T(0.1), epsilon)) isa Any
@@ -85,7 +86,8 @@ end
 @testitem "Instance Norm: Group 1" tags=[:instance_norm] setup=[
     SharedTestSetup, InstanceNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $training $act" for (T, sz, training, act) in TEST_BLOCKS[1]
+        @testset "eltype $T, size $sz, $training $act" for (T, sz, training, act) in
+                                                           TEST_BLOCKS[1]
             !fp64 && T == Float64 && continue
             run_instancenorm_testing(
                 generate_fixed_array, T, sz, training, act, aType, mode, ongpu)
@@ -96,7 +98,8 @@ end
 @testitem "Instance Norm: Group 2" tags=[:instance_norm] setup=[
     SharedTestSetup, InstanceNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $training $act" for (T, sz, training, act) in TEST_BLOCKS[2]
+        @testset "eltype $T, size $sz, $training $act" for (T, sz, training, act) in
+                                                           TEST_BLOCKS[2]
             !fp64 && T == Float64 && continue
             run_instancenorm_testing(
                 generate_fixed_array, T, sz, training, act, aType, mode, ongpu)
@@ -107,7 +110,8 @@ end
 @testitem "Instance Norm: Group 3" tags=[:instance_norm] setup=[
     SharedTestSetup, InstanceNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $training $act" for (T, sz, training, act) in TEST_BLOCKS[3]
+        @testset "eltype $T, size $sz, $training $act" for (T, sz, training, act) in
+                                                           TEST_BLOCKS[3]
             !fp64 && T == Float64 && continue
             run_instancenorm_testing(
                 generate_fixed_array, T, sz, training, act, aType, mode, ongpu)
@@ -118,7 +122,8 @@ end
 @testitem "Instance Norm: Group 4" tags=[:instance_norm] setup=[
     SharedTestSetup, InstanceNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $training $act" for (T, sz, training, act) in TEST_BLOCKS[4]
+        @testset "eltype $T, size $sz, $training $act" for (T, sz, training, act) in
+                                                           TEST_BLOCKS[4]
             !fp64 && T == Float64 && continue
             run_instancenorm_testing(
                 generate_fixed_array, T, sz, training, act, aType, mode, ongpu)
@@ -129,7 +134,8 @@ end
 @testitem "Instance Norm: Group 5" tags=[:instance_norm] setup=[
     SharedTestSetup, InstanceNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $sz, $training $act" for (T, sz, training, act) in TEST_BLOCKS[5]
+        @testset "eltype $T, size $sz, $training $act" for (T, sz, training, act) in
+                                                           TEST_BLOCKS[5]
             !fp64 && T == Float64 && continue
             run_instancenorm_testing(
                 generate_fixed_array, T, sz, training, act, aType, mode, ongpu)
