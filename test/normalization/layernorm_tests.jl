@@ -78,7 +78,6 @@ for T in (Float16, Float32, Float64),
     x_shape in ((3, 3, 2, 1), (2, 2, 2, 1), (2, 3, 2, 2)),
     affine_shape in (nothing, x_shape[1:3], (1, 1, 1), (1, 1, x_shape[3])),
     act in (identity, relu, tanh_fast, sigmoid_fast, anonact)
-
     push!(ALL_TEST_CONFIGS, (T, x_shape, affine_shape, act))
 end
 
@@ -91,7 +90,8 @@ end
 
 @testitem "Layer Norm: Group 1" tags=[:layer_norm] setup=[SharedTestSetup, LayerNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $x_shape, $act" for (T, x_shape, affine_shape, act) in TEST_BLOCKS[1]
+        @testset "eltype $T, size $x_shape, $act" for (T, x_shape, affine_shape, act) in
+                                                      TEST_BLOCKS[1]
             !fp64 && T == Float64 && continue
             run_layernorm_testing(
                 generate_fixed_array, aType, T, x_shape, affine_shape, act, ongpu, mode)
@@ -101,7 +101,8 @@ end
 
 @testitem "Layer Norm: Group 2" tags=[:layer_norm] setup=[SharedTestSetup, LayerNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $x_shape, $act" for (T, x_shape, affine_shape, act) in TEST_BLOCKS[2]
+        @testset "eltype $T, size $x_shape, $act" for (T, x_shape, affine_shape, act) in
+                                                      TEST_BLOCKS[2]
             !fp64 && T == Float64 && continue
             run_layernorm_testing(
                 generate_fixed_array, aType, T, x_shape, affine_shape, act, ongpu, mode)
@@ -111,7 +112,8 @@ end
 
 @testitem "Layer Norm: Group 3" tags=[:layer_norm] setup=[SharedTestSetup, LayerNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $x_shape, $act" for (T, x_shape, affine_shape, act) in TEST_BLOCKS[3]
+        @testset "eltype $T, size $x_shape, $act" for (T, x_shape, affine_shape, act) in
+                                                      TEST_BLOCKS[3]
             !fp64 && T == Float64 && continue
             run_layernorm_testing(
                 generate_fixed_array, aType, T, x_shape, affine_shape, act, ongpu, mode)
@@ -121,7 +123,8 @@ end
 
 @testitem "Layer Norm: Group 4" tags=[:layer_norm] setup=[SharedTestSetup, LayerNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $x_shape, $act" for (T, x_shape, affine_shape, act) in TEST_BLOCKS[4]
+        @testset "eltype $T, size $x_shape, $act" for (T, x_shape, affine_shape, act) in
+                                                      TEST_BLOCKS[4]
             !fp64 && T == Float64 && continue
             run_layernorm_testing(
                 generate_fixed_array, aType, T, x_shape, affine_shape, act, ongpu, mode)
@@ -131,7 +134,8 @@ end
 
 @testitem "Layer Norm: Group 5" tags=[:layer_norm] setup=[SharedTestSetup, LayerNormSetup] begin
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
-        @testset "eltype $T, size $x_shape, $act" for (T, x_shape, affine_shape, act) in TEST_BLOCKS[5]
+        @testset "eltype $T, size $x_shape, $act" for (T, x_shape, affine_shape, act) in
+                                                      TEST_BLOCKS[5]
             !fp64 && T == Float64 && continue
             run_layernorm_testing(
                 generate_fixed_array, aType, T, x_shape, affine_shape, act, ongpu, mode)

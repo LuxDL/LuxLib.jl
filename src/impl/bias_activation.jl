@@ -149,7 +149,8 @@ function CRC.rrule(cfg::RuleConfig{>:HasReverseMode}, ::typeof(bias_activation!!
         return y, ∇bias_activation_rrule
     end
 
-    res, ∇bias_activation_from_ad = CRC.rrule_via_ad(
+    res,
+    ∇bias_activation_from_ad = CRC.rrule_via_ad(
         cfg, bias_activation, opmode, σ, x, bias)
     ∇bias_activation_fallback = @closure Δ -> begin
         _, _, _, ∂x, ∂b = ∇bias_activation_from_ad(Δ)
@@ -206,6 +207,7 @@ function bias_activation_loop!(y::AbstractArray{yT, 3}, σ::F, x::AbstractArray{
         bias::AbstractVector) where {F, xT, yT}
     if size(y, 1) == 1
         @tturbo for K in indices(x, 3), J in indices((x, bias), (2, 1))
+
             y[1, J, K] = σ(x[1, J, K] + bias[J])
         end
     else
@@ -225,6 +227,7 @@ function bias_activation_simd_loop!(y::AbstractArray{yT, 3}, σ::F, x::AbstractA
         end
     else
         for K in indices(x, 3), J in indices((x, bias), (2, 1))
+
             @simd ivdep for I in indices(y, 1)
                 @inbounds y[I, J, K] = σ(x[I, J, K] + bias[J])
             end
@@ -258,6 +261,7 @@ function bias_add_loop!(y::AbstractArray{yT, 3}, x::AbstractArray{xT, 3},
         end
     else
         for K in indices(x, 3), J in indices((x, bias), (2, 1))
+
             @simd ivdep for I in indices(y, 1)
                 @inbounds y[I, J, K] = x[I, J, K] + bias[J]
             end

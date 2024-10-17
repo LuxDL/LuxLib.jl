@@ -5,7 +5,9 @@ CRC.@non_differentiable groupnorm_reduce_dims(::Any)
 function groupnorm(x::AbstractArray{xT, N}, γ::Optional{<:AbstractVector},
         β::Optional{<:AbstractVector}, groups::Int, act::F, ϵ::Real) where {F, N, xT}
     x′ = reshape(x, size(x)[1:(N - 2)]..., size(x, N - 1) ÷ groups, groups, size(x, N))
-    (μ, σ²), _ = compute_batch_statistics(
+    (μ,
+        σ²),
+    _ = compute_batch_statistics(
         x′, nothing, nothing, groupnorm_reduce_dims(x), False(), nothing)
     return reshape(groupnorm_affine_normalize(act, x′, μ, σ², γ, β, ϵ), size(x))
 end
@@ -96,6 +98,7 @@ function groupnorm_affine_normalize_act_3d_serial_cpu!(
         β::Optional{<:AbstractArray{<:Any, 4}}, ϵ::Real, σ::F) where {F, xT, yT, μT, σ²T}
     if γ === nothing && β === nothing
         @fastmath @inbounds for L in indices(y, 4), K in indices(y, 3)
+
             γ′ = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             β′ = -μ[1, 1, K, L] * γ′
             @simd ivdep for J in indices(y, 2)
@@ -104,6 +107,7 @@ function groupnorm_affine_normalize_act_3d_serial_cpu!(
         end
     else
         @fastmath @inbounds for L in indices(y, 4), K in indices(y, 3)
+
             idenom = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             @simd for J in indices(y, 2)
                 γ′ = γ[1, J, K, 1] * idenom
@@ -120,6 +124,7 @@ function groupnorm_affine_normalize_act_4d_serial_cpu!(
         β::Optional{<:AbstractArray{<:Any, 4}}, ϵ::Real, σ::F) where {F, xT, yT, μT, σ²T}
     if γ === nothing && β === nothing
         @fastmath @inbounds for L in indices(y, 4), K in indices(y, 3)
+
             γ′ = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             β′ = -μ[1, 1, K, L] * γ′
             for J in indices(y, 2)
@@ -130,6 +135,7 @@ function groupnorm_affine_normalize_act_4d_serial_cpu!(
         end
     else
         @fastmath @inbounds for L in indices(y, 4), K in indices(y, 3)
+
             idenom = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             for J in indices(y, 2)
                 γ′ = γ[1, J, K, 1] * idenom
@@ -159,6 +165,7 @@ end
         β::Optional{<:AbstractArray{<:Any, 4}}, ϵ::Real) where {xT, yT, μT, σ²T}
     if γ === nothing && β === nothing
         @fastmath @inbounds for L in indices(y, 4), K in indices(y, 3)
+
             γ′ = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             β′ = -μ[1, 1, K, L] * γ′
             @simd ivdep for J in indices(y, 2)
@@ -167,6 +174,7 @@ end
         end
     else
         @fastmath @inbounds for L in indices(y, 4), K in indices(y, 3)
+
             idenom = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             @simd for J in indices(y, 2)
                 γ′ = γ[1, J, K, 1] * idenom
@@ -183,6 +191,7 @@ end
         β::Optional{<:AbstractArray{<:Any, 4}}, ϵ::Real) where {xT, yT, μT, σ²T}
     if γ === nothing && β === nothing
         @fastmath @inbounds for L in indices(y, 4), K in indices(y, 3)
+
             γ′ = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             β′ = -μ[1, 1, K, L] * γ′
             for J in indices(y, 2)
@@ -193,6 +202,7 @@ end
         end
     else
         @fastmath @inbounds for L in indices(y, 4), K in indices(y, 3)
+
             idenom = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             for J in indices(y, 2)
                 γ′ = γ[1, J, K, 1] * idenom
@@ -220,19 +230,19 @@ end
 @kernel cpu=false inbounds=true function groupnorm_affine_normalize_kernel!(
         y::AbstractArray{<:Number, 4}, @Const(f),
         @Const(x), @Const(μ), @Const(σ²), @Const(γ::Nothing), @Const(β::Nothing), @Const(ϵ))
-    i, j, k, l = @index(Global, NTuple)
-    γ′ = inv(sqrt(σ²[1, 1, k, l] + ϵ))
-    β′ = -μ[1, 1, k, l] * γ′
-    y[i, j, k, l] = f(muladd(x[i, j, k, l], γ′, β′))
+    i, j, k, l=@index(Global, NTuple)
+    γ′=inv(sqrt(σ²[1, 1, k, l]+ϵ))
+    β′=-μ[1, 1, k, l]*γ′
+    y[i, j, k, l]=f(muladd(x[i, j, k, l], γ′, β′))
 end
 
 @kernel cpu=false inbounds=true function groupnorm_affine_normalize_kernel!(
         y::AbstractArray{<:Number, 4}, @Const(f), @Const(x),
         @Const(μ), @Const(σ²), @Const(γ), @Const(β), @Const(ϵ))
-    i, j, k, l = @index(Global, NTuple)
-    γ′ = γ[1, j, k, 1] / sqrt(σ²[1, 1, k, l] + ϵ)
-    β′ = muladd(-μ[1, 1, k, l], γ′, β[1, j, k, 1])
-    y[i, j, k, l] = f(muladd(x[i, j, k, l], γ′, β′))
+    i, j, k, l=@index(Global, NTuple)
+    γ′=γ[1, j, k, 1]/sqrt(σ²[1, 1, k, l]+ϵ)
+    β′=muladd(-μ[1, 1, k, l], γ′, β[1, j, k, 1])
+    y[i, j, k, l]=f(muladd(x[i, j, k, l], γ′, β′))
 end
 
 function CRC.rrule(
@@ -306,6 +316,7 @@ function ∇groupnorm_affine_normalize_cpu!(
 
     if size(∂y, 1) == 1
         @fastmath @inbounds for L in indices(∂y, 4), K in indices(∂y, 3)
+
             idenom = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             idenom² = idenom^2
 
@@ -319,6 +330,7 @@ function ∇groupnorm_affine_normalize_cpu!(
         end
     else
         @fastmath @inbounds for L in indices(∂y, 4), K in indices(∂y, 3)
+
             idenom = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             idenom² = idenom^2
 
@@ -350,6 +362,7 @@ function ∇groupnorm_affine_normalize_cpu!(
 
     if size(∂y, 1) == 1
         @fastmath @inbounds for L in indices(∂y, 4), K in indices(∂y, 3)
+
             idenom = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             idenom² = idenom^2
 
@@ -367,6 +380,7 @@ function ∇groupnorm_affine_normalize_cpu!(
         end
     else
         @fastmath @inbounds for L in indices(∂y, 4), K in indices(∂y, 3)
+
             idenom = inv(sqrt(σ²[1, 1, K, L] + ϵ))
             idenom² = idenom^2
 
@@ -402,23 +416,23 @@ end
 @kernel cpu=false inbounds=true function ∇groupnorm_affine_normalize_kernel!(
         ∂x, ∂σ², @Const(∂γ::Nothing), @Const(∂y), @Const(x),
         @Const(μ), @Const(σ²), @Const(ϵ), @Const(γ::Nothing))
-    i, j, k, l = @index(Global, NTuple)
-    idenom = inv(sqrt(σ²[1, 1, k, l] + ϵ))
+    i, j, k, l=@index(Global, NTuple)
+    idenom=inv(sqrt(σ²[1, 1, k, l]+ϵ))
 
-    ∂x[i, j, k, l] = ∂y[i, j, k, l] * idenom
-    ∂σ²[i, j, k, l] = ∂x[i, j, k, l] * (μ[1, 1, k, l] - x[i, j, k, l]) * idenom * idenom / 2
+    ∂x[i, j, k, l]=∂y[i, j, k, l]*idenom
+    ∂σ²[i, j, k, l]=∂x[i, j, k, l]*(μ[1, 1, k, l]-x[i, j, k, l])*idenom*idenom/2
 end
 
 @kernel cpu=false inbounds=true function ∇groupnorm_affine_normalize_kernel!(
         ∂x, ∂σ², ∂γ, @Const(∂y), @Const(x),
         @Const(μ), @Const(σ²), @Const(ϵ), @Const(γ))
-    i, j, k, l = @index(Global, NTuple)
-    idenom = inv(sqrt(σ²[1, 1, k, l] + ϵ))
-    γ′ = γ[1, j, k, 1] * idenom
+    i, j, k, l=@index(Global, NTuple)
+    idenom=inv(sqrt(σ²[1, 1, k, l]+ϵ))
+    γ′=γ[1, j, k, 1]*idenom
 
-    xμ_d = (x[i, j, k, l] - μ[1, 1, k, l]) * idenom
+    xμ_d=(x[i, j, k, l]-μ[1, 1, k, l])*idenom
 
-    ∂x[i, j, k, l] = ∂y[i, j, k, l] * γ′
-    ∂σ²[i, j, k, l] = -∂x[i, j, k, l] * xμ_d * idenom / 2
-    ∂γ[i, j, k, l] = ∂y[i, j, k, l] * xμ_d
+    ∂x[i, j, k, l]=∂y[i, j, k, l]*γ′
+    ∂σ²[i, j, k, l]=-∂x[i, j, k, l]*xμ_d*idenom/2
+    ∂γ[i, j, k, l]=∂y[i, j, k, l]*xμ_d
 end

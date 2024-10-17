@@ -95,7 +95,8 @@ function Impl.∇batchnorm_cudnn(
         γ::DenseCuVector{T}, β::DenseCuVector{T}, x::DenseCuArray{T, 2},
         ∂y::DenseCuArray{T, 2}, rμ::Optional{<:DenseCuVector{T}},
         rσ²::Optional{<:DenseCuVector{T}}, args...) where {T <: cuDNNFloat}
-    ∂γ, ∂β, ∂x = Impl.∇batchnorm_cudnn(γ, β, reshape(x, 1, 1, size(x, 1), size(x, 2)),
+    ∂γ, ∂β,
+    ∂x = Impl.∇batchnorm_cudnn(γ, β, reshape(x, 1, 1, size(x, 1), size(x, 2)),
         reshape(∂y, 1, 1, size(∂y, 1), size(∂y, 2)), rμ, rσ², args...)
     return ∂γ, ∂β, dropdims(∂x; dims=(1, 2))
 end

@@ -32,7 +32,8 @@ function CRC.rrule(
     y, xμ, xσ⁻² = Impl.batchnorm_cudnn(γ, β, x, rμ, rσ², m, ϵ, training)
     𝒫x, 𝒫γ, 𝒫β = CRC.ProjectTo(x), CRC.ProjectTo(γ), CRC.ProjectTo(β)
     ∇batchnorm_cudnn = @closure Δ -> begin
-        ∂γ, ∂β, ∂x = Impl.∇batchnorm_cudnn(
+        ∂γ, ∂β,
+        ∂x = Impl.∇batchnorm_cudnn(
             γ, β, x, CRC.unthunk(first(Δ)), rμ, rσ², xμ, xσ⁻², ϵ)
         return ∂∅, 𝒫γ(∂γ), 𝒫β(∂β), 𝒫x(∂x), ∂∅, ∂∅, ∂∅, ∂∅, ∂∅
     end

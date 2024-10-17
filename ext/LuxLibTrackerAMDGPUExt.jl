@@ -32,7 +32,8 @@ for poolname in (:maxpool, :meanpool)
             npdims = NNlib.insert_singleton_spatial_dimension(pdims, nd)
 
             # `workspace` is used in the pullback.
-            _, workspace = AMDGPU.MIOpen.$(Symbol("$(poolname)!"))(
+            _,
+            workspace = AMDGPU.MIOpen.$(Symbol("$(poolname)!"))(
                 NNlib.insert_singleton_spatial_dimension(y, nd),
                 NNlib.insert_singleton_spatial_dimension(x, nd);
                 dims=NNlib.kernel_size(npdims),

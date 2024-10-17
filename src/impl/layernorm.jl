@@ -16,7 +16,7 @@ function compute_layernorm_dims(::AbstractArray{xT, N}, ::AbstractArray{γT, M},
         ::AbstractArray{βT, M}, ::Nothing) where {xT, γT, βT, N, M}
     @assert N>M "`x` must have more dimensions than `scale` and `bias` when `dims` is \
                  `nothing`"
-    return 1:(N - M)
+    return 1:(N-M)
 end
 
 function compute_layernorm_dims(

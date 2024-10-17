@@ -44,7 +44,7 @@ export bmm_test, bmm_adjtest, half_batched_mul, perm_12, perm_23
 end
 
 @testitem "batched_mul" tags=[:batched_ops] setup=[SharedTestSetup, BatchedMMSetup] begin
-    rng = StableRNG(1234)
+    rng=StableRNG(1234)
 
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
         @testset "batched_mul: Float64 × $(TB)" for TB in [Float64, Float32]
@@ -98,7 +98,6 @@ end
                     for perm in [(1, 3, 2), (2, 1, 3), (3, 2, 1)],
                         fun in [identity, batched_adjoint],
                         ty in [identity, complex]
-
                         A = randn(rng, ty(Float64), 4, 4, 4) |> aType
                         B = randn(rng, ty(TB), 4, 4, 4) |> aType
 
@@ -131,7 +130,7 @@ end
 
 @testitem "batched_mul: trivial dimensions & unit strides" tags=[:batched_ops] setup=[
     SharedTestSetup, BatchedMMSetup] begin
-    rng = StableRNG(1234)
+    rng=StableRNG(1234)
 
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
         !fp64 && continue
@@ -163,7 +162,7 @@ end
 
 @testitem "BatchedAdjOrTrans interface" tags=[:batched_ops] setup=[
     SharedTestSetup, BatchedMMSetup] begin
-    rng = StableRNG(1234)
+    rng=StableRNG(1234)
 
     @testset "Float64 × $(TB)" for TB in [Float64, Float32]
         A = randn(rng, 7, 5, 3)
@@ -230,7 +229,7 @@ end
 
 @testitem "batched_matmul(ndims < 3)" tags=[:batched_ops] setup=[
     SharedTestSetup, BatchedMMSetup] begin
-    rng = StableRNG(1234)
+    rng=StableRNG(1234)
 
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
         !fp64 && continue
@@ -260,10 +259,10 @@ end
 end
 
 @testitem "BMM AutoDiff" tags=[:batched_ops] setup=[SharedTestSetup, BatchedMMSetup] begin
-    rng = StableRNG(1234)
+    rng=StableRNG(1234)
 
-    fn(A, B) = sum(batched_matmul(A, B))
-    fn_vec(A, B) = sum(batched_vec(A, B))
+    fn(A, B)=sum(batched_matmul(A, B))
+    fn_vec(A, B)=sum(batched_vec(A, B))
 
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
         M, P, Q = 13, 7, 11
@@ -310,11 +309,11 @@ end
 @testitem "BMM Tracker AoS" tags=[:batched_ops] setup=[SharedTestSetup, BatchedMMSetup] begin
     using Tracker, Zygote, NNlib
 
-    rng = StableRNG(1234)
+    rng=StableRNG(1234)
 
-    fn(A, B) = sum(batched_matmul(A, B))
+    fn(A, B)=sum(batched_matmul(A, B))
 
-    ops = (identity, NNlib.batched_adjoint, NNlib.batched_transpose)
+    ops=(identity, NNlib.batched_adjoint, NNlib.batched_transpose)
 
     @testset "$mode" for (mode, aType, ongpu) in MODES
         x = randn(rng, Float32, 3, 3, 2) |> aType

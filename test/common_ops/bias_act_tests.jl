@@ -1,15 +1,15 @@
 @testitem "Bias Activation" tags=[:other_ops] setup=[SharedTestSetup] begin
-    rng = StableRNG(1234)
+    rng=StableRNG(1234)
 
-    bias_act_loss1(act, x, b) = sum(abs2, act.(x .+ LuxLib.Impl.reshape_bias(x, b)))
-    bias_act_loss2(act, x, b) = sum(abs2, bias_activation(act, x, b))
-    bias_act_loss3(act, x, b) = sum(abs2, bias_activation!!(act, copy(x), b))
+    bias_act_loss1(act, x, b)=sum(abs2, act.(x .+ LuxLib.Impl.reshape_bias(x, b)))
+    bias_act_loss2(act, x, b)=sum(abs2, bias_activation(act, x, b))
+    bias_act_loss3(act, x, b)=sum(abs2, bias_activation!!(act, copy(x), b))
 
     struct __Fix1{F, A}
         f::F
         act::A
     end
-    (f::__Fix1)(x, b) = f.f(f.act, x, b)
+    (f::__Fix1)(x, b)=f.f(f.act, x, b)
 
     @testset "$mode" for (mode, aType, ongpu, fp64) in MODES
         @testset "$act, $T, $sz" for act in [
@@ -74,20 +74,20 @@ end
 @testitem "Bias Activation (ReverseDiff)" tags=[:other_ops] setup=[SharedTestSetup] begin
     using ReverseDiff, Tracker
 
-    x = rand(Float32, 3, 4)
-    b = rand(Float32, 3)
-    act = tanh
+    x=rand(Float32, 3, 4)
+    b=rand(Float32, 3)
+    act=tanh
 
-    z = bias_activation(act, ReverseDiff.track(x), b)
+    z=bias_activation(act, ReverseDiff.track(x), b)
     @test z isa ReverseDiff.TrackedArray  # If this fails then we fail to compile the tape
 
-    z = bias_activation(identity, ReverseDiff.track(x), b)
+    z=bias_activation(identity, ReverseDiff.track(x), b)
     @test z isa ReverseDiff.TrackedArray
 
-    z = bias_activation(act, Tracker.param(x), b)
+    z=bias_activation(act, Tracker.param(x), b)
     @test z isa Tracker.TrackedArray
 
-    z = bias_activation(identity, Tracker.param(x), b)
+    z=bias_activation(identity, Tracker.param(x), b)
     @test z isa Tracker.TrackedArray
 end
 
