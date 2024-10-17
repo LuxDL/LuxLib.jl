@@ -18,6 +18,9 @@ const KA = KernelAbstractions
 
 is_extension_loaded(::Val) = False()
 
+CRC.@non_differentiable is_extension_loaded(::Any...)
+EnzymeRules.inactive_noinl(::typeof(is_extension_loaded), ::Any...) = nothing
+
 # Simple Operations -- no rrules needed
 ofeltype_array(::Type{T}, x::AbstractArray{T}) where {T} = x
 function ofeltype_array(
@@ -327,5 +330,9 @@ CRC.@non_differentiable static_training_mode_check(::Any...)
 end
 
 @inline can_loopvec_args_check(::False, args...) = false
+
+CRC.@non_differentiable can_loopvec_args_check(::Any...)
+
+EnzymeRules.inactive_noinl(::typeof(can_loopvec_args_check), ::Any...) = nothing
 
 end

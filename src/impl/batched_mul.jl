@@ -54,14 +54,15 @@ function batched_matmul!(z::AbstractArray{zT, 3}, ::LoopedArrayOp,
     return
 end
 
-function batched_matmul_cpu!(z::AbstractArray{zT, 3},
-        x::AbstractArray{xT, 3}, y::AbstractArray{yT, 3}) where {zT, xT, yT}
+function batched_matmul_cpu!(
+        z::AbstractArray{zT, 3}, x::AbstractArray{xT, 3}, y::AbstractArray{yT, 3},
+        α::Number=true, β::Number=false) where {zT, xT, yT}
     if can_loopvec_args(batchview(z, 1), batchview(x, 1), batchview(y, 1)) &&
        !unsafe_known(explicit_blas_loaded())
-        batched_matmul_loopvec_impl!(z, x, y)
+        batched_matmul_loopvec_impl!(z, x, y, α, β)
         return
     end
-    NNlib.batched_mul!(z, x, y)
+    NNlib.batched_mul!(z, x, y, α, β)
     return
 end
 
@@ -120,7 +121,7 @@ end
 # This is type-piracy but needed to fix a blocking issue. TODO: upstream to NNlib
 # Enzyme causes a "active variables passed by value to jl_new_task are not yet supported"
 # warning without this patch.
-for func in (NNlib.batched_mul!, batched_matmul_cpu!)
+for func in (NNlib.batched_mul!, batched_matmul_loopvec_impl!)
     @eval begin
         function EnzymeRules.augmented_primal(
                 cfg::EnzymeRules.RevConfigWidth, ::EnzymeCore.Const{typeof($(func))},
