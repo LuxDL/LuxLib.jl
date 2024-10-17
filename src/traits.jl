@@ -7,8 +7,8 @@ using NNlib: NNlib
 using Static: True, False, static
 using StaticArraysCore: StaticArray
 
-using ..LuxLib: Numeric
 using ..Utils: NotaNumber, only_derivative, unrolled_any, unrolled_map
+using ..LuxLib: Numeric
 
 function fast_scalar_indexing(::T) where {T <: AbstractArray}
     return static(ArrayInterface.fast_scalar_indexing(T))
