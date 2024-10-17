@@ -9,7 +9,7 @@ LuxTestUtils.jet_target_modules!(["LuxLib"])
 const LUXLIB_BLAS_BACKEND = lowercase(get(ENV, "LUXLIB_BLAS_BACKEND", "default"))
 
 if parse(Bool, get(ENV, "LUXLIB_LOAD_LOOPVEC", "true"))
-    using LoopVectorization, Octavian
+    import LoopVectorization, Octavian
 end
 
 if LUXLIB_BLAS_BACKEND == "default"

@@ -66,6 +66,11 @@ jobs:
             blas_backend: "default"
             version: "1.10"
             loopvec: "false"
+          - os: ubuntu-latest
+            test_group: "other_ops"
+            blas_backend: "default"
+            version: "1.10"
+            loopvec: "false"
           - os: macos-latest
             test_group: "dense"
             blas_backend: "appleaccelerate"

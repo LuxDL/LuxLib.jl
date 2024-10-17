@@ -1,6 +1,7 @@
 module LuxLibOctavianExt
 
 using Octavian: Octavian
+using Static: True
 
 using LuxLib: LuxLib, Utils
 
