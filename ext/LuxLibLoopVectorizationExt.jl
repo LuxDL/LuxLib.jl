@@ -1,6 +1,7 @@
 module LuxLibLoopVectorizationExt
 
 using LoopVectorization: LoopVectorization, @tturbo, @turbo, indices
+using Polyester: @batch
 using Static: True
 
 using LuxLib: LuxLib, Utils
@@ -44,6 +45,28 @@ end
         C[J, K] = bias[J] + Cⱼₖ
     end
     return
+end
+
+# batched matmul
+function LuxLib.Impl.batched_matmul_loopvec_impl!(
+        z::AbstractArray{zT, 3}, x::AbstractArray{xT, 3},
+        y::AbstractArray{yT, 3}, α::Number=true, β::Number=false) where {zT, xT, yT}
+    if size(x, 3) == size(y, 3)
+        @batch for L in axes(z, 3)
+            LuxLib.Impl.serial_matmul_loopvec!(
+                Utils.batchview(z, L), Utils.batchview(x, L), Utils.batchview(y, L), α, β)
+        end
+    elseif size(x, 3) == 1
+        @batch for L in axes(z, 3)
+            LuxLib.Impl.serial_matmul_loopvec!(
+                Utils.batchview(z, L), Utils.batchview(x, 1), Utils.batchview(y, L), α, β)
+        end
+    else # has to be size(y, 3) == 1
+        @batch for L in axes(z, 3)
+            LuxLib.Impl.serial_matmul_loopvec!(
+                Utils.batchview(z, L), Utils.batchview(x, L), Utils.batchview(y, 1), α, β)
+        end
+    end
 end
 
 end

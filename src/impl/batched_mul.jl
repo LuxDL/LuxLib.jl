@@ -50,6 +50,12 @@ end
 
 function batched_matmul!(z::AbstractArray{zT, 3}, ::LoopedArrayOp,
         x::AbstractArray{xT, 3}, y::AbstractArray{yT, 3}) where {zT, xT, yT}
+    batched_matmul_cpu!(z, x, y)
+    return
+end
+
+function batched_matmul_cpu!(z::AbstractArray{zT, 3},
+        x::AbstractArray{xT, 3}, y::AbstractArray{yT, 3}) where {zT, xT, yT}
     if can_loopvec_args(batchview(z, 1), batchview(x, 1), batchview(y, 1)) &&
        !unsafe_known(explicit_blas_loaded())
         batched_matmul_loopvec_impl!(z, x, y)
@@ -59,23 +65,7 @@ function batched_matmul!(z::AbstractArray{zT, 3}, ::LoopedArrayOp,
     return
 end
 
-function batched_matmul_loopvec_impl!(
-        z::AbstractArray{zT, 3}, x::AbstractArray{xT, 3},
-        y::AbstractArray{yT, 3}, α::Number=true, β::Number=false) where {zT, xT, yT}
-    if size(x, 3) == size(y, 3)
-        @batch for L in axes(z, 3)
-            serial_matmul_loopvec!(batchview(z, L), batchview(x, L), batchview(y, L), α, β)
-        end
-    elseif size(x, 3) == 1
-        @batch for L in axes(z, 3)
-            serial_matmul_loopvec!(batchview(z, L), batchview(x, 1), batchview(y, L), α, β)
-        end
-    else # has to be size(y, 3) == 1
-        @batch for L in axes(z, 3)
-            serial_matmul_loopvec!(batchview(z, L), batchview(x, L), batchview(y, 1), α, β)
-        end
-    end
-end
+function batched_matmul_loopvec_impl! end
 
 function fallback_batched_matmul(
         dev, x::AbstractArray{xT, 3}, y::AbstractArray{yT, 3}) where {xT, yT}
@@ -130,7 +120,7 @@ end
 # This is type-piracy but needed to fix a blocking issue. TODO: upstream to NNlib
 # Enzyme causes a "active variables passed by value to jl_new_task are not yet supported"
 # warning without this patch.
-for func in (NNlib.batched_mul!, batched_matmul_loopvec_impl!)
+for func in (NNlib.batched_mul!, batched_matmul_cpu!)
     @eval begin
         function EnzymeRules.augmented_primal(
                 cfg::EnzymeRules.RevConfigWidth, ::EnzymeCore.Const{typeof($(func))},
