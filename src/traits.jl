@@ -80,6 +80,7 @@ using ChainRulesCore: ChainRulesCore
 using Hwloc: Hwloc
 using Static: static, False, True
 
+using ..LuxLib: DISABLE_LOOP_VECTORIZATION
 using ..Utils: is_extension_loaded, safe_minimum
 
 const CRC = ChainRulesCore
@@ -130,9 +131,13 @@ end
 
 CRC.@non_differentiable explicit_blas_loaded()
 
-function use_octavian()
-    return is_extension_loaded(Val(:Octavian)) & is_x86_64() &
-           (INTEL_HARDWARE | AMD_RYZEN_HARDWARE)
+@static if DISABLE_LOOP_VECTORIZATION
+    use_octavian() = False()
+else
+    function use_octavian()
+        return is_extension_loaded(Val(:Octavian)) & is_x86_64() &
+               (INTEL_HARDWARE | AMD_RYZEN_HARDWARE)
+    end
 end
 
 CRC.@non_differentiable use_octavian()

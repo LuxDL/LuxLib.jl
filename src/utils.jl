@@ -11,7 +11,7 @@ using NNlib: NNlib
 using Static: Static, StaticBool, False, True, static
 using StaticArraysCore: SVector, SMatrix
 
-using ..LuxLib: Optional, ∂∅
+using ..LuxLib: Optional, ∂∅, DISABLE_LOOP_VECTORIZATION
 
 const CRC = ChainRulesCore
 const KA = KernelAbstractions
@@ -325,8 +325,12 @@ end
 
 CRC.@non_differentiable static_training_mode_check(::Any...)
 
-@inline function can_loopvec_args(args...)
-    return can_loopvec_args_check(is_extension_loaded(Val(:LoopVectorization)), args...)
+@static if DISABLE_LOOP_VECTORIZATION
+    @inline can_loopvec_args(args...) = false
+else
+    @inline function can_loopvec_args(args...)
+        return can_loopvec_args_check(is_extension_loaded(Val(:LoopVectorization)), args...)
+    end
 end
 
 @inline can_loopvec_args_check(::False, args...) = false
